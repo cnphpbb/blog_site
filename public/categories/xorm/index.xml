@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Xorm on DenysG的个人博客</title>
+    <link>https://48474.com/categories/xorm/index.xml</link>
+    <description>Recent content in Xorm on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016 All rights reserved.</copyright>
+    <atom:link href="https://48474.com/categories/xorm/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>xorm 说明</title>
+      <link>https://48474.com/post/xorm-readme/</link>
+      <pubDate>Fri, 09 Oct 2015 16:13:10 +0800</pubDate>
+      
+      <guid>https://48474.com/post/xorm-readme/</guid>
+      <description>
+
+&lt;p&gt;xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。&lt;/p&gt;
+
+&lt;h2 id=&#34;特性&#34;&gt;特性&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;支持Struct和数据库表之间的灵活映射，并支持自动同步表结构&lt;/li&gt;
+&lt;li&gt;事务支持&lt;/li&gt;
+&lt;li&gt;支持原始SQL语句和ORM操作的混合执行&lt;/li&gt;
+&lt;li&gt;使用连写来简化调用&lt;/li&gt;
+&lt;li&gt;支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件&lt;/li&gt;
+&lt;li&gt;支持级联加载Struct&lt;/li&gt;
+&lt;li&gt;支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存&lt;/li&gt;
+&lt;li&gt;支持反转，即根据数据库自动生成xorm的结构体&lt;/li&gt;
+&lt;li&gt;支持事件&lt;/li&gt;
+&lt;li&gt;支持created, updated, deleted和version记录版本（即乐观锁）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;驱动支持&#34;&gt;驱动支持&lt;/h2&gt;
+
+&lt;p&gt;xorm当前支持的驱动和数据库如下：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Mysql: &lt;a href=&#34;https://github.com/go-sql-driver/mysql&#34;&gt;github.com/go-sql-driver/mysql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MyMysql: &lt;a href=&#34;https://github.com/ziutek/mymysql/godrv&#34;&gt;github.com/ziutek/mymysql/godrv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SQLite: &lt;a href=&#34;https://github.com/mattn/go-sqlite3&#34;&gt;github.com/mattn/go-sqlite3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Postgres: &lt;a href=&#34;https://github.com/lib/pq&#34;&gt;github.com/lib/pq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/denisenkom/go-mssqldb&#34;&gt;github.com/denisenkom/go-mssqldb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/lunny/godbc&#34;&gt;github.com/lunny/godbc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
+
+&lt;p&gt;推荐使用 &lt;a href=&#34;https://github.com/gpmgo/gopm&#34;&gt;gopm&lt;/a&gt; 进行安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;gopm get github.com/go-xorm/xorm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或者您也可以使用go工具进行安装：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;go get github.com/go-xorm/xorm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://xorm.io/docs&#34;&gt;操作指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gowalker.org/github.com/go-xorm/xorm&#34;&gt;GoWalker代码文档&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://godoc.org/github.com/go-xorm/xorm&#34;&gt;Godoc代码文档&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;讨论&#34;&gt;讨论&lt;/h2&gt;
+
+&lt;p&gt;请加入QQ群：280360085 进行讨论。&lt;/p&gt;
+
+&lt;h2 id=&#34;贡献&#34;&gt;贡献&lt;/h2&gt;
+
+&lt;p&gt;如果您也想为Xorm贡献您的力量，请查看 &lt;a href=&#34;https://github.com/go-xorm/xorm/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;LICENSE&lt;/h2&gt;
+
+&lt;p&gt;BSD License
+&lt;a href=&#34;http://creativecommons.org/licenses/BSD/&#34;&gt;http://creativecommons.org/licenses/BSD/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

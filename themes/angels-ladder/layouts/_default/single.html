@@ -1,0 +1,30 @@
+{{ partial "header.html" . }}
+
+  <!-- Main Section Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>{{ .Title }}</h1>
+      <div class="meta">
+        {{ .Date.Format "2006-01-02" }} &nbsp;
+        {{ range .Params.tags }}
+          #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
+        {{ end }}
+      </div>
+    </div>
+    <article>
+      {{ .Content }}
+    </article>
+      {{ with .Site.Params.github }}{{ partial "disqus.html" . }}{{end}}
+  </main>
+
+  <nav class="pagination">
+    {{ if .Next }}
+      <span class="previous">&larr; <a href="{{ .Next.Permalink }}" rel="prev">{{ .Next.Title }}</a></span>
+    {{ end }}
+    {{ if .Prev }}
+      <span class="next"><a href="{{ .Prev.Permalink }}" rel="next">{{ .Prev.Title }}</a> &rarr;</span>
+    {{ end }}
+  </nav>
+
+{{ partial "footer.html" . }}

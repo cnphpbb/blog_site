@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on Kevin Geng的个人博客</title>
+    <link>http://blog.48474.com/categories/development/</link>
+    <description>Recent content in Development on Kevin Geng的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Oct 2015 15:32:57 +0800</lastBuildDate>
+    <atom:link href="http://blog.48474.com/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>你好！hugo</title>
+      <link>http://blog.48474.com/post/welcome/</link>
+      <pubDate>Fri, 09 Oct 2015 15:32:57 +0800</pubDate>
+      
+      <guid>http://blog.48474.com/post/welcome/</guid>
+      <description>&lt;p&gt;这是使用Hugo创建的站点中的第一篇文章。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

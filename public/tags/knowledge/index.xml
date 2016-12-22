@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Knowledge on DenysG的个人博客</title>
+    <link>https://48474.com/tags/knowledge/index.xml</link>
+    <description>Recent content in Knowledge on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016 All rights reserved.</copyright>
+    <atom:link href="https://48474.com/tags/knowledge/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>管理git生成的多个ssh key</title>
+      <link>https://48474.com/post/git_more_ssh_keygen/</link>
+      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
+      
+      <guid>https://48474.com/post/git_more_ssh_keygen/</guid>
+      <description>
+
+&lt;h4 id=&#34;管理git生成的多个ssh-key&#34;&gt;管理git生成的多个ssh key&lt;/h4&gt;
+
+&lt;h5 id=&#34;问题阐述&#34;&gt;问题阐述&lt;/h5&gt;
+
+&lt;p&gt;当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。&lt;/p&gt;
+
+&lt;h5 id=&#34;问题解决&#34;&gt;问题解决&lt;/h5&gt;
+
+&lt;p&gt;我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题&lt;/p&gt;
+
+&lt;h5 id=&#34;具体步骤&#34;&gt;具体步骤&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;生成第一个ssh key(这里我用于github，用的gmail邮箱)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。&lt;br&gt;
+完成之后我们可以看到~/.ssh目录下多了两个文件。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;id_rsa_github
+id_rsa_github.pub
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。&lt;br&gt;
+完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;id_rsa_gitlab
+id_rsa_gitlab.pub
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;打开ssh-agent&lt;/p&gt;
+
+&lt;p&gt;这里如果你用的github官方的bash，ssh-agent -s,&lt;br&gt;
+如果是其他的，比如msysgit,eval $(ssh-agent -s)。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加私钥&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa_github
+ssh-add ~/.ssh/id_rsa_gitlab
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建并修改config文件&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;windows&lt;/p&gt;
+
+&lt;p&gt;新建一个txt文本，然后将名字后缀一起改成config即可。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;linux|unix&lt;/p&gt;
+
+&lt;p&gt;在bash下的话直接touch config 即可。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;# gitlab
+Host git.iboxpay.com
+HostName git.int-5262.com  //这里填你们公司的git网址即可
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitlab
+User yong.geng
+
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_github
+User cnphpbb
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;在github和gitlab上添加公钥即可，这里不再多说。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;最后一步&lt;code&gt;测试&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ssh -T git@git.int-5262.com
+Welcome to GitLab, yong.geng!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h5 id=&#34;补充一下&#34;&gt;补充一下&lt;/h5&gt;
+
+&lt;p&gt;如果之前有设置全局用户名和邮箱的话，需要unset一下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global --unset user.name
+git config --global --unset user.email
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后在不同的仓库下设置局部的用户名和邮箱
+比如在公司的repository下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config user.name &amp;quot;yourname&amp;quot;
+git config user.email &amp;quot;youremail&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在自己的github的仓库在执行刚刚的命令一遍即可。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;这样就可以在不同的仓库，已不同的账号登录。&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>使用Service Interface的优缺点</title>
+      <link>https://48474.com/post/service_interface_advantages_and_disadvantages/</link>
+      <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
+      
+      <guid>https://48474.com/post/service_interface_advantages_and_disadvantages/</guid>
+      <description>
+
+&lt;h4 id=&#34;使用-service-interface-模式会导致下面的优缺点&#34;&gt;使用 Service Interface 模式会导致下面的优缺点：&lt;/h4&gt;
+
+&lt;h5 id=&#34;优点&#34;&gt;优点&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。&lt;/li&gt;
+&lt;li&gt;通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;缺点&#34;&gt;缺点&lt;/h5&gt;
+
+&lt;ul&gt;
+&lt;li&gt;很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。&lt;/li&gt;
+&lt;li&gt;服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。&lt;/li&gt;
+&lt;li&gt;Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>存储知识：比较在线、近线和离线存储</title>
+      <link>https://48474.com/post/storage_knowledge/</link>
+      <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
+      
+      <guid>https://48474.com/post/storage_knowledge/</guid>
+      <description>
+
+&lt;p&gt;传统存储数据的方式有两种：在线存储和离线存储。&lt;/p&gt;
+
+&lt;h3 id=&#34;在线存储&#34;&gt;在线存储&lt;/h3&gt;
+
+&lt;p&gt;在线存储是指存储设备和所存储的数据时刻保持“在线”状态，可供用户随意读取，满足计算平台对数据访问的速度要求。就像PC机中常用的磁盘存储模式一样。一般在线存储设备为磁盘和磁盘阵列等存储设备，价格相对昂贵，但性能较好。&lt;/p&gt;
+
+&lt;h3 id=&#34;离线存储&#34;&gt;离线存储&lt;/h3&gt;
+
+&lt;p&gt;离线存储是对在线存储数据的备份，以防范可能发生的数据灾难。离线存储的数据不常被调用，一般也远离系统应用，所以人们用“离线”来生动地描述这种存储方式。&lt;/p&gt;
+
+&lt;p&gt;离线存储介质上的数据在读写时是顺序进行的。当需要读取数据时，需要把磁带卷到头，再进行定位。当需要对已写入的数据进行修改时，所有的数据都需要全部进行改写。因此，离线存储的访问速度慢、效率低。离线存储的典型产品是磁带库，价格相对低廉。&lt;/p&gt;
+
+&lt;h3 id=&#34;近线存储&#34;&gt;近线存储&lt;/h3&gt;
+
+&lt;p&gt;所谓近线存储(NearStore)，是随着客户存储环境的细化所提出的一个概念，所谓的近线存储，外延相对较广泛，主要定位于客户在线存储和离线存储之间的应用。就是指将那些并不是经常用到，或者说数据的访问量并不大的数据存放在性能较低的存储设备上。但同时对这些的设备要求是寻址迅速、传输率高。(例如客户一些长期保存的不长用的文件的归档)。因此，近线存储对性能要求相对来说并不高，但又要求相对较好的访问性能。同时多数情况下由于不常用的数据要占总数据量的比较大的比重，这也就要求近线存储设备在需要容量相对较大。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

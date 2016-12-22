@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Config on DenysG的个人博客</title>
+    <link>https://48474.com/categories/config/index.xml</link>
+    <description>Recent content in Config on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright © 2016 All rights reserved.</copyright>
+    <atom:link href="https://48474.com/categories/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang程序配置方案小结</title>
+      <link>https://48474.com/post/config-solutions-for-golang-app/</link>
+      <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>
+      
+      <guid>https://48474.com/post/config-solutions-for-golang-app/</guid>
+      <description>
+
+&lt;p&gt;在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：&lt;a href=&#34;https://sfxpt.wordpress.com/2015/06/16/providing-%20options-for-go-applications/&#34;&gt;在这里&lt;/a&gt;。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。&lt;/p&gt;
+
+&lt;h2 id=&#34;一-背景&#34;&gt;一、背景&lt;/h2&gt;
+
+&lt;p&gt;无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。&lt;/p&gt;
+
+&lt;p&gt;文章作者认为一个良好的应用配置层次应该是这样的：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;程序内内置配置项的初始默认值&lt;/li&gt;
+&lt;li&gt;配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。&lt;/li&gt;
+&lt;li&gt;命令行选项和参数值具有最高优先级，可以override前两层的配置项值。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;下面就按作者的思路循序渐进探讨golang程序配置方案。&lt;/p&gt;
+
+&lt;h2 id=&#34;二-解析命令行选项和参数&#34;&gt;二、解析命令行选项和参数&lt;/h2&gt;
+
+&lt;p&gt;这一节关注golang程序如何访问命令行选项和参数。&lt;/p&gt;
+
+&lt;p&gt;golang对访问到命令行参数提供了内建的支持：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//cmdlineargs.go
+package main
+
+import (
+    //      &amp;quot;fmt&amp;quot;
+    &amp;quot;os&amp;quot;
+    &amp;quot;path/filepath&amp;quot;
+)
+
+func main() {
+    println(&amp;quot;I am &amp;quot;, os.Args[0])
+
+    baseName := filepath.Base(os.Args[0])
+    println(&amp;quot;The base name is &amp;quot;, baseName)
+
+    // The length of array a can be discovered using the built-in function len
+    println(&amp;quot;Argument # is &amp;quot;, len(os.Args))
+
+    // the first command line arguments
+    if len(os.Args) &amp;gt; 1 {
+        println(&amp;quot;The first command line argument: &amp;quot;, os.Args[1])
+    }
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行结果如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  $go build cmdlineargs.go
+  $cmdlineargs test one
+  I am  cmdlineargs
+  The base name is  cmdlineargs
+  Argument # is  3
+  The first command line argument:  test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;对于命令行结构复杂一些的程序，我们最起码要用到golang标准库内置的flag包：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//cmdlineflag.go
+package main
+
+import (
+    &amp;quot;flag&amp;quot;
+    &amp;quot;fmt&amp;quot;
+    &amp;quot;os&amp;quot;
+    &amp;quot;strconv&amp;quot;
+)
+
+var (
+    // main operation modes
+    write = flag.Bool(&amp;quot;w&amp;quot;, false, &amp;quot;write result back instead of stdout\n\t\tDefault: No write back&amp;quot;)
+
+    // layout control
+    tabWidth = flag.Int(&amp;quot;tabwidth&amp;quot;, 8, &amp;quot;tab width\n\t\tDefault: Standard&amp;quot;)
+
+    // debugging
+    cpuprofile = flag.String(&amp;quot;cpuprofile&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;write cpu profile to this file\n\t\tDefault: no default&amp;quot;)
+)
+
+func usage() {
+    // Fprintf allows us to print to a specifed file handle or stream
+    fmt.Fprintf(os.Stderr, &amp;quot;\nUsage: %s [flags] file [path ...]\n\n&amp;quot;,
+        &amp;quot;CommandLineFlag&amp;quot;) // os.Args[0]
+    flag.PrintDefaults()
+    os.Exit(0)
+}
+
+func main() {
+    fmt.Printf(&amp;quot;Before parsing the flags\n&amp;quot;)
+    fmt.Printf(&amp;quot;T: %d\nW: %s\nC: &#39;%s&#39;\n&amp;quot;,
+        *tabWidth, strconv.FormatBool(*write), *cpuprofile)
+
+    flag.Usage = usage
+    flag.Parse()
+
+    // There is also a mandatory non-flag arguments
+    if len(flag.Args()) &amp;lt; 1 {
+        usage()
+    }
+
+    fmt.Printf(&amp;quot;Testing the flag package\n&amp;quot;)
+    fmt.Printf(&amp;quot;T: %d\nW: %s\nC: &#39;%s&#39;\n&amp;quot;,
+        *tabWidth, strconv.FormatBool(*write), *cpuprofile)
+
+    for index, element := range flag.Args() {
+        fmt.Printf(&amp;quot;I: %d C: &#39;%s&#39;\n&amp;quot;, index, element)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个例子中：
+- 说明了三种类型标志的用法：Int、String和Bool。
+- 说明了每个标志的定义都由类型、命令行选项文本、默认值以及含义解释组成。
+- 最后说明了如何处理标志选项(flag option)以及非option参数。&lt;/p&gt;
+
+&lt;p&gt;不带参数运行：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cmdlineflag
+Before parsing the flags
+T: 8
+W: false
+C: &#39;&#39;
+
+Usage: CommandLineFlag [flags] file [path ...]
+
+  -cpuprofile=&amp;quot;&amp;quot;: write cpu profile to this file
+        Default: no default
+  -tabwidth=8: tab width
+        Default: Standard
+  -w=false: write result back instead of stdout
+        Default: No write back
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;带命令行标志以及参数运行(一个没有flag，一个有两个flag)：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cmdlineflag aa bb
+Before parsing the flags
+T: 8
+W: false
+C: &#39;&#39;
+Testing the flag package
+T: 8
+W: false
+C: &#39;&#39;
+I: 0 C: &#39;aa&#39;
+I: 1 C: &#39;bb&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$cmdlineflag -tabwidth=2 -w aa
+Before parsing the flags
+T: 8
+W: false
+C: &#39;&#39;
+Testing the flag package
+T: 2
+W: true
+C: &#39;&#39;
+I: 0 C: &#39;aa&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;从例子可以看出，简单情形下，你无需编写自己的命令行parser或使用第三方包，使用go内建的flag包即可以很好的完成工作。但是golang的 flag包与命令行Parser的事实标准：Posix getopt（C/C++/Perl/Shell脚本都可用）相比，还有较大差距，主要体现在：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;无法支持区分long option和short option，比如：-h和–help。&lt;/li&gt;
+&lt;li&gt;不支持short options合并，比如：ls -l -h &amp;lt;=&amp;gt; ls -hl&lt;/li&gt;
+&lt;li&gt;命令行标志的位置不能任意放置，比如无法放在non-flag parameter的后面。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;不过毕竟flag是golang内置标准库包，你无须付出任何cost，就能使用它的功能。另外支持bool型的flag也是其一大亮点。&lt;/p&gt;
+
+&lt;h2 id=&#34;三-toml-go配置文件的事实标准-这个可能不能得到认同&#34;&gt;三、TOML，Go配置文件的事实标准（这个可能不能得到认同）&lt;/h2&gt;
+
+&lt;p&gt;命令行虽然是一种可选的配置方案，但更多的时候，我们使用配置文件来存储静态的配置数据。就像Java配xml，ruby配yaml，windows配 ini，Go也有自己的搭配组合，那就是TOML（Tom&amp;rsquo;s Obvious, Minimal Language）。&lt;/p&gt;
+
+&lt;p&gt;初看toml语法有些类似windows ini，但细致研究你会发现它远比ini强大的多，下面是一个toml配置文件例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# This is a TOML document. Boom.
+
+title = &amp;quot;TOML Example&amp;quot;
+
+[owner]
+name = &amp;quot;Lance Uppercut&amp;quot;
+dob = 1979-05-27T07:32:00-08:00 # First class dates? Why not?
+
+[database]
+server = &amp;quot;192.168.1.1&amp;quot;
+ports = [ 8001, 8001, 8002 ]
+connection_max = 5000
+enabled = true
+
+[servers]
+
+  # You can indent as you please. Tabs or spaces. TOML don&#39;t care.
+  [servers.alpha]
+  ip = &amp;quot;10.0.0.1&amp;quot;
+  dc = &amp;quot;eqdc10&amp;quot;
+
+  [servers.beta]
+  ip = &amp;quot;10.0.0.2&amp;quot;
+  dc = &amp;quot;eqdc10&amp;quot;
+
+[clients]
+data = [ [&amp;quot;gamma&amp;quot;, &amp;quot;delta&amp;quot;], [1, 2] ]
+
+# Line breaks are OK when inside arrays
+hosts = [
+  &amp;quot;alpha&amp;quot;,
+  &amp;quot;omega&amp;quot;
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看起来很强大，也很复杂，但解析起来却很简单。以下面这个toml 文件为例：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Age = 25
+Cats = [ &amp;quot;Cauchy&amp;quot;, &amp;quot;Plato&amp;quot; ]
+Pi = 3.14
+Perfection = [ 6, 28, 496, 8128 ]
+DOB = 1987-07-05T05:45:00Z
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;和所有其他配置文件parser类似，这个配置文件中的数据可以被直接解析成一个golang struct：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type Config struct {
+  Age int
+  Cats []string
+  Pi float64
+  Perfection []int
+  DOB time.Time // requires `import time`
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其解析的步骤也很简单：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var conf Config
+if _, err := toml.Decode(tomlData, &amp;amp;conf); err != nil {
+  // handle error
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;是不是简单的不能简单了！&lt;/p&gt;
+
+&lt;p&gt;不过toml也有其不足之处。想想如果你需要使用命令行选项的参数值来覆盖这些配置文件中的选项，你应该怎么做？事实上，我们常常会碰到类似下面这种三层配置结构的情况：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;程序内内置配置项的初始默认值&lt;/li&gt;
+&lt;li&gt;配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。&lt;/li&gt;
+&lt;li&gt;命令行选项和参数值具有最高优先级，可以override前两层的配置项值。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;在go中，toml映射的结果体字段没有初始值。而且go内建flag包也没有将命令行参数值解析为一个go结构体，而是零散的变量。这些可以通过第三方工具来解决，但如果你不想用第三方工具，你也可以像下面这样自己解决，虽然难看一些。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func ConfigGet() *Config {
+    var err error
+    var cf *Config = NewConfig()
+
+    // set default values defined in the program
+    cf.ConfigFromFlag()
+    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
+
+    // Load config file, from flag or env (if specified)
+    _, err = cf.ConfigFromFile(*configFile, os.Getenv(&amp;quot;APPCONFIG&amp;quot;))
+    if err != nil {
+        log.Fatal(err)
+    }
+    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
+
+    // Override values from command line flags
+    cf.ConfigToFlag()
+    flag.Usage = usage
+    flag.Parse()
+    cf.ConfigFromFlag()
+    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
+
+    cf.ConfigApply()
+
+    return cf
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;就像上面代码中那样，你需要：&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;用命令行标志默认值设置配置(cf)默认值。&lt;/li&gt;
+&lt;li&gt;接下来加载配置文件&lt;/li&gt;
+&lt;li&gt;用配置值(cf)覆盖命令行标志变量值&lt;/li&gt;
+&lt;li&gt;解析命令行参数&lt;/li&gt;
+&lt;li&gt;用命令行标志变量值覆盖配置(cf)值。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;少一步你都无法实现三层配置能力。&lt;/p&gt;
+
+&lt;h2 id=&#34;四-超越toml&#34;&gt;四、超越TOML&lt;/h2&gt;
+
+&lt;p&gt;本节将关注如何克服TOML的各种局限。&lt;/p&gt;
+
+&lt;p&gt;为了达成这个目标，很多人会说：使用&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;viper&lt;/a&gt;，不过在介绍viper这一重量级选手 之前，我要为大家介绍另外一位不那么知名的选手：&lt;a href=&#34;https://github.com/koding/multiconfig&#34;&gt;multiconfig&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;有些人总是认为大的就是好的，但我相信适合的还是更好的。因为：&lt;/p&gt;
+
+&lt;p&gt;1、viper太重量级，使用viper时你需要pull另外20个viper依赖的第三方包
+2、事实上，viper单独使用还不足以满足需求，要想得到viper全部功能，你还需要另外一个包配合，而后者又依赖13个外部包
+3、与viper相比，multiconfig使用起来更简单。&lt;/p&gt;
+
+&lt;p&gt;好了，我们再来回顾一下我们现在面临的问题：&lt;/p&gt;
+
+&lt;p&gt;1、在程序里定义默认配置，这样我们就无需再在toml中定义它们了。
+2、用toml配置文件中的数据override默认配置
+3、用命令行或环境变量的值override从toml中读取的配置。&lt;/p&gt;
+
+&lt;p&gt;下面是一个说明如何使用multiconfig的例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func main() {
+    m := multiconfig.NewWithPath(&amp;quot;config.toml&amp;quot;) // supports TOML and JSON
+
+    // Get an empty struct for your configuration
+    serverConf := new(Server)
+
+    // Populated the serverConf struct
+    m.MustLoad(serverConf) // Check for error
+
+    fmt.Println(&amp;quot;After Loading: &amp;quot;)
+    fmt.Printf(&amp;quot;%+v\n&amp;quot;, serverConf)
+
+    if serverConf.Enabled {
+        fmt.Println(&amp;quot;Enabled field is set to true&amp;quot;)
+    } else {
+        fmt.Println(&amp;quot;Enabled field is set to false&amp;quot;)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个例子中的toml文件如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Name              = &amp;quot;koding&amp;quot;
+Enabled           = false
+Port              = 6066
+Users             = [&amp;quot;ankara&amp;quot;, &amp;quot;istanbul&amp;quot;]
+
+[Postgres]
+Enabled           = true
+Port              = 5432
+Hosts             = [&amp;quot;192.168.2.1&amp;quot;, &amp;quot;192.168.2.2&amp;quot;, &amp;quot;192.168.2.3&amp;quot;]
+AvailabilityRatio = 8.23
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;toml映射后的go结构如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;type (
+    // Server holds supported types by the multiconfig package
+    Server struct {
+        Name     string
+        Port     int `default:&amp;quot;6060&amp;quot;`
+        Enabled  bool
+        Users    []string
+        Postgres Postgres
+    }
+
+    // Postgres is here for embedded struct feature
+    Postgres struct {
+        Enabled           bool
+        Port              int
+        Hosts             []string
+        DBName            string
+        AvailabilityRatio float64
+    }
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;multiconfig的使用是不是很简单，后续与viper对比后，你会同意我的观点的。&lt;/p&gt;
+
+&lt;p&gt;multiconfig支持默认值，也支持显式的字段赋值需求。
+支持toml、json、结构体标签（struct tags)以及环境变量。
+你可以自定义配置源（例如一个远程服务器），如果你想这么做的话。
+可高度扩展（通过loader接口），你可以创建你自己的loader。&lt;/p&gt;
+
+&lt;p&gt;下面是例子的运行结果，首先是usage help：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$cmdlinemulticonfig -help
+Usage of cmdlinemulticonfig:
+  -enabled=false: Change value of Enabled.
+  -name=koding: Change value of Name.
+  -port=6066: Change value of Port.
+  -postgres-availabilityratio=8.23: Change value of Postgres-AvailabilityRatio.
+  -postgres-dbname=: Change value of Postgres-DBName.
+  -postgres-enabled=true: Change value of Postgres-Enabled.
+  -postgres-hosts=[192.168.2.1 192.168.2.2 192.168.2.3]: Change value of Postgres-Hosts.
+  -postgres-port=5432: Change value of Postgres-Port.
+  -users=[ankara istanbul]: Change value of Users.
+
+Generated environment variables:
+   SERVER_NAME
+   SERVER_PORT
+   SERVER_ENABLED
+   SERVER_USERS
+   SERVER_POSTGRES_ENABLED
+   SERVER_POSTGRES_PORT
+   SERVER_POSTGRES_HOSTS
+   SERVER_POSTGRES_DBNAME
+   SERVER_POSTGRES_AVAILABILITYRATIO
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$cmdlinemulticonfig
+After Loading:
+&amp;amp;{Name:koding Port:6066 Enabled:false Users:[ankara istanbul] Postgres:{Enabled:true Port:5432 Hosts:[192.168.2.1 192.168.2.2 192.168.2.3] DBName: AvailabilityRatio:8.23}}
+Enabled field is set to false
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;检查一下输出结果吧，是不是每项都符合我们之前的预期呢！&lt;/p&gt;
+
+&lt;h2 id=&#34;五-viper&#34;&gt;五、Viper&lt;/h2&gt;
+
+&lt;p&gt;我们的重量级选手&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;viper&lt;/a&gt;该出场了！&lt;/p&gt;
+
+&lt;p&gt;毫无疑问，viper非常强大。但如果你想用命令行参数覆盖预定义的配置项值，viper自己还不足以。要想让viper爆发，你需要另外一个包配合，它就是cobra（&lt;a href=&#34;https://github.com/spf13/cobra）。&#34;&gt;https://github.com/spf13/cobra）。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;不同于注重简化配置处理的multiconfig，viper让你拥有全面控制力。不幸的是，在得到这种控制力之前，你需要做一些体力活。&lt;/p&gt;
+
+&lt;p&gt;我们再来回顾一下使用multiconfig处理配置的代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func main() {
+    m := multiconfig.NewWithPath(&amp;quot;config.toml&amp;quot;) // supports TOML and JSON
+
+    // Get an empty struct for your configuration
+    serverConf := new(Server)
+
+    // Populated the serverConf struct
+    m.MustLoad(serverConf) // Check for error
+
+    fmt.Println(&amp;quot;After Loading: &amp;quot;)
+    fmt.Printf(&amp;quot;%+v\n&amp;quot;, serverConf)
+
+    if serverConf.Enabled {
+        fmt.Println(&amp;quot;Enabled field is set to true&amp;quot;)
+    } else {
+        fmt.Println(&amp;quot;Enabled field is set to false&amp;quot;)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这就是使用multiconfig时你要做的所有事情。现在我们来看看使用viper和cobra如何来完成同样的事情：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;func init() {
+    mainCmd.AddCommand(versionCmd)
+
+    viper.SetEnvPrefix(&amp;quot;DISPATCH&amp;quot;)
+    viper.AutomaticEnv()
+
+    /*
+      When AutomaticEnv called, Viper will check for an environment variable any
+      time a viper.Get request is made. It will apply the following rules. It
+      will check for a environment variable with a name matching the key
+      uppercased and prefixed with the EnvPrefix if set.
+    */
+
+    flags := mainCmd.Flags()
+
+    flags.Bool(&amp;quot;debug&amp;quot;, false, &amp;quot;Turn on debugging.&amp;quot;)
+    flags.String(&amp;quot;addr&amp;quot;, &amp;quot;localhost:5002&amp;quot;, &amp;quot;Address of the service&amp;quot;)
+    flags.String(&amp;quot;smtp-addr&amp;quot;, &amp;quot;localhost:25&amp;quot;, &amp;quot;Address of the SMTP server&amp;quot;)
+    flags.String(&amp;quot;smtp-user&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;User to authenticate with the SMTP server&amp;quot;)
+    flags.String(&amp;quot;smtp-password&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;Password to authenticate with the SMTP server&amp;quot;)
+    flags.String(&amp;quot;email-from&amp;quot;, &amp;quot;noreply@example.com&amp;quot;, &amp;quot;The from email address.&amp;quot;)
+
+    viper.BindPFlag(&amp;quot;debug&amp;quot;, flags.Lookup(&amp;quot;debug&amp;quot;))
+    viper.BindPFlag(&amp;quot;addr&amp;quot;, flags.Lookup(&amp;quot;addr&amp;quot;))
+    viper.BindPFlag(&amp;quot;smtp_addr&amp;quot;, flags.Lookup(&amp;quot;smtp-addr&amp;quot;))
+    viper.BindPFlag(&amp;quot;smtp_user&amp;quot;, flags.Lookup(&amp;quot;smtp-user&amp;quot;))
+    viper.BindPFlag(&amp;quot;smtp_password&amp;quot;, flags.Lookup(&amp;quot;smtp-password&amp;quot;))
+    viper.BindPFlag(&amp;quot;email_from&amp;quot;, flags.Lookup(&amp;quot;email-from&amp;quot;))
+
+  // Viper supports reading from yaml, toml and/or json files. Viper can
+  // search multiple paths. Paths will be searched in the order they are
+  // provided. Searches stopped once Config File found.
+
+    viper.SetConfigName(&amp;quot;CommandLineCV&amp;quot;) // name of config file (without extension)
+    viper.AddConfigPath(&amp;quot;/tmp&amp;quot;)          // path to look for the config file in
+    viper.AddConfigPath(&amp;quot;.&amp;quot;)             // more path to look for the config files
+
+    err := viper.ReadInConfig()
+    if err != nil {
+        println(&amp;quot;No config file found. Using built-in defaults.&amp;quot;)
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可以看出，你需要使用BindPFlag来让viper和cobra结合一起工作。但这还不算太糟。&lt;/p&gt;
+
+&lt;p&gt;cobra的真正威力在于提供了subcommand能力。同时cobra还提供了与posix 全面兼容的命令行标志解析能力，包括长短标志、内嵌命令、为command定义你自己的help或usage等。&lt;/p&gt;
+
+&lt;p&gt;下面是定义子命令的例子代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// The main command describes the service and defaults to printing the
+// help message.
+var mainCmd = &amp;amp;cobra.Command{
+    Use:   &amp;quot;dispatch&amp;quot;,
+    Short: &amp;quot;Event dispatch service.&amp;quot;,
+    Long:  `HTTP service that consumes events and dispatches them to subscribers.`,
+    Run: func(cmd *cobra.Command, args []string) {
+        serve()
+    },
+}
+
+// The version command prints this service.
+var versionCmd = &amp;amp;cobra.Command{
+    Use:   &amp;quot;version&amp;quot;,
+    Short: &amp;quot;Print the version.&amp;quot;,
+    Long:  &amp;quot;The version of the dispatch service.&amp;quot;,
+    Run: func(cmd *cobra.Command, args []string) {
+        fmt.Println(version)
+    },
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;有了上面subcommand的定义，我们就可以得到如下的help信息了：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Usage:
+  dispatch [flags]
+  dispatch [command]
+
+Available Commands:
+  version     Print the version.
+  help        Help about any command
+
+Flags:
+      –addr=&amp;quot;localhost:5002&amp;quot;: Address of the service
+      –debug=false: Turn on debugging.
+      –email-from=&amp;quot;noreply@example.com&amp;quot;: The from email address.
+  -h, –help=false: help for dispatch
+      –smtp-addr=&amp;quot;localhost:25&amp;quot;: Address of the SMTP server
+      –smtp-password=&amp;quot;&amp;quot;: Password to authenticate with the SMTP server
+      –smtp-user=&amp;quot;&amp;quot;: User to authenticate with the SMTP server
+
+Use &amp;quot;dispatch help [command]&amp;quot; for more information about a command.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;六-小结&#34;&gt;六、小结&lt;/h2&gt;
+
+&lt;p&gt;以上例子的完整源码在作者的&lt;a href=&#34;https://github.com/suntong/lang/tree/master/lang/Go/src/sys&#34;&gt;github repository&lt;/a&gt;里可以找到。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;关于golang配置文件，我个人用到了toml这一层次，因为不需要太复杂的配置，不需要环境变量或命令行override默认值或配置文件数据。不过 从作者的例子中可以看到multiconfig、viper的确强大，后续在实现复杂的golang应用时会考虑真正应用。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
