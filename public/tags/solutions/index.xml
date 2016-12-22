@@ -10,6 +10,80 @@
     <atom:link href="https://48474.com/tags/solutions/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>CaddyServer使用记录</title>
+      <link>https://48474.com/post/caddy-guide/</link>
+      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
+      
+      <guid>https://48474.com/post/caddy-guide/</guid>
+      <description>&lt;p&gt;Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;HTTP/2&lt;/li&gt;
+&lt;li&gt;Automatic HTTPS&lt;/li&gt;
+&lt;li&gt;Multi-core&lt;/li&gt;
+&lt;li&gt;Websockets&lt;/li&gt;
+&lt;li&gt;Markdown&lt;/li&gt;
+&lt;li&gt;IPv6&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;FastCGI&lt;/li&gt;
+&lt;li&gt;&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;下面举几个例子：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;简单的测试网站&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;:8530 {
+    root /var/www/test_site
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;使用git同步测试环境&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;:8530 {
+    root /var/www/test_site/public
+    git git.int5262.com/user_name/project_name {
+        path ../
+        interval 60
+    }
+    fastcgi / 127.0.0.1:9001 php
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;站点跳转&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;http://48474.com, http://www.48474.com {
+    redir https://48474.com{uri}
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的&lt;a href=&#34;https://caddyserver.com/docs&#34;&gt;User Guide&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;启动caddy也很简单&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Caddy官网 &lt;a href=&#34;https://caddyserver.com&#34;&gt;https://caddyserver.com&lt;/a&gt;&lt;br /&gt;
+官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Caddy一键安装脚本 &lt;a href=&#34;https://getcaddy.com&#34;&gt;https://getcaddy.com&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;curl https://getcaddy.com | bash
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Golang程序配置方案小结</title>
       <link>https://48474.com/post/config-solutions-for-golang-app/</link>
       <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>

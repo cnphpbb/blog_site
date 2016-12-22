@@ -2,7 +2,10 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 <footer role="contentinfo">
     <div style="text-align:center;">
-        {{ with .Site.Params.profile }}<img src="{{ . }}" width="64" height="64"><br>{{ end }} {{ .Site.Params.copyright }} Powered by <a href="https://gohugo.io/">Hugo</a>
+        {{ with .Site.Params.profile }}<img src="{{ . }}" width="64" height="64"><br>{{ end }}
+		
+		<p>Powered by <a href="https://gohugo.io">Hugo</a>. Server by <a href="https://caddyserver.com">Caddy</a>.
+		{{ .Site.Params.copyright }} 
     </div>
 </footer>
 
