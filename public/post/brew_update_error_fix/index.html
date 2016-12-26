@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    Guide | DenysG的个人博客
+    Error: /usr/local must be writable! 解决方法 | DenysG的个人博客
   </title>
   <meta name="description" content=" | DenysG&#39;blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。 | DenysG的个人博客">
 
@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="https://48474.com/tags/guide/"/>
+  <link rel="canonical" href="https://48474.com/post/brew_update_error_fix/"/>
 
   
   <link rel="stylesheet" href="/css/sanitize.css">
@@ -60,11 +60,9 @@
 
 
   
-  <main id="list" role="main">
-    <div class="article-header light-gray"><h1>#Guide</h1></div>
-    
-    <div class="summary">
-      <h2><a href="https://48474.com/post/brew_update_error_fix/">Error: /usr/local must be writable! 解决方法 </a></h2>
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>Error: /usr/local must be writable! 解决方法</h1>
       <div class="meta">
         2016-12-26 &nbsp;
         
@@ -76,24 +74,50 @@
         
       </div>
     </div>
-    
-    <div class="summary">
-      <h2><a href="https://48474.com/post/caddy-guide/">CaddyServer使用记录 </a></h2>
-      <div class="meta">
-        2016-12-22 &nbsp;
-        
-          #<a href="/tags/caddy">caddy</a>&nbsp;
-        
-          #<a href="/tags/guide">guide</a>&nbsp;
-        
-          #<a href="/tags/solutions">solutions</a>&nbsp;
-        
-          #<a href="/tags/golang">golang</a>&nbsp;
-        
-      </div>
-    </div>
-    
+    <article>
+      <p>今天在Mac下执行<code>brew update</code>时出现以下错误提示：</p>
+
+<blockquote>
+<p>$ brew update<br />
+Error: /usr/local must be writable!</p>
+</blockquote>
+
+<p>以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。
+按我习惯性的方法，修改下目录的权限吧</p>
+
+<blockquote>
+<p>$ sudo chmod -R g+w /usr/local<br />
+  $ brew update<br />
+还是出现错误提示
+Error: /usr/local must be writable!</p>
+</blockquote>
+
+<p>有点晕啦，怎么还是有问题？</p>
+
+<p>不过才刚是修改目录的写权限，现在修改目录的用户权限吧！！
+&gt; $ sudo chown -R $(whoami) /usr/local</p>
+
+<p>再次执行<code>brew update</code>,终于正常啦！！</p>
+
+<p><strong>总结一下：</strong></p>
+
+<ul>
+<li>升级了macos后没执行<code>brew update</code>，导致<code>brew</code> 出现问题。<br /></li>
+<li>升级系统，一定要检测下第三方软件是否能正常工作。<br /></li>
+<li>检测工作没执行到底呀。</li>
+</ul>
+
+    </article>
+      
+
   </main>
+
+  <nav class="pagination">
+    
+      <span class="previous">&larr; <a href="https://48474.com/post/caddy-guide/" rel="prev">CaddyServer使用记录</a></span>
+    
+    
+  </nav>
 
 
 <footer role="contentinfo">
