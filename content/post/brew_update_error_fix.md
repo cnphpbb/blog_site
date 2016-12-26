@@ -21,16 +21,20 @@ Tags = ["mac", "brew", "guide"]
 还是出现错误提示
 Error: /usr/local must be writable!  
 
-有点晕啦，怎么还是有问题？
+有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
 
-不过才刚是修改目录的写权限，现在修改目录的用户权限吧！！
+> $ brew doctor
+
+上面是修改目录的写权限，现在修改目录的用户权限吧！！
+
 > $ sudo chown -R $(whoami) /usr/local
 
-再次执行`brew update`,终于正常啦！！
+再次执行`brew doctor`, 正常啦！！！  
+再次执行`brew update`, 终于正常，正常啦！！！
 
 **总结一下：** 
  
-* 升级了macos后没执行`brew update`，导致`brew` 出现问题。    
+* 升级了macos后没执行`brew doctor`，导致`brew` 出现问题。    
 * 升级系统，一定要检测下第三方软件是否能正常工作。     
 * 检测工作没执行到底呀。
 

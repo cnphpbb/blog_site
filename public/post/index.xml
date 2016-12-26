@@ -33,17 +33,25 @@ Error: /usr/local must be writable!&lt;/p&gt;
 Error: /usr/local must be writable!&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;有点晕啦，怎么还是有问题？&lt;/p&gt;
+&lt;p&gt;有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。&lt;/p&gt;
 
-&lt;p&gt;不过才刚是修改目录的写权限，现在修改目录的用户权限吧！！
-&amp;gt; $ sudo chown -R $(whoami) /usr/local&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;$ brew doctor&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;再次执行&lt;code&gt;brew update&lt;/code&gt;,终于正常啦！！&lt;/p&gt;
+&lt;p&gt;上面是修改目录的写权限，现在修改目录的用户权限吧！！&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;$ sudo chown -R $(whoami) /usr/local&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;再次执行&lt;code&gt;brew doctor&lt;/code&gt;, 正常啦！！！&lt;br /&gt;
+再次执行&lt;code&gt;brew update&lt;/code&gt;, 终于正常，正常啦！！！&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;总结一下：&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;升级了macos后没执行&lt;code&gt;brew update&lt;/code&gt;，导致&lt;code&gt;brew&lt;/code&gt; 出现问题。&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;升级了macos后没执行&lt;code&gt;brew doctor&lt;/code&gt;，导致&lt;code&gt;brew&lt;/code&gt; 出现问题。&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;升级系统，一定要检测下第三方软件是否能正常工作。&lt;br /&gt;&lt;/li&gt;
 &lt;li&gt;检测工作没执行到底呀。&lt;/li&gt;
 &lt;/ul&gt;

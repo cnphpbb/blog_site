@@ -92,17 +92,25 @@ Error: /usr/local must be writable!</p>
 Error: /usr/local must be writable!</p>
 </blockquote>
 
-<p>有点晕啦，怎么还是有问题？</p>
+<p>有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。</p>
 
-<p>不过才刚是修改目录的写权限，现在修改目录的用户权限吧！！
-&gt; $ sudo chown -R $(whoami) /usr/local</p>
+<blockquote>
+<p>$ brew doctor</p>
+</blockquote>
 
-<p>再次执行<code>brew update</code>,终于正常啦！！</p>
+<p>上面是修改目录的写权限，现在修改目录的用户权限吧！！</p>
+
+<blockquote>
+<p>$ sudo chown -R $(whoami) /usr/local</p>
+</blockquote>
+
+<p>再次执行<code>brew doctor</code>, 正常啦！！！<br />
+再次执行<code>brew update</code>, 终于正常，正常啦！！！</p>
 
 <p><strong>总结一下：</strong></p>
 
 <ul>
-<li>升级了macos后没执行<code>brew update</code>，导致<code>brew</code> 出现问题。<br /></li>
+<li>升级了macos后没执行<code>brew doctor</code>，导致<code>brew</code> 出现问题。<br /></li>
 <li>升级系统，一定要检测下第三方软件是否能正常工作。<br /></li>
 <li>检测工作没执行到底呀。</li>
 </ul>
@@ -124,7 +132,7 @@ Error: /usr/local must be writable!</p>
     <div style="text-align:center;">
         
 		© 2016 135Get_Team. All rights reserved. 
-		<p>Powered by <a href="https://gohugo.io">Hugo</a>.  Server by <a href="https://caddyserver.com">Caddy</a>.
+		<p>Powered by <a href="https://gohugo.io">Hugo</a> | Server by <a href="https://caddyserver.com">Caddy</a>
     </div>
 </footer>
 
