@@ -4,7 +4,7 @@ draft = false
 date = "2016-12-26T12:51:15+08:00"
 menu = "main"
 Categories = ["mac", "brew"]
-Description = ""
+Description = "Mac下执行`brew update`时出现以下错误提示：Error: /usr/local must be writable! 解决方法。"
 Tags = ["mac", "brew", "guide"]
 +++
 
