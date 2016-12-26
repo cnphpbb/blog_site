@@ -8,7 +8,6 @@ menu = "main"
 Tags = ["knowledge","git","ssh_keygen"]
 +++
 
-#### 管理git生成的多个ssh key
 
 ##### 问题阐述
 

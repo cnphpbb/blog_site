@@ -3,9 +3,9 @@ title = "Error: /usr/local must be writable! 解决方法"
 draft = false
 date = "2016-12-26T12:51:15+08:00"
 menu = "main"
-Categories = ["mac", "brew"]
+Categories = ["mac", "brew","solutions"]
 Description = "Mac下执行`brew update`时出现以下错误提示：Error: /usr/local must be writable! 解决方法。"
-Tags = ["mac", "brew", "guide"]
+Tags = ["mac", "brew", "guide","solutions"]
 +++
 
 今天在Mac下执行`brew update`时出现以下错误提示：
