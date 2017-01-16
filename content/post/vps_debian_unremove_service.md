@@ -4,7 +4,7 @@ title = "VPS Debian8 删除一些没用的服务的方法"
 draft = false
 menu = "main"
 Categories = ["vps", "Debian8","solutions"]
-Description = "Mac下执行`brew update`时出现以下错误提示：Error: /usr/local must be writable! 解决方法。"
+Description = "VPS-Debian8系统删除exim4,rpcbind等等服务的方法。"
 Tags = ["vps", "linux", "debian","solutions","exim4","rpcbind","nfs"]
 +++
 
@@ -25,50 +25,34 @@ Tags = ["vps", "linux", "debian","solutions","exim4","rpcbind","nfs"]
 `exim4`服务  开放 `port :25` 大家都知道这个端口做啥都吧！
 
 ```
-
 $ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
-
 $ rm -rf /var/log/exim4/
-
 ```
 
 #### 删除 `rpcbind` 服务
 
  `rpcbind` 服务  此服务开启`port :111` 这个端口。
 
-
-
 ```
-
 $ apt-get purge --auto-remove rpcbind
-
 ```
 
 #### 删除`nfs`服务
 
 ```
-
 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
-
 ```
 
 如果不删除只是关闭相关服务，可以如下执行
 
 
 ```
-
 $ systemctl disable nfs-common
-
 $ systemctl disable rpcbind
-
 $ systemctl disable exim4
-
 $ systemctl stop nfs-common
-
 $ systemctl stop rpcbind
-
 $ systemctl stop exim4
-
 ```
 
 >PS：几句废话。  

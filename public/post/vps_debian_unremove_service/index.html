@@ -8,7 +8,7 @@
   <title>
     VPS Debian8 删除一些没用的服务的方法 | DenysG的个人博客
   </title>
-  <meta name="description" content="Mac下执行`brew update`时出现以下错误提示：Error: /usr/local must be writable! 解决方法。 | DenysG&#39;blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。 | DenysG的个人博客">
+  <meta name="description" content="VPS-Debian8系统删除exim4,rpcbind等等服务的方法。 | DenysG&#39;blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。 | DenysG的个人博客">
 
 
   
@@ -104,44 +104,30 @@
 
 <p><code>exim4</code>服务  开放 <code>port :25</code> 大家都知道这个端口做啥都吧！</p>
 
-<pre><code>
-$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
-
+<pre><code>$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
 $ rm -rf /var/log/exim4/
-
 </code></pre>
 
 <h4 id="删除-rpcbind-服务">删除 <code>rpcbind</code> 服务</h4>
 
 <p><code>rpcbind</code> 服务  此服务开启<code>port :111</code> 这个端口。</p>
 
-<pre><code>
-$ apt-get purge --auto-remove rpcbind
-
+<pre><code>$ apt-get purge --auto-remove rpcbind
 </code></pre>
 
 <h4 id="删除-nfs-服务">删除<code>nfs</code>服务</h4>
 
-<pre><code>
-$ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
-
+<pre><code>$ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
 </code></pre>
 
 <p>如果不删除只是关闭相关服务，可以如下执行</p>
 
-<pre><code>
-$ systemctl disable nfs-common
-
+<pre><code>$ systemctl disable nfs-common
 $ systemctl disable rpcbind
-
 $ systemctl disable exim4
-
 $ systemctl stop nfs-common
-
 $ systemctl stop rpcbind
-
 $ systemctl stop exim4
-
 </code></pre>
 
 <blockquote>
