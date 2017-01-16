@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Solutions on DenysG的个人博客</title>
-    <link>https://48474.com/categories/solutions/index.xml</link>
-    <description>Recent content in Solutions on DenysG的个人博客</description>
+    <title>Vps on DenysG的个人博客</title>
+    <link>https://48474.com/categories/vps/index.xml</link>
+    <description>Recent content in Vps on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2016 135Get_Team. All rights reserved.</copyright>
-    <atom:link href="https://48474.com/categories/solutions/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://48474.com/categories/vps/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>VPS Debian8 删除一些没用的服务的方法</title>
@@ -82,54 +82,6 @@ $ systemctl stop exim4
 2. systemd 要比sysv要先进很多。&lt;br /&gt;
 3. remove没用的服务也是安全保证吧。&lt;/p&gt;
 &lt;/blockquote&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Error: /usr/local must be writable! 解决方法</title>
-      <link>https://48474.com/post/brew_update_error_fix/</link>
-      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
-      
-      <guid>https://48474.com/post/brew_update_error_fix/</guid>
-      <description>&lt;p&gt;今天在Mac下执行&lt;code&gt;brew update&lt;/code&gt;时出现以下错误提示：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew update&lt;br /&gt;
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。
-按我习惯性的方法，修改下目录的权限吧&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chmod -R g+w /usr/local&lt;br /&gt;
-  $ brew update&lt;br /&gt;
-还是出现错误提示
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew doctor&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;上面是修改目录的写权限，现在修改目录的用户权限吧！！&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chown -R $(whoami) /usr/local&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;再次执行&lt;code&gt;brew doctor&lt;/code&gt;, 正常啦！！！&lt;br /&gt;
-再次执行&lt;code&gt;brew update&lt;/code&gt;, 终于正常，正常啦！！！&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;总结一下：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;升级了macos后没执行&lt;code&gt;brew doctor&lt;/code&gt;，导致&lt;code&gt;brew&lt;/code&gt; 出现问题。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;升级系统，一定要检测下第三方软件是否能正常工作。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;检测工作没执行到底呀。&lt;/li&gt;
-&lt;/ul&gt;
 </description>
     </item>
     
