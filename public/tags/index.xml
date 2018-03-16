@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on DenysG的个人博客</title>
+    <link>https://48474.net/tags/</link>
+    <description>Recent content in Tags on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 26 Dec 2016 12:51:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://48474.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Brew</title>
+      <link>https://48474.net/tags/brew/</link>
+      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/brew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Caddy</title>
+      <link>https://48474.net/tags/caddy/</link>
+      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/caddy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://48474.net/tags/config/</link>
+      <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Debian</title>
+      <link>https://48474.net/tags/debian/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/debian/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exim4</title>
+      <link>https://48474.net/tags/exim4/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/exim4/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>https://48474.net/tags/git/</link>
+      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://48474.net/tags/golang/</link>
+      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guide</title>
+      <link>https://48474.net/tags/guide/</link>
+      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Interface</title>
+      <link>https://48474.net/tags/interface/</link>
+      <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/interface/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Knowledge</title>
+      <link>https://48474.net/tags/knowledge/</link>
+      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/knowledge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://48474.net/tags/linux/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://48474.net/tags/mac/</link>
+      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nfs</title>
+      <link>https://48474.net/tags/nfs/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/nfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rpcbind</title>
+      <link>https://48474.net/tags/rpcbind/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/rpcbind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Service</title>
+      <link>https://48474.net/tags/service/</link>
+      <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/service/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Solutions</title>
+      <link>https://48474.net/tags/solutions/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/solutions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssh_keygen</title>
+      <link>https://48474.net/tags/ssh_keygen/</link>
+      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/ssh_keygen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Storage</title>
+      <link>https://48474.net/tags/storage/</link>
+      <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/storage/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vps</title>
+      <link>https://48474.net/tags/vps/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/vps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xorm</title>
+      <link>https://48474.net/tags/xorm/</link>
+      <pubDate>Fri, 09 Oct 2015 16:13:10 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/xorm/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

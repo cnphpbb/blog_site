@@ -2,73 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exim4 on DenysG的个人博客</title>
-    <link>https://48474.com/tags/exim4/index.xml</link>
+    <link>https://48474.net/tags/exim4/</link>
     <description>Recent content in Exim4 on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2016 135Get_Team. All rights reserved.</copyright>
-    <atom:link href="https://48474.com/tags/exim4/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Jan 2017 13:18:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://48474.net/tags/exim4/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>VPS Debian8 删除一些没用的服务的方法</title>
-      <link>https://48474.com/post/vps_debian_unremove_service/</link>
+      <link>https://48474.net/post/vps_debian_unremove_service/</link>
       <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
       
-      <guid>https://48474.com/post/vps_debian_unremove_service/</guid>
-      <description>
-
-&lt;p&gt;本人喜欢使用linux的debian发行版本。也用过其他的发行版本。&lt;br /&gt;
-现在使用的vps是&lt;a href=&#34;https://www.ufovps.com/&#34;&gt;ufovps&lt;/a&gt;出售的香港云服务器。&lt;br /&gt;
-安装的是linux的Debian8版本。&lt;br /&gt;
-安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;exim4&lt;/li&gt;
-&lt;li&gt;rpcbind&lt;/li&gt;
-&lt;li&gt;nfs+portmap&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以上这些服务我都不使用，需要关闭。方法如下：&lt;/p&gt;
-
-&lt;h4 id=&#34;删除-exim4-服务&#34;&gt;删除 &lt;code&gt;exim4&lt;/code&gt; 服务&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;exim4&lt;/code&gt;服务  开放 &lt;code&gt;port :25&lt;/code&gt; 大家都知道这个端口做啥都吧！&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
-$ rm -rf /var/log/exim4/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除-rpcbind-服务&#34;&gt;删除 &lt;code&gt;rpcbind&lt;/code&gt; 服务&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;rpcbind&lt;/code&gt; 服务  此服务开启&lt;code&gt;port :111&lt;/code&gt; 这个端口。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove rpcbind
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除-nfs-服务&#34;&gt;删除&lt;code&gt;nfs&lt;/code&gt;服务&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果不删除只是关闭相关服务，可以如下执行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ systemctl disable nfs-common
-$ systemctl disable rpcbind
-$ systemctl disable exim4
-$ systemctl stop nfs-common
-$ systemctl stop rpcbind
-$ systemctl stop exim4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;PS：几句废话。&lt;br /&gt;
-1. debian8 已经开始用systemd来做系统的启动服务。&lt;br /&gt;
-2. systemd 要比sysv要先进很多。&lt;br /&gt;
-3. remove没用的服务也是安全保证吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <guid>https://48474.net/post/vps_debian_unremove_service/</guid>
+      <description>本人喜欢使用linux的debian发行版本。也用过其他的发行版本。
+现在使用的vps是ufovps出售的香港云服务器。
+安装的是linux的Debian8版本。
+安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
+  exim4 rpcbind nfs+portmap   以上这些服务我都不使用，需要关闭。方法如下：
+删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
+$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/  删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
+$ apt-get purge --auto-remove rpcbind  删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap  如果不删除只是关闭相关服务，可以如下执行
+$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4   PS：几句废话。</description>
     </item>
     
   </channel>

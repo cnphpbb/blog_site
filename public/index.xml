@@ -2,990 +2,147 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>DenysG的个人博客</title>
-    <link>https://48474.com/index.xml</link>
+    <link>https://48474.net/</link>
     <description>Recent content on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2016 135Get_Team. All rights reserved.</copyright>
     <lastBuildDate>Mon, 16 Jan 2017 13:18:39 +0800</lastBuildDate>
-    <atom:link href="https://48474.com/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://48474.net/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>VPS Debian8 删除一些没用的服务的方法</title>
-      <link>https://48474.com/post/vps_debian_unremove_service/</link>
+      <link>https://48474.net/post/vps_debian_unremove_service/</link>
       <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
       
-      <guid>https://48474.com/post/vps_debian_unremove_service/</guid>
-      <description>
-
-&lt;p&gt;本人喜欢使用linux的debian发行版本。也用过其他的发行版本。&lt;br /&gt;
-现在使用的vps是&lt;a href=&#34;https://www.ufovps.com/&#34;&gt;ufovps&lt;/a&gt;出售的香港云服务器。&lt;br /&gt;
-安装的是linux的Debian8版本。&lt;br /&gt;
-安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;exim4&lt;/li&gt;
-&lt;li&gt;rpcbind&lt;/li&gt;
-&lt;li&gt;nfs+portmap&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以上这些服务我都不使用，需要关闭。方法如下：&lt;/p&gt;
-
-&lt;h4 id=&#34;删除-exim4-服务&#34;&gt;删除 &lt;code&gt;exim4&lt;/code&gt; 服务&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;exim4&lt;/code&gt;服务  开放 &lt;code&gt;port :25&lt;/code&gt; 大家都知道这个端口做啥都吧！&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
-$ rm -rf /var/log/exim4/
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除-rpcbind-服务&#34;&gt;删除 &lt;code&gt;rpcbind&lt;/code&gt; 服务&lt;/h4&gt;
-
-&lt;p&gt;&lt;code&gt;rpcbind&lt;/code&gt; 服务  此服务开启&lt;code&gt;port :111&lt;/code&gt; 这个端口。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove rpcbind
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4 id=&#34;删除-nfs-服务&#34;&gt;删除&lt;code&gt;nfs&lt;/code&gt;服务&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;$ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如果不删除只是关闭相关服务，可以如下执行&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ systemctl disable nfs-common
-$ systemctl disable rpcbind
-$ systemctl disable exim4
-$ systemctl stop nfs-common
-$ systemctl stop rpcbind
-$ systemctl stop exim4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;PS：几句废话。&lt;br /&gt;
-1. debian8 已经开始用systemd来做系统的启动服务。&lt;br /&gt;
-2. systemd 要比sysv要先进很多。&lt;br /&gt;
-3. remove没用的服务也是安全保证吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-</description>
+      <guid>https://48474.net/post/vps_debian_unremove_service/</guid>
+      <description>本人喜欢使用linux的debian发行版本。也用过其他的发行版本。
+现在使用的vps是ufovps出售的香港云服务器。
+安装的是linux的Debian8版本。
+安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
+  exim4 rpcbind nfs+portmap   以上这些服务我都不使用，需要关闭。方法如下：
+删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
+$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/  删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
+$ apt-get purge --auto-remove rpcbind  删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap  如果不删除只是关闭相关服务，可以如下执行
+$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4   PS：几句废话。</description>
     </item>
     
     <item>
       <title>Error: /usr/local must be writable! 解决方法</title>
-      <link>https://48474.com/post/brew_update_error_fix/</link>
+      <link>https://48474.net/post/brew_update_error_fix/</link>
       <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
       
-      <guid>https://48474.com/post/brew_update_error_fix/</guid>
-      <description>&lt;p&gt;今天在Mac下执行&lt;code&gt;brew update&lt;/code&gt;时出现以下错误提示：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew update&lt;br /&gt;
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。
-按我习惯性的方法，修改下目录的权限吧&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chmod -R g+w /usr/local&lt;br /&gt;
-  $ brew update&lt;br /&gt;
-还是出现错误提示
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew doctor&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;上面是修改目录的写权限，现在修改目录的用户权限吧！！&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chown -R $(whoami) /usr/local&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;再次执行&lt;code&gt;brew doctor&lt;/code&gt;, 正常啦！！！&lt;br /&gt;
-再次执行&lt;code&gt;brew update&lt;/code&gt;, 终于正常，正常啦！！！&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;总结一下：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;升级了macos后没执行&lt;code&gt;brew doctor&lt;/code&gt;，导致&lt;code&gt;brew&lt;/code&gt; 出现问题。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;升级系统，一定要检测下第三方软件是否能正常工作。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;检测工作没执行到底呀。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://48474.net/post/brew_update_error_fix/</guid>
+      <description>今天在Mac下执行brew update时出现以下错误提示：
+ $ brew update
+Error: /usr/local must be writable!
+ 以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
+ $ sudo chmod -R g+w /usr/local
+$ brew update
+还是出现错误提示 Error: /usr/local must be writable!
+ 有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
+ $ brew doctor
+ 上面是修改目录的写权限，现在修改目录的用户权限吧！！
+ $ sudo chown -R $(whoami) /usr/local
+ 再次执行brew doctor, 正常啦！！！
+再次执行brew update, 终于正常，正常啦！！！
+总结一下：
+ 升级了macos后没执行brew doctor，导致brew 出现问题。
+ 升级系统，一定要检测下第三方软件是否能正常工作。
+ 检测工作没执行到底呀。  </description>
     </item>
     
     <item>
       <title>CaddyServer使用记录</title>
-      <link>https://48474.com/post/caddy-guide/</link>
+      <link>https://48474.net/post/caddy-guide/</link>
       <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
       
-      <guid>https://48474.com/post/caddy-guide/</guid>
-      <description>&lt;p&gt;Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HTTP/2&lt;/li&gt;
-&lt;li&gt;Automatic HTTPS&lt;/li&gt;
-&lt;li&gt;Multi-core&lt;/li&gt;
-&lt;li&gt;Websockets&lt;/li&gt;
-&lt;li&gt;Markdown&lt;/li&gt;
-&lt;li&gt;IPv6&lt;/li&gt;
-&lt;li&gt;Git&lt;/li&gt;
-&lt;li&gt;FastCGI&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;下面举几个例子：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;简单的测试网站&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;:8530 {
-    root /var/www/test_site
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;使用git同步测试环境&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;:8530 {
-    root /var/www/test_site/public
-    git git.int5262.com/user_name/project_name {
-        path ../
-        interval 60
-    }
-    fastcgi / 127.0.0.1:9001 php
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;站点跳转&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;http://48474.com, http://www.48474.com {
-    redir https://48474.com{uri}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的&lt;a href=&#34;https://caddyserver.com/docs&#34;&gt;User Guide&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;启动caddy也很简单&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Caddy官网 &lt;a href=&#34;https://caddyserver.com&#34;&gt;https://caddyserver.com&lt;/a&gt;&lt;br /&gt;
-官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Caddy一键安装脚本 &lt;a href=&#34;https://getcaddy.com&#34;&gt;https://getcaddy.com&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;curl https://getcaddy.com | bash
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://48474.net/post/caddy-guide/</guid>
+      <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
+ HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
+下面举几个例子：
+ 简单的测试网站
+  :8530 { root /var/www/test_site }   使用git同步测试环境
+  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }   站点跳转
+  http://48474.com, http://www.48474.com { redir https://48474.com{uri} }  看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。</description>
     </item>
     
     <item>
       <title>管理git生成的多个ssh key</title>
-      <link>https://48474.com/post/git_more_ssh_keygen/</link>
+      <link>https://48474.net/post/git_more_ssh_keygen/</link>
       <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
       
-      <guid>https://48474.com/post/git_more_ssh_keygen/</guid>
-      <description>
-
-&lt;h5 id=&#34;问题阐述&#34;&gt;问题阐述&lt;/h5&gt;
-
-&lt;p&gt;当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。&lt;/p&gt;
-
-&lt;h5 id=&#34;问题解决&#34;&gt;问题解决&lt;/h5&gt;
-
-&lt;p&gt;我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题&lt;/p&gt;
-
-&lt;h5 id=&#34;具体步骤&#34;&gt;具体步骤&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;生成第一个ssh key(这里我用于github，用的gmail邮箱)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。&lt;br&gt;
-完成之后我们可以看到~/.ssh目录下多了两个文件。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;id_rsa_github
-id_rsa_github.pub
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。&lt;br&gt;
-完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;id_rsa_gitlab
-id_rsa_gitlab.pub
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;打开ssh-agent&lt;/p&gt;
-
-&lt;p&gt;这里如果你用的github官方的bash，ssh-agent -s,&lt;br&gt;
-如果是其他的，比如msysgit,eval $(ssh-agent -s)。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;添加私钥&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ssh-add ~/.ssh/id_rsa_github
-ssh-add ~/.ssh/id_rsa_gitlab
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;创建并修改config文件&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;windows&lt;/p&gt;
-
-&lt;p&gt;新建一个txt文本，然后将名字后缀一起改成config即可。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;linux|unix&lt;/p&gt;
-
-&lt;p&gt;在bash下的话直接touch config 即可。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;# gitlab
-Host git.iboxpay.com
-HostName git.int-5262.com  //这里填你们公司的git网址即可
-PreferredAuthentications publickey
-IdentityFile ~/.ssh/id_rsa_gitlab
-User yong.geng
-
-# github
-Host github.com
-HostName github.com
-PreferredAuthentications publickey
-IdentityFile ~/.ssh/id_rsa_github
-User cnphpbb
-&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;在github和gitlab上添加公钥即可，这里不再多说。&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;最后一步&lt;code&gt;测试&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ssh -T git@git.int-5262.com
-Welcome to GitLab, yong.geng!
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h5 id=&#34;补充一下&#34;&gt;补充一下&lt;/h5&gt;
-
-&lt;p&gt;如果之前有设置全局用户名和邮箱的话，需要unset一下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git config --global --unset user.name
-git config --global --unset user.email
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;然后在不同的仓库下设置局部的用户名和邮箱
-比如在公司的repository下&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git config user.name &amp;quot;yourname&amp;quot;
-git config user.email &amp;quot;youremail&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;在自己的github的仓库在执行刚刚的命令一遍即可。&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;strong&gt;这样就可以在不同的仓库，已不同的账号登录。&lt;/strong&gt;&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/git_more_ssh_keygen/</guid>
+      <description>问题阐述 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
+问题解决 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
+具体步骤  生成第一个ssh key(这里我用于github，用的gmail邮箱)
+ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
+完成之后我们可以看到~/.ssh目录下多了两个文件。
+id_rsa_github id_rsa_github.pub  生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
+ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
+完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
+id_rsa_gitlab id_rsa_gitlab.pub  打开ssh-agent
+这里如果你用的github官方的bash，ssh-agent -s,
+如果是其他的，比如msysgit,eval $(ssh-agent -s)。
+ 添加私钥
+ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab  创建并修改config文件
+ windows
+新建一个txt文本，然后将名字后缀一起改成config即可。
+ linux|unix
+在bash下的话直接touch config 即可。
+  # gitlab Host git.iboxpay.com HostName git.int-5262.com //这里填你们公司的git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
     </item>
     
     <item>
       <title>使用Service Interface的优缺点</title>
-      <link>https://48474.com/post/service_interface_advantages_and_disadvantages/</link>
+      <link>https://48474.net/post/service_interface_advantages_and_disadvantages/</link>
       <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
       
-      <guid>https://48474.com/post/service_interface_advantages_and_disadvantages/</guid>
-      <description>
-
-&lt;h4 id=&#34;使用-service-interface-模式会导致下面的优缺点&#34;&gt;使用 Service Interface 模式会导致下面的优缺点：&lt;/h4&gt;
-
-&lt;h5 id=&#34;优点&#34;&gt;优点&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。&lt;/li&gt;
-&lt;li&gt;通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h5 id=&#34;缺点&#34;&gt;缺点&lt;/h5&gt;
-
-&lt;ul&gt;
-&lt;li&gt;很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。&lt;/li&gt;
-&lt;li&gt;服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。&lt;/li&gt;
-&lt;li&gt;Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://48474.net/post/service_interface_advantages_and_disadvantages/</guid>
+      <description> 使用 Service Interface 模式会导致下面的优缺点： 优点  服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。 通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。  缺点  很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。 服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。 Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适  </description>
     </item>
     
     <item>
       <title>Golang程序配置方案小结</title>
-      <link>https://48474.com/post/config-solutions-for-golang-app/</link>
+      <link>https://48474.net/post/config-solutions-for-golang-app/</link>
       <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>
       
-      <guid>https://48474.com/post/config-solutions-for-golang-app/</guid>
-      <description>
-
-&lt;p&gt;在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：&lt;a href=&#34;https://sfxpt.wordpress.com/2015/06/16/providing-%20options-for-go-applications/&#34;&gt;在这里&lt;/a&gt;。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。&lt;/p&gt;
-
-&lt;h2 id=&#34;一-背景&#34;&gt;一、背景&lt;/h2&gt;
-
-&lt;p&gt;无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。&lt;/p&gt;
-
-&lt;p&gt;文章作者认为一个良好的应用配置层次应该是这样的：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;程序内内置配置项的初始默认值&lt;/li&gt;
-&lt;li&gt;配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。&lt;/li&gt;
-&lt;li&gt;命令行选项和参数值具有最高优先级，可以override前两层的配置项值。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;下面就按作者的思路循序渐进探讨golang程序配置方案。&lt;/p&gt;
-
-&lt;h2 id=&#34;二-解析命令行选项和参数&#34;&gt;二、解析命令行选项和参数&lt;/h2&gt;
-
-&lt;p&gt;这一节关注golang程序如何访问命令行选项和参数。&lt;/p&gt;
-
-&lt;p&gt;golang对访问到命令行参数提供了内建的支持：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//cmdlineargs.go
-package main
-
-import (
-    //      &amp;quot;fmt&amp;quot;
-    &amp;quot;os&amp;quot;
-    &amp;quot;path/filepath&amp;quot;
-)
-
-func main() {
-    println(&amp;quot;I am &amp;quot;, os.Args[0])
-
-    baseName := filepath.Base(os.Args[0])
-    println(&amp;quot;The base name is &amp;quot;, baseName)
-
-    // The length of array a can be discovered using the built-in function len
-    println(&amp;quot;Argument # is &amp;quot;, len(os.Args))
-
-    // the first command line arguments
-    if len(os.Args) &amp;gt; 1 {
-        println(&amp;quot;The first command line argument: &amp;quot;, os.Args[1])
-    }
-}
-
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;执行结果如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;  $go build cmdlineargs.go
-  $cmdlineargs test one
-  I am  cmdlineargs
-  The base name is  cmdlineargs
-  Argument # is  3
-  The first command line argument:  test
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;对于命令行结构复杂一些的程序，我们最起码要用到golang标准库内置的flag包：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;//cmdlineflag.go
-package main
-
-import (
-    &amp;quot;flag&amp;quot;
-    &amp;quot;fmt&amp;quot;
-    &amp;quot;os&amp;quot;
-    &amp;quot;strconv&amp;quot;
-)
-
-var (
-    // main operation modes
-    write = flag.Bool(&amp;quot;w&amp;quot;, false, &amp;quot;write result back instead of stdout\n\t\tDefault: No write back&amp;quot;)
-
-    // layout control
-    tabWidth = flag.Int(&amp;quot;tabwidth&amp;quot;, 8, &amp;quot;tab width\n\t\tDefault: Standard&amp;quot;)
-
-    // debugging
-    cpuprofile = flag.String(&amp;quot;cpuprofile&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;write cpu profile to this file\n\t\tDefault: no default&amp;quot;)
-)
-
-func usage() {
-    // Fprintf allows us to print to a specifed file handle or stream
-    fmt.Fprintf(os.Stderr, &amp;quot;\nUsage: %s [flags] file [path ...]\n\n&amp;quot;,
-        &amp;quot;CommandLineFlag&amp;quot;) // os.Args[0]
-    flag.PrintDefaults()
-    os.Exit(0)
-}
-
-func main() {
-    fmt.Printf(&amp;quot;Before parsing the flags\n&amp;quot;)
-    fmt.Printf(&amp;quot;T: %d\nW: %s\nC: &#39;%s&#39;\n&amp;quot;,
-        *tabWidth, strconv.FormatBool(*write), *cpuprofile)
-
-    flag.Usage = usage
-    flag.Parse()
-
-    // There is also a mandatory non-flag arguments
-    if len(flag.Args()) &amp;lt; 1 {
-        usage()
-    }
-
-    fmt.Printf(&amp;quot;Testing the flag package\n&amp;quot;)
-    fmt.Printf(&amp;quot;T: %d\nW: %s\nC: &#39;%s&#39;\n&amp;quot;,
-        *tabWidth, strconv.FormatBool(*write), *cpuprofile)
-
-    for index, element := range flag.Args() {
-        fmt.Printf(&amp;quot;I: %d C: &#39;%s&#39;\n&amp;quot;, index, element)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个例子中：
-- 说明了三种类型标志的用法：Int、String和Bool。
-- 说明了每个标志的定义都由类型、命令行选项文本、默认值以及含义解释组成。
-- 最后说明了如何处理标志选项(flag option)以及非option参数。&lt;/p&gt;
-
-&lt;p&gt;不带参数运行：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$cmdlineflag
-Before parsing the flags
-T: 8
-W: false
-C: &#39;&#39;
-
-Usage: CommandLineFlag [flags] file [path ...]
-
-  -cpuprofile=&amp;quot;&amp;quot;: write cpu profile to this file
-        Default: no default
-  -tabwidth=8: tab width
-        Default: Standard
-  -w=false: write result back instead of stdout
-        Default: No write back
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;带命令行标志以及参数运行(一个没有flag，一个有两个flag)：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$cmdlineflag aa bb
-Before parsing the flags
-T: 8
-W: false
-C: &#39;&#39;
-Testing the flag package
-T: 8
-W: false
-C: &#39;&#39;
-I: 0 C: &#39;aa&#39;
-I: 1 C: &#39;bb&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;$cmdlineflag -tabwidth=2 -w aa
-Before parsing the flags
-T: 8
-W: false
-C: &#39;&#39;
-Testing the flag package
-T: 2
-W: true
-C: &#39;&#39;
-I: 0 C: &#39;aa&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;从例子可以看出，简单情形下，你无需编写自己的命令行parser或使用第三方包，使用go内建的flag包即可以很好的完成工作。但是golang的 flag包与命令行Parser的事实标准：Posix getopt（C/C++/Perl/Shell脚本都可用）相比，还有较大差距，主要体现在：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;无法支持区分long option和short option，比如：-h和–help。&lt;/li&gt;
-&lt;li&gt;不支持short options合并，比如：ls -l -h &amp;lt;=&amp;gt; ls -hl&lt;/li&gt;
-&lt;li&gt;命令行标志的位置不能任意放置，比如无法放在non-flag parameter的后面。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;不过毕竟flag是golang内置标准库包，你无须付出任何cost，就能使用它的功能。另外支持bool型的flag也是其一大亮点。&lt;/p&gt;
-
-&lt;h2 id=&#34;三-toml-go配置文件的事实标准-这个可能不能得到认同&#34;&gt;三、TOML，Go配置文件的事实标准（这个可能不能得到认同）&lt;/h2&gt;
-
-&lt;p&gt;命令行虽然是一种可选的配置方案，但更多的时候，我们使用配置文件来存储静态的配置数据。就像Java配xml，ruby配yaml，windows配 ini，Go也有自己的搭配组合，那就是TOML（Tom&amp;rsquo;s Obvious, Minimal Language）。&lt;/p&gt;
-
-&lt;p&gt;初看toml语法有些类似windows ini，但细致研究你会发现它远比ini强大的多，下面是一个toml配置文件例子：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# This is a TOML document. Boom.
-
-title = &amp;quot;TOML Example&amp;quot;
-
-[owner]
-name = &amp;quot;Lance Uppercut&amp;quot;
-dob = 1979-05-27T07:32:00-08:00 # First class dates? Why not?
-
-[database]
-server = &amp;quot;192.168.1.1&amp;quot;
-ports = [ 8001, 8001, 8002 ]
-connection_max = 5000
-enabled = true
-
-[servers]
-
-  # You can indent as you please. Tabs or spaces. TOML don&#39;t care.
-  [servers.alpha]
-  ip = &amp;quot;10.0.0.1&amp;quot;
-  dc = &amp;quot;eqdc10&amp;quot;
-
-  [servers.beta]
-  ip = &amp;quot;10.0.0.2&amp;quot;
-  dc = &amp;quot;eqdc10&amp;quot;
-
-[clients]
-data = [ [&amp;quot;gamma&amp;quot;, &amp;quot;delta&amp;quot;], [1, 2] ]
-
-# Line breaks are OK when inside arrays
-hosts = [
-  &amp;quot;alpha&amp;quot;,
-  &amp;quot;omega&amp;quot;
-]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看起来很强大，也很复杂，但解析起来却很简单。以下面这个toml 文件为例：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Age = 25
-Cats = [ &amp;quot;Cauchy&amp;quot;, &amp;quot;Plato&amp;quot; ]
-Pi = 3.14
-Perfection = [ 6, 28, 496, 8128 ]
-DOB = 1987-07-05T05:45:00Z
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;和所有其他配置文件parser类似，这个配置文件中的数据可以被直接解析成一个golang struct：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type Config struct {
-  Age int
-  Cats []string
-  Pi float64
-  Perfection []int
-  DOB time.Time // requires `import time`
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;其解析的步骤也很简单：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var conf Config
-if _, err := toml.Decode(tomlData, &amp;amp;conf); err != nil {
-  // handle error
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;是不是简单的不能简单了！&lt;/p&gt;
-
-&lt;p&gt;不过toml也有其不足之处。想想如果你需要使用命令行选项的参数值来覆盖这些配置文件中的选项，你应该怎么做？事实上，我们常常会碰到类似下面这种三层配置结构的情况：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;程序内内置配置项的初始默认值&lt;/li&gt;
-&lt;li&gt;配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。&lt;/li&gt;
-&lt;li&gt;命令行选项和参数值具有最高优先级，可以override前两层的配置项值。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;在go中，toml映射的结果体字段没有初始值。而且go内建flag包也没有将命令行参数值解析为一个go结构体，而是零散的变量。这些可以通过第三方工具来解决，但如果你不想用第三方工具，你也可以像下面这样自己解决，虽然难看一些。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func ConfigGet() *Config {
-    var err error
-    var cf *Config = NewConfig()
-
-    // set default values defined in the program
-    cf.ConfigFromFlag()
-    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
-
-    // Load config file, from flag or env (if specified)
-    _, err = cf.ConfigFromFile(*configFile, os.Getenv(&amp;quot;APPCONFIG&amp;quot;))
-    if err != nil {
-        log.Fatal(err)
-    }
-    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
-
-    // Override values from command line flags
-    cf.ConfigToFlag()
-    flag.Usage = usage
-    flag.Parse()
-    cf.ConfigFromFlag()
-    //log.Printf(&amp;quot;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&amp;quot;, cf.MaxProcs, cf.Webapp.Path)
-
-    cf.ConfigApply()
-
-    return cf
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;就像上面代码中那样，你需要：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;用命令行标志默认值设置配置(cf)默认值。&lt;/li&gt;
-&lt;li&gt;接下来加载配置文件&lt;/li&gt;
-&lt;li&gt;用配置值(cf)覆盖命令行标志变量值&lt;/li&gt;
-&lt;li&gt;解析命令行参数&lt;/li&gt;
-&lt;li&gt;用命令行标志变量值覆盖配置(cf)值。&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;少一步你都无法实现三层配置能力。&lt;/p&gt;
-
-&lt;h2 id=&#34;四-超越toml&#34;&gt;四、超越TOML&lt;/h2&gt;
-
-&lt;p&gt;本节将关注如何克服TOML的各种局限。&lt;/p&gt;
-
-&lt;p&gt;为了达成这个目标，很多人会说：使用&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;viper&lt;/a&gt;，不过在介绍viper这一重量级选手 之前，我要为大家介绍另外一位不那么知名的选手：&lt;a href=&#34;https://github.com/koding/multiconfig&#34;&gt;multiconfig&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;有些人总是认为大的就是好的，但我相信适合的还是更好的。因为：&lt;/p&gt;
-
-&lt;p&gt;1、viper太重量级，使用viper时你需要pull另外20个viper依赖的第三方包
-2、事实上，viper单独使用还不足以满足需求，要想得到viper全部功能，你还需要另外一个包配合，而后者又依赖13个外部包
-3、与viper相比，multiconfig使用起来更简单。&lt;/p&gt;
-
-&lt;p&gt;好了，我们再来回顾一下我们现在面临的问题：&lt;/p&gt;
-
-&lt;p&gt;1、在程序里定义默认配置，这样我们就无需再在toml中定义它们了。
-2、用toml配置文件中的数据override默认配置
-3、用命令行或环境变量的值override从toml中读取的配置。&lt;/p&gt;
-
-&lt;p&gt;下面是一个说明如何使用multiconfig的例子：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func main() {
-    m := multiconfig.NewWithPath(&amp;quot;config.toml&amp;quot;) // supports TOML and JSON
-
-    // Get an empty struct for your configuration
-    serverConf := new(Server)
-
-    // Populated the serverConf struct
-    m.MustLoad(serverConf) // Check for error
-
-    fmt.Println(&amp;quot;After Loading: &amp;quot;)
-    fmt.Printf(&amp;quot;%+v\n&amp;quot;, serverConf)
-
-    if serverConf.Enabled {
-        fmt.Println(&amp;quot;Enabled field is set to true&amp;quot;)
-    } else {
-        fmt.Println(&amp;quot;Enabled field is set to false&amp;quot;)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这个例子中的toml文件如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Name              = &amp;quot;koding&amp;quot;
-Enabled           = false
-Port              = 6066
-Users             = [&amp;quot;ankara&amp;quot;, &amp;quot;istanbul&amp;quot;]
-
-[Postgres]
-Enabled           = true
-Port              = 5432
-Hosts             = [&amp;quot;192.168.2.1&amp;quot;, &amp;quot;192.168.2.2&amp;quot;, &amp;quot;192.168.2.3&amp;quot;]
-AvailabilityRatio = 8.23
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;toml映射后的go结构如下：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;type (
-    // Server holds supported types by the multiconfig package
-    Server struct {
-        Name     string
-        Port     int `default:&amp;quot;6060&amp;quot;`
-        Enabled  bool
-        Users    []string
-        Postgres Postgres
-    }
-
-    // Postgres is here for embedded struct feature
-    Postgres struct {
-        Enabled           bool
-        Port              int
-        Hosts             []string
-        DBName            string
-        AvailabilityRatio float64
-    }
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;multiconfig的使用是不是很简单，后续与viper对比后，你会同意我的观点的。&lt;/p&gt;
-
-&lt;p&gt;multiconfig支持默认值，也支持显式的字段赋值需求。
-支持toml、json、结构体标签（struct tags)以及环境变量。
-你可以自定义配置源（例如一个远程服务器），如果你想这么做的话。
-可高度扩展（通过loader接口），你可以创建你自己的loader。&lt;/p&gt;
-
-&lt;p&gt;下面是例子的运行结果，首先是usage help：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$cmdlinemulticonfig -help
-Usage of cmdlinemulticonfig:
-  -enabled=false: Change value of Enabled.
-  -name=koding: Change value of Name.
-  -port=6066: Change value of Port.
-  -postgres-availabilityratio=8.23: Change value of Postgres-AvailabilityRatio.
-  -postgres-dbname=: Change value of Postgres-DBName.
-  -postgres-enabled=true: Change value of Postgres-Enabled.
-  -postgres-hosts=[192.168.2.1 192.168.2.2 192.168.2.3]: Change value of Postgres-Hosts.
-  -postgres-port=5432: Change value of Postgres-Port.
-  -users=[ankara istanbul]: Change value of Users.
-
-Generated environment variables:
-   SERVER_NAME
-   SERVER_PORT
-   SERVER_ENABLED
-   SERVER_USERS
-   SERVER_POSTGRES_ENABLED
-   SERVER_POSTGRES_PORT
-   SERVER_POSTGRES_HOSTS
-   SERVER_POSTGRES_DBNAME
-   SERVER_POSTGRES_AVAILABILITYRATIO
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;$cmdlinemulticonfig
-After Loading:
-&amp;amp;{Name:koding Port:6066 Enabled:false Users:[ankara istanbul] Postgres:{Enabled:true Port:5432 Hosts:[192.168.2.1 192.168.2.2 192.168.2.3] DBName: AvailabilityRatio:8.23}}
-Enabled field is set to false
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;检查一下输出结果吧，是不是每项都符合我们之前的预期呢！&lt;/p&gt;
-
-&lt;h2 id=&#34;五-viper&#34;&gt;五、Viper&lt;/h2&gt;
-
-&lt;p&gt;我们的重量级选手&lt;a href=&#34;https://github.com/spf13/viper&#34;&gt;viper&lt;/a&gt;该出场了！&lt;/p&gt;
-
-&lt;p&gt;毫无疑问，viper非常强大。但如果你想用命令行参数覆盖预定义的配置项值，viper自己还不足以。要想让viper爆发，你需要另外一个包配合，它就是cobra（&lt;a href=&#34;https://github.com/spf13/cobra）。&#34;&gt;https://github.com/spf13/cobra）。&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;不同于注重简化配置处理的multiconfig，viper让你拥有全面控制力。不幸的是，在得到这种控制力之前，你需要做一些体力活。&lt;/p&gt;
-
-&lt;p&gt;我们再来回顾一下使用multiconfig处理配置的代码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func main() {
-    m := multiconfig.NewWithPath(&amp;quot;config.toml&amp;quot;) // supports TOML and JSON
-
-    // Get an empty struct for your configuration
-    serverConf := new(Server)
-
-    // Populated the serverConf struct
-    m.MustLoad(serverConf) // Check for error
-
-    fmt.Println(&amp;quot;After Loading: &amp;quot;)
-    fmt.Printf(&amp;quot;%+v\n&amp;quot;, serverConf)
-
-    if serverConf.Enabled {
-        fmt.Println(&amp;quot;Enabled field is set to true&amp;quot;)
-    } else {
-        fmt.Println(&amp;quot;Enabled field is set to false&amp;quot;)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;这就是使用multiconfig时你要做的所有事情。现在我们来看看使用viper和cobra如何来完成同样的事情：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;func init() {
-    mainCmd.AddCommand(versionCmd)
-
-    viper.SetEnvPrefix(&amp;quot;DISPATCH&amp;quot;)
-    viper.AutomaticEnv()
-
-    /*
-      When AutomaticEnv called, Viper will check for an environment variable any
-      time a viper.Get request is made. It will apply the following rules. It
-      will check for a environment variable with a name matching the key
-      uppercased and prefixed with the EnvPrefix if set.
-    */
-
-    flags := mainCmd.Flags()
-
-    flags.Bool(&amp;quot;debug&amp;quot;, false, &amp;quot;Turn on debugging.&amp;quot;)
-    flags.String(&amp;quot;addr&amp;quot;, &amp;quot;localhost:5002&amp;quot;, &amp;quot;Address of the service&amp;quot;)
-    flags.String(&amp;quot;smtp-addr&amp;quot;, &amp;quot;localhost:25&amp;quot;, &amp;quot;Address of the SMTP server&amp;quot;)
-    flags.String(&amp;quot;smtp-user&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;User to authenticate with the SMTP server&amp;quot;)
-    flags.String(&amp;quot;smtp-password&amp;quot;, &amp;quot;&amp;quot;, &amp;quot;Password to authenticate with the SMTP server&amp;quot;)
-    flags.String(&amp;quot;email-from&amp;quot;, &amp;quot;noreply@example.com&amp;quot;, &amp;quot;The from email address.&amp;quot;)
-
-    viper.BindPFlag(&amp;quot;debug&amp;quot;, flags.Lookup(&amp;quot;debug&amp;quot;))
-    viper.BindPFlag(&amp;quot;addr&amp;quot;, flags.Lookup(&amp;quot;addr&amp;quot;))
-    viper.BindPFlag(&amp;quot;smtp_addr&amp;quot;, flags.Lookup(&amp;quot;smtp-addr&amp;quot;))
-    viper.BindPFlag(&amp;quot;smtp_user&amp;quot;, flags.Lookup(&amp;quot;smtp-user&amp;quot;))
-    viper.BindPFlag(&amp;quot;smtp_password&amp;quot;, flags.Lookup(&amp;quot;smtp-password&amp;quot;))
-    viper.BindPFlag(&amp;quot;email_from&amp;quot;, flags.Lookup(&amp;quot;email-from&amp;quot;))
-
-  // Viper supports reading from yaml, toml and/or json files. Viper can
-  // search multiple paths. Paths will be searched in the order they are
-  // provided. Searches stopped once Config File found.
-
-    viper.SetConfigName(&amp;quot;CommandLineCV&amp;quot;) // name of config file (without extension)
-    viper.AddConfigPath(&amp;quot;/tmp&amp;quot;)          // path to look for the config file in
-    viper.AddConfigPath(&amp;quot;.&amp;quot;)             // more path to look for the config files
-
-    err := viper.ReadInConfig()
-    if err != nil {
-        println(&amp;quot;No config file found. Using built-in defaults.&amp;quot;)
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;可以看出，你需要使用BindPFlag来让viper和cobra结合一起工作。但这还不算太糟。&lt;/p&gt;
-
-&lt;p&gt;cobra的真正威力在于提供了subcommand能力。同时cobra还提供了与posix 全面兼容的命令行标志解析能力，包括长短标志、内嵌命令、为command定义你自己的help或usage等。&lt;/p&gt;
-
-&lt;p&gt;下面是定义子命令的例子代码：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;// The main command describes the service and defaults to printing the
-// help message.
-var mainCmd = &amp;amp;cobra.Command{
-    Use:   &amp;quot;dispatch&amp;quot;,
-    Short: &amp;quot;Event dispatch service.&amp;quot;,
-    Long:  `HTTP service that consumes events and dispatches them to subscribers.`,
-    Run: func(cmd *cobra.Command, args []string) {
-        serve()
-    },
-}
-
-// The version command prints this service.
-var versionCmd = &amp;amp;cobra.Command{
-    Use:   &amp;quot;version&amp;quot;,
-    Short: &amp;quot;Print the version.&amp;quot;,
-    Long:  &amp;quot;The version of the dispatch service.&amp;quot;,
-    Run: func(cmd *cobra.Command, args []string) {
-        fmt.Println(version)
-    },
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;有了上面subcommand的定义，我们就可以得到如下的help信息了：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Usage:
-  dispatch [flags]
-  dispatch [command]
-
-Available Commands:
-  version     Print the version.
-  help        Help about any command
-
-Flags:
-      –addr=&amp;quot;localhost:5002&amp;quot;: Address of the service
-      –debug=false: Turn on debugging.
-      –email-from=&amp;quot;noreply@example.com&amp;quot;: The from email address.
-  -h, –help=false: help for dispatch
-      –smtp-addr=&amp;quot;localhost:25&amp;quot;: Address of the SMTP server
-      –smtp-password=&amp;quot;&amp;quot;: Password to authenticate with the SMTP server
-      –smtp-user=&amp;quot;&amp;quot;: User to authenticate with the SMTP server
-
-Use &amp;quot;dispatch help [command]&amp;quot; for more information about a command.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;六-小结&#34;&gt;六、小结&lt;/h2&gt;
-
-&lt;p&gt;以上例子的完整源码在作者的&lt;a href=&#34;https://github.com/suntong/lang/tree/master/lang/Go/src/sys&#34;&gt;github repository&lt;/a&gt;里可以找到。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;关于golang配置文件，我个人用到了toml这一层次，因为不需要太复杂的配置，不需要环境变量或命令行override默认值或配置文件数据。不过 从作者的例子中可以看到multiconfig、viper的确强大，后续在实现复杂的golang应用时会考虑真正应用。&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/config-solutions-for-golang-app/</guid>
+      <description>在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：在这里。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。
+一、背景 无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。
+文章作者认为一个良好的应用配置层次应该是这样的：
+ 程序内内置配置项的初始默认值 配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。  下面就按作者的思路循序渐进探讨golang程序配置方案。
+二、解析命令行选项和参数 这一节关注golang程序如何访问命令行选项和参数。
+golang对访问到命令行参数提供了内建的支持：
+//cmdlineargs.go package main import ( // &amp;quot;fmt&amp;quot; &amp;quot;os&amp;quot; &amp;quot;path/filepath&amp;quot; ) func main() { println(&amp;quot;I am &amp;quot;, os.Args[0]) baseName := filepath.Base(os.Args[0]) println(&amp;quot;The base name is &amp;quot;, baseName) // The length of array a can be discovered using the built-in function len println(&amp;quot;Argument # is &amp;quot;, len(os.Args)) // the first command line arguments if len(os.Args) &amp;gt; 1 { println(&amp;quot;The first command line argument: &amp;quot;, os.</description>
     </item>
     
     <item>
       <title>存储知识：比较在线、近线和离线存储</title>
-      <link>https://48474.com/post/storage_knowledge/</link>
+      <link>https://48474.net/post/storage_knowledge/</link>
       <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
       
-      <guid>https://48474.com/post/storage_knowledge/</guid>
-      <description>
-
-&lt;p&gt;传统存储数据的方式有两种：在线存储和离线存储。&lt;/p&gt;
-
-&lt;h3 id=&#34;在线存储&#34;&gt;在线存储&lt;/h3&gt;
-
-&lt;p&gt;在线存储是指存储设备和所存储的数据时刻保持“在线”状态，可供用户随意读取，满足计算平台对数据访问的速度要求。就像PC机中常用的磁盘存储模式一样。一般在线存储设备为磁盘和磁盘阵列等存储设备，价格相对昂贵，但性能较好。&lt;/p&gt;
-
-&lt;h3 id=&#34;离线存储&#34;&gt;离线存储&lt;/h3&gt;
-
-&lt;p&gt;离线存储是对在线存储数据的备份，以防范可能发生的数据灾难。离线存储的数据不常被调用，一般也远离系统应用，所以人们用“离线”来生动地描述这种存储方式。&lt;/p&gt;
-
-&lt;p&gt;离线存储介质上的数据在读写时是顺序进行的。当需要读取数据时，需要把磁带卷到头，再进行定位。当需要对已写入的数据进行修改时，所有的数据都需要全部进行改写。因此，离线存储的访问速度慢、效率低。离线存储的典型产品是磁带库，价格相对低廉。&lt;/p&gt;
-
-&lt;h3 id=&#34;近线存储&#34;&gt;近线存储&lt;/h3&gt;
-
-&lt;p&gt;所谓近线存储(NearStore)，是随着客户存储环境的细化所提出的一个概念，所谓的近线存储，外延相对较广泛，主要定位于客户在线存储和离线存储之间的应用。就是指将那些并不是经常用到，或者说数据的访问量并不大的数据存放在性能较低的存储设备上。但同时对这些的设备要求是寻址迅速、传输率高。(例如客户一些长期保存的不长用的文件的归档)。因此，近线存储对性能要求相对来说并不高，但又要求相对较好的访问性能。同时多数情况下由于不常用的数据要占总数据量的比较大的比重，这也就要求近线存储设备在需要容量相对较大。&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/storage_knowledge/</guid>
+      <description>传统存储数据的方式有两种：在线存储和离线存储。
+在线存储 在线存储是指存储设备和所存储的数据时刻保持“在线”状态，可供用户随意读取，满足计算平台对数据访问的速度要求。就像PC机中常用的磁盘存储模式一样。一般在线存储设备为磁盘和磁盘阵列等存储设备，价格相对昂贵，但性能较好。
+离线存储 离线存储是对在线存储数据的备份，以防范可能发生的数据灾难。离线存储的数据不常被调用，一般也远离系统应用，所以人们用“离线”来生动地描述这种存储方式。
+离线存储介质上的数据在读写时是顺序进行的。当需要读取数据时，需要把磁带卷到头，再进行定位。当需要对已写入的数据进行修改时，所有的数据都需要全部进行改写。因此，离线存储的访问速度慢、效率低。离线存储的典型产品是磁带库，价格相对低廉。
+近线存储 所谓近线存储(NearStore)，是随着客户存储环境的细化所提出的一个概念，所谓的近线存储，外延相对较广泛，主要定位于客户在线存储和离线存储之间的应用。就是指将那些并不是经常用到，或者说数据的访问量并不大的数据存放在性能较低的存储设备上。但同时对这些的设备要求是寻址迅速、传输率高。(例如客户一些长期保存的不长用的文件的归档)。因此，近线存储对性能要求相对来说并不高，但又要求相对较好的访问性能。同时多数情况下由于不常用的数据要占总数据量的比较大的比重，这也就要求近线存储设备在需要容量相对较大。</description>
     </item>
     
     <item>
       <title>xorm 说明</title>
-      <link>https://48474.com/post/xorm-readme/</link>
+      <link>https://48474.net/post/xorm-readme/</link>
       <pubDate>Fri, 09 Oct 2015 16:13:10 +0800</pubDate>
       
-      <guid>https://48474.com/post/xorm-readme/</guid>
-      <description>
-
-&lt;p&gt;xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。&lt;/p&gt;
-
-&lt;h2 id=&#34;特性&#34;&gt;特性&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支持Struct和数据库表之间的灵活映射，并支持自动同步表结构&lt;/li&gt;
-&lt;li&gt;事务支持&lt;/li&gt;
-&lt;li&gt;支持原始SQL语句和ORM操作的混合执行&lt;/li&gt;
-&lt;li&gt;使用连写来简化调用&lt;/li&gt;
-&lt;li&gt;支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件&lt;/li&gt;
-&lt;li&gt;支持级联加载Struct&lt;/li&gt;
-&lt;li&gt;支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存&lt;/li&gt;
-&lt;li&gt;支持反转，即根据数据库自动生成xorm的结构体&lt;/li&gt;
-&lt;li&gt;支持事件&lt;/li&gt;
-&lt;li&gt;支持created, updated, deleted和version记录版本（即乐观锁）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;驱动支持&#34;&gt;驱动支持&lt;/h2&gt;
-
-&lt;p&gt;xorm当前支持的驱动和数据库如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Mysql: &lt;a href=&#34;https://github.com/go-sql-driver/mysql&#34;&gt;github.com/go-sql-driver/mysql&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MyMysql: &lt;a href=&#34;https://github.com/ziutek/mymysql/godrv&#34;&gt;github.com/ziutek/mymysql/godrv&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;SQLite: &lt;a href=&#34;https://github.com/mattn/go-sqlite3&#34;&gt;github.com/mattn/go-sqlite3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Postgres: &lt;a href=&#34;https://github.com/lib/pq&#34;&gt;github.com/lib/pq&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/denisenkom/go-mssqldb&#34;&gt;github.com/denisenkom/go-mssqldb&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/lunny/godbc&#34;&gt;github.com/lunny/godbc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;p&gt;推荐使用 &lt;a href=&#34;https://github.com/gpmgo/gopm&#34;&gt;gopm&lt;/a&gt; 进行安装：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gopm get github.com/go-xorm/xorm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;或者您也可以使用go工具进行安装：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/go-xorm/xorm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://xorm.io/docs&#34;&gt;操作指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gowalker.org/github.com/go-xorm/xorm&#34;&gt;GoWalker代码文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://godoc.org/github.com/go-xorm/xorm&#34;&gt;Godoc代码文档&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;讨论&#34;&gt;讨论&lt;/h2&gt;
-
-&lt;p&gt;请加入QQ群：280360085 进行讨论。&lt;/p&gt;
-
-&lt;h2 id=&#34;贡献&#34;&gt;贡献&lt;/h2&gt;
-
-&lt;p&gt;如果您也想为Xorm贡献您的力量，请查看 &lt;a href=&#34;https://github.com/go-xorm/xorm/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;license&#34;&gt;LICENSE&lt;/h2&gt;
-
-&lt;p&gt;BSD License
-&lt;a href=&#34;http://creativecommons.org/licenses/BSD/&#34;&gt;http://creativecommons.org/licenses/BSD/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/xorm-readme/</guid>
+      <description>xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。
+特性  支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁）  驱动支持 xorm当前支持的驱动和数据库如下：
+ Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc  安装 推荐使用 gopm 进行安装：
+gopm get github.com/go-xorm/xorm  或者您也可以使用go工具进行安装：
+go get github.com/go-xorm/xorm  文档  操作指南 GoWalker代码文档 Godoc代码文档  讨论 请加入QQ群：280360085 进行讨论。
+贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING</description>
     </item>
     
   </channel>

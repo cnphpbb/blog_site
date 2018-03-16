@@ -2,206 +2,67 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Guide on DenysG的个人博客</title>
-    <link>https://48474.com/tags/guide/index.xml</link>
+    <link>https://48474.net/tags/guide/</link>
     <description>Recent content in Guide on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2016 135Get_Team. All rights reserved.</copyright>
-    <atom:link href="https://48474.com/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Dec 2016 12:51:15 +0800</lastBuildDate>
+    
+	<atom:link href="https://48474.net/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Error: /usr/local must be writable! 解决方法</title>
-      <link>https://48474.com/post/brew_update_error_fix/</link>
+      <link>https://48474.net/post/brew_update_error_fix/</link>
       <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
       
-      <guid>https://48474.com/post/brew_update_error_fix/</guid>
-      <description>&lt;p&gt;今天在Mac下执行&lt;code&gt;brew update&lt;/code&gt;时出现以下错误提示：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew update&lt;br /&gt;
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。
-按我习惯性的方法，修改下目录的权限吧&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chmod -R g+w /usr/local&lt;br /&gt;
-  $ brew update&lt;br /&gt;
-还是出现错误提示
-Error: /usr/local must be writable!&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ brew doctor&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;上面是修改目录的写权限，现在修改目录的用户权限吧！！&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;$ sudo chown -R $(whoami) /usr/local&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;再次执行&lt;code&gt;brew doctor&lt;/code&gt;, 正常啦！！！&lt;br /&gt;
-再次执行&lt;code&gt;brew update&lt;/code&gt;, 终于正常，正常啦！！！&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;总结一下：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;升级了macos后没执行&lt;code&gt;brew doctor&lt;/code&gt;，导致&lt;code&gt;brew&lt;/code&gt; 出现问题。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;升级系统，一定要检测下第三方软件是否能正常工作。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;检测工作没执行到底呀。&lt;/li&gt;
-&lt;/ul&gt;
-</description>
+      <guid>https://48474.net/post/brew_update_error_fix/</guid>
+      <description>今天在Mac下执行brew update时出现以下错误提示：
+ $ brew update
+Error: /usr/local must be writable!
+ 以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
+ $ sudo chmod -R g+w /usr/local
+$ brew update
+还是出现错误提示 Error: /usr/local must be writable!
+ 有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
+ $ brew doctor
+ 上面是修改目录的写权限，现在修改目录的用户权限吧！！
+ $ sudo chown -R $(whoami) /usr/local
+ 再次执行brew doctor, 正常啦！！！
+再次执行brew update, 终于正常，正常啦！！！
+总结一下：
+ 升级了macos后没执行brew doctor，导致brew 出现问题。
+ 升级系统，一定要检测下第三方软件是否能正常工作。
+ 检测工作没执行到底呀。  </description>
     </item>
     
     <item>
       <title>CaddyServer使用记录</title>
-      <link>https://48474.com/post/caddy-guide/</link>
+      <link>https://48474.net/post/caddy-guide/</link>
       <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
       
-      <guid>https://48474.com/post/caddy-guide/</guid>
-      <description>&lt;p&gt;Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HTTP/2&lt;/li&gt;
-&lt;li&gt;Automatic HTTPS&lt;/li&gt;
-&lt;li&gt;Multi-core&lt;/li&gt;
-&lt;li&gt;Websockets&lt;/li&gt;
-&lt;li&gt;Markdown&lt;/li&gt;
-&lt;li&gt;IPv6&lt;/li&gt;
-&lt;li&gt;Git&lt;/li&gt;
-&lt;li&gt;FastCGI&lt;/li&gt;
-&lt;li&gt;&amp;hellip;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;下面举几个例子：&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;简单的测试网站&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;:8530 {
-    root /var/www/test_site
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;使用git同步测试环境&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;:8530 {
-    root /var/www/test_site/public
-    git git.int5262.com/user_name/project_name {
-        path ../
-        interval 60
-    }
-    fastcgi / 127.0.0.1:9001 php
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;站点跳转&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;http://48474.com, http://www.48474.com {
-    redir https://48474.com{uri}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的&lt;a href=&#34;https://caddyserver.com/docs&#34;&gt;User Guide&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;启动caddy也很简单&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Caddy官网 &lt;a href=&#34;https://caddyserver.com&#34;&gt;https://caddyserver.com&lt;/a&gt;&lt;br /&gt;
-官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;Caddy一键安装脚本 &lt;a href=&#34;https://getcaddy.com&#34;&gt;https://getcaddy.com&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;curl https://getcaddy.com | bash
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <guid>https://48474.net/post/caddy-guide/</guid>
+      <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
+ HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
+下面举几个例子：
+ 简单的测试网站
+  :8530 { root /var/www/test_site }   使用git同步测试环境
+  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }   站点跳转
+  http://48474.com, http://www.48474.com { redir https://48474.com{uri} }  看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。</description>
     </item>
     
     <item>
       <title>xorm 说明</title>
-      <link>https://48474.com/post/xorm-readme/</link>
+      <link>https://48474.net/post/xorm-readme/</link>
       <pubDate>Fri, 09 Oct 2015 16:13:10 +0800</pubDate>
       
-      <guid>https://48474.com/post/xorm-readme/</guid>
-      <description>
-
-&lt;p&gt;xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。&lt;/p&gt;
-
-&lt;h2 id=&#34;特性&#34;&gt;特性&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;支持Struct和数据库表之间的灵活映射，并支持自动同步表结构&lt;/li&gt;
-&lt;li&gt;事务支持&lt;/li&gt;
-&lt;li&gt;支持原始SQL语句和ORM操作的混合执行&lt;/li&gt;
-&lt;li&gt;使用连写来简化调用&lt;/li&gt;
-&lt;li&gt;支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件&lt;/li&gt;
-&lt;li&gt;支持级联加载Struct&lt;/li&gt;
-&lt;li&gt;支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存&lt;/li&gt;
-&lt;li&gt;支持反转，即根据数据库自动生成xorm的结构体&lt;/li&gt;
-&lt;li&gt;支持事件&lt;/li&gt;
-&lt;li&gt;支持created, updated, deleted和version记录版本（即乐观锁）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;驱动支持&#34;&gt;驱动支持&lt;/h2&gt;
-
-&lt;p&gt;xorm当前支持的驱动和数据库如下：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Mysql: &lt;a href=&#34;https://github.com/go-sql-driver/mysql&#34;&gt;github.com/go-sql-driver/mysql&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MyMysql: &lt;a href=&#34;https://github.com/ziutek/mymysql/godrv&#34;&gt;github.com/ziutek/mymysql/godrv&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;SQLite: &lt;a href=&#34;https://github.com/mattn/go-sqlite3&#34;&gt;github.com/mattn/go-sqlite3&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Postgres: &lt;a href=&#34;https://github.com/lib/pq&#34;&gt;github.com/lib/pq&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/denisenkom/go-mssqldb&#34;&gt;github.com/denisenkom/go-mssqldb&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;MsSql: &lt;a href=&#34;https://github.com/lunny/godbc&#34;&gt;github.com/lunny/godbc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;安装&#34;&gt;安装&lt;/h2&gt;
-
-&lt;p&gt;推荐使用 &lt;a href=&#34;https://github.com/gpmgo/gopm&#34;&gt;gopm&lt;/a&gt; 进行安装：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;gopm get github.com/go-xorm/xorm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;或者您也可以使用go工具进行安装：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get github.com/go-xorm/xorm
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;文档&#34;&gt;文档&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://xorm.io/docs&#34;&gt;操作指南&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://gowalker.org/github.com/go-xorm/xorm&#34;&gt;GoWalker代码文档&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://godoc.org/github.com/go-xorm/xorm&#34;&gt;Godoc代码文档&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;讨论&#34;&gt;讨论&lt;/h2&gt;
-
-&lt;p&gt;请加入QQ群：280360085 进行讨论。&lt;/p&gt;
-
-&lt;h2 id=&#34;贡献&#34;&gt;贡献&lt;/h2&gt;
-
-&lt;p&gt;如果您也想为Xorm贡献您的力量，请查看 &lt;a href=&#34;https://github.com/go-xorm/xorm/blob/master/CONTRIBUTING.md&#34;&gt;CONTRIBUTING&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;license&#34;&gt;LICENSE&lt;/h2&gt;
-
-&lt;p&gt;BSD License
-&lt;a href=&#34;http://creativecommons.org/licenses/BSD/&#34;&gt;http://creativecommons.org/licenses/BSD/&lt;/a&gt;&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/xorm-readme/</guid>
+      <description>xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。
+特性  支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁）  驱动支持 xorm当前支持的驱动和数据库如下：
+ Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc  安装 推荐使用 gopm 进行安装：
+gopm get github.com/go-xorm/xorm  或者您也可以使用go工具进行安装：
+go get github.com/go-xorm/xorm  文档  操作指南 GoWalker代码文档 Godoc代码文档  讨论 请加入QQ群：280360085 进行讨论。
+贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING</description>
     </item>
     
   </channel>

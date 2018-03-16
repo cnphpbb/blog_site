@@ -2,37 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Storage on DenysG的个人博客</title>
-    <link>https://48474.com/categories/storage/index.xml</link>
+    <link>https://48474.net/categories/storage/</link>
     <description>Recent content in Storage on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© 2016 135Get_Team. All rights reserved.</copyright>
-    <atom:link href="https://48474.com/categories/storage/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Oct 2015 12:23:12 +0800</lastBuildDate>
+    
+	<atom:link href="https://48474.net/categories/storage/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>存储知识：比较在线、近线和离线存储</title>
-      <link>https://48474.com/post/storage_knowledge/</link>
+      <link>https://48474.net/post/storage_knowledge/</link>
       <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
       
-      <guid>https://48474.com/post/storage_knowledge/</guid>
-      <description>
-
-&lt;p&gt;传统存储数据的方式有两种：在线存储和离线存储。&lt;/p&gt;
-
-&lt;h3 id=&#34;在线存储&#34;&gt;在线存储&lt;/h3&gt;
-
-&lt;p&gt;在线存储是指存储设备和所存储的数据时刻保持“在线”状态，可供用户随意读取，满足计算平台对数据访问的速度要求。就像PC机中常用的磁盘存储模式一样。一般在线存储设备为磁盘和磁盘阵列等存储设备，价格相对昂贵，但性能较好。&lt;/p&gt;
-
-&lt;h3 id=&#34;离线存储&#34;&gt;离线存储&lt;/h3&gt;
-
-&lt;p&gt;离线存储是对在线存储数据的备份，以防范可能发生的数据灾难。离线存储的数据不常被调用，一般也远离系统应用，所以人们用“离线”来生动地描述这种存储方式。&lt;/p&gt;
-
-&lt;p&gt;离线存储介质上的数据在读写时是顺序进行的。当需要读取数据时，需要把磁带卷到头，再进行定位。当需要对已写入的数据进行修改时，所有的数据都需要全部进行改写。因此，离线存储的访问速度慢、效率低。离线存储的典型产品是磁带库，价格相对低廉。&lt;/p&gt;
-
-&lt;h3 id=&#34;近线存储&#34;&gt;近线存储&lt;/h3&gt;
-
-&lt;p&gt;所谓近线存储(NearStore)，是随着客户存储环境的细化所提出的一个概念，所谓的近线存储，外延相对较广泛，主要定位于客户在线存储和离线存储之间的应用。就是指将那些并不是经常用到，或者说数据的访问量并不大的数据存放在性能较低的存储设备上。但同时对这些的设备要求是寻址迅速、传输率高。(例如客户一些长期保存的不长用的文件的归档)。因此，近线存储对性能要求相对来说并不高，但又要求相对较好的访问性能。同时多数情况下由于不常用的数据要占总数据量的比较大的比重，这也就要求近线存储设备在需要容量相对较大。&lt;/p&gt;
-</description>
+      <guid>https://48474.net/post/storage_knowledge/</guid>
+      <description>传统存储数据的方式有两种：在线存储和离线存储。
+在线存储 在线存储是指存储设备和所存储的数据时刻保持“在线”状态，可供用户随意读取，满足计算平台对数据访问的速度要求。就像PC机中常用的磁盘存储模式一样。一般在线存储设备为磁盘和磁盘阵列等存储设备，价格相对昂贵，但性能较好。
+离线存储 离线存储是对在线存储数据的备份，以防范可能发生的数据灾难。离线存储的数据不常被调用，一般也远离系统应用，所以人们用“离线”来生动地描述这种存储方式。
+离线存储介质上的数据在读写时是顺序进行的。当需要读取数据时，需要把磁带卷到头，再进行定位。当需要对已写入的数据进行修改时，所有的数据都需要全部进行改写。因此，离线存储的访问速度慢、效率低。离线存储的典型产品是磁带库，价格相对低廉。
+近线存储 所谓近线存储(NearStore)，是随着客户存储环境的细化所提出的一个概念，所谓的近线存储，外延相对较广泛，主要定位于客户在线存储和离线存储之间的应用。就是指将那些并不是经常用到，或者说数据的访问量并不大的数据存放在性能较低的存储设备上。但同时对这些的设备要求是寻址迅速、传输率高。(例如客户一些长期保存的不长用的文件的归档)。因此，近线存储对性能要求相对来说并不高，但又要求相对较好的访问性能。同时多数情况下由于不常用的数据要占总数据量的比较大的比重，这也就要求近线存储设备在需要容量相对较大。</description>
     </item>
     
   </channel>

@@ -8,7 +8,7 @@
     <div class="summary">
       <h2><a href="{{ .Permalink }}">{{ .Title }} {{ if .Draft }}:: DRAFT{{end}}</a></h2>
       <div class="meta">
-        {{ .Date.Format "2006-01-02" }} &nbsp;
+        {{ .Date.Format "Jan 2, 2006" }} &nbsp;
         {{ range .Params.tags }}
           #<a href="/tags/{{ . | urlize }}">{{ . }}</a>&nbsp;
         {{ end }}

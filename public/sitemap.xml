@@ -1,256 +1,259 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://48474.com/post/vps_debian_unremove_service/</loc>
+    <loc>https://48474.net/post/vps_debian_unremove_service/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/brew_update_error_fix/</loc>
+    <loc>https://48474.net/post/brew_update_error_fix/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/caddy-guide/</loc>
+    <loc>https://48474.net/post/caddy-guide/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/git_more_ssh_keygen/</loc>
+    <loc>https://48474.net/post/git_more_ssh_keygen/</loc>
     <lastmod>2015-12-31T09:24:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/service_interface_advantages_and_disadvantages/</loc>
+    <loc>https://48474.net/post/service_interface_advantages_and_disadvantages/</loc>
     <lastmod>2015-10-10T18:18:56+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/config-solutions-for-golang-app/</loc>
+    <loc>https://48474.net/post/config-solutions-for-golang-app/</loc>
     <lastmod>2015-10-10T13:44:31+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/storage_knowledge/</loc>
+    <loc>https://48474.net/post/storage_knowledge/</loc>
     <lastmod>2015-10-10T12:23:12+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/post/xorm-readme/</loc>
+    <loc>https://48474.net/post/xorm-readme/</loc>
     <lastmod>2015-10-09T16:13:10+08:00</lastmod>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/brew/</loc>
+    <loc>https://48474.net/tags/brew/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/brew/</loc>
+    <loc>https://48474.net/categories/brew/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/caddy/</loc>
+    <loc>https://48474.net/tags/caddy/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/caddy/</loc>
+    <loc>https://48474.net/categories/caddy/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/</loc>
+    <loc>https://48474.net/categories/</loc>
+    <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/config/</loc>
+    <loc>https://48474.net/tags/config/</loc>
     <lastmod>2015-10-10T13:44:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/config/</loc>
+    <loc>https://48474.net/categories/config/</loc>
     <lastmod>2015-10-10T13:44:31+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/debian/</loc>
+    <loc>https://48474.net/tags/debian/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/debian8/</loc>
+    <loc>https://48474.net/categories/debian8/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/</loc>
+    <loc>https://48474.net/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/exim4/</loc>
+    <loc>https://48474.net/tags/exim4/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/git/</loc>
+    <loc>https://48474.net/tags/git/</loc>
     <lastmod>2015-12-31T09:24:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/golang/</loc>
+    <loc>https://48474.net/tags/golang/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/golang/</loc>
+    <loc>https://48474.net/categories/golang/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/guide/</loc>
+    <loc>https://48474.net/tags/guide/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/guide/</loc>
+    <loc>https://48474.net/categories/guide/</loc>
     <lastmod>2016-12-22T14:37:00+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/interface/</loc>
+    <loc>https://48474.net/tags/interface/</loc>
     <lastmod>2015-10-10T18:18:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/knowledge/</loc>
+    <loc>https://48474.net/tags/knowledge/</loc>
     <lastmod>2015-12-31T09:24:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/knowledge/</loc>
+    <loc>https://48474.net/categories/knowledge/</loc>
     <lastmod>2015-12-31T09:24:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/linux/</loc>
+    <loc>https://48474.net/tags/linux/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/mac/</loc>
+    <loc>https://48474.net/tags/mac/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/mac/</loc>
+    <loc>https://48474.net/categories/mac/</loc>
     <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/nfs/</loc>
+    <loc>https://48474.net/tags/nfs/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/post/</loc>
+    <loc>https://48474.net/post/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/rpcbind/</loc>
+    <loc>https://48474.net/tags/rpcbind/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/service/</loc>
+    <loc>https://48474.net/tags/service/</loc>
     <lastmod>2015-10-10T18:18:56+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/solutions/</loc>
+    <loc>https://48474.net/tags/solutions/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/solutions/</loc>
+    <loc>https://48474.net/categories/solutions/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/ssh_keygen/</loc>
+    <loc>https://48474.net/tags/ssh_keygen/</loc>
     <lastmod>2015-12-31T09:24:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/storage/</loc>
+    <loc>https://48474.net/tags/storage/</loc>
     <lastmod>2015-10-10T12:23:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/storage/</loc>
+    <loc>https://48474.net/categories/storage/</loc>
     <lastmod>2015-10-10T12:23:12+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/</loc>
+    <loc>https://48474.net/tags/</loc>
+    <lastmod>2016-12-26T12:51:15+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/vps/</loc>
+    <loc>https://48474.net/tags/vps/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/vps/</loc>
+    <loc>https://48474.net/categories/vps/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/tags/xorm/</loc>
+    <loc>https://48474.net/tags/xorm/</loc>
     <lastmod>2015-10-09T16:13:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://48474.com/categories/xorm/</loc>
+    <loc>https://48474.net/categories/xorm/</loc>
     <lastmod>2015-10-09T16:13:10+08:00</lastmod>
     <priority>0</priority>
   </url>
