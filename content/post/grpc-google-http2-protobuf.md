@@ -8,7 +8,7 @@ Description: "gRPC是一个高性能、通用的开源RPC框架，该框架已�
 Tags: ["gRPC","guide","solutions","golang","RPC框架","开源"]
 ---
 
-[gRPC][^grpc]是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于[HTTP/2][^http2]协议标准而设计，基于[ProtoBuf][^protobuf](Protocol Buffers)序列化协议开发，且支持众多开发语言。gRPC提供了一种简单的方法来精确地定义服务和为iOS、Android和后台支持服务自动生成可靠性很强的客户端功能库。客户端充分利用高级流和链接功能，从而有助于节省带宽、降低的TCP链接次数、节省CPU使用、和电池寿命。
+[gRPC](https://github.com/grpc/)是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于[HTTP/2](https://http2.github.io/)协议标准而设计，基于[ProtoBuf](http://en.wikipedia.org/wiki/Protocol_Buffers)(Protocol Buffers)序列化协议开发，且支持众多开发语言。gRPC提供了一种简单的方法来精确地定义服务和为iOS、Android和后台支持服务自动生成可靠性很强的客户端功能库。客户端充分利用高级流和链接功能，从而有助于节省带宽、降低的TCP链接次数、节省CPU使用、和电池寿命。
 
 gRPC具有以下重要特征：
 
@@ -18,7 +18,7 @@ gRPC具有以下重要特征：
 
   定义服务的示例代码如下：
 
-  ```
+  ```go
   message HelloRequest {
     string greeting = 1;
   }
@@ -45,11 +45,4 @@ gRPC已经应用在Google的云服务和对外提供的API中，其主要应用�
 * 设计语言独立、高效、精确的新协议
 * 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等
 
-近日，gRPC开发团队宣布gRPC基于 [BSD 3-Clause License][^bsd3] 许可协议开源，相关代码已托管在[GitHub][^grpc]上。当前已有Google和移动支付公司[Square][^Square]以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在[gRPC-common][^gRPC-common]仓库中，还提供了例子、快速入门指南等相关文档。
-
-[^bsd3]: http://opensource.org/licenses/BSD-3-Clause/
-[^grpc]: https://github.com/grpc/
-[^Square]: https://squareup.com/s
-[^gRPC-common]: https://github.com/grpc/grpc-common
-[^http2]: https://http2.github.io/
-[^protobuf]: http://en.wikipedia.org/wiki/Protocol_Buffers
+近日，gRPC开发团队宣布gRPC基于 [BSD 3-Clause License](http://opensource.org/licenses/BSD-3-Clause/) 许可协议开源，相关代码已托管在[GitHub](https://github.com/grpc)上。当前已有Google和移动支付公司[Square](https://squareup.com)以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在[gRPC-common](https://github.com/grpc/grpc-common)仓库中，还提供了例子、快速入门指南等相关文档。
