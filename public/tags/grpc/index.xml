@@ -25,7 +25,7 @@ gRPC具有以下重要特征：
  基于HTTP/2标准设计   由于gRPC基于HTTP/2标准设计，所以相对于其他RPC框架，gRPC带来了更多强大功能，如双向流、头部压缩、多复用请求等。这些功能给移动设备带来重大益处，如节省带宽、降低TCP链接次数、节省CPU使用和延长电池寿命等。同时，gRPC还能够提高了云端服务和Web应用的性能。gRPC既能够在客户端应用，也能够在服务器端应用，从而以透明的方式实现客户端和服务器端的通信和简化通信系统的构建。
 gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
  低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等  近日，gRPC开发团队宣布gRPC基于 [BSD 3-Clause License]3 许可协议开源，相关代码已托管在[GitHub]1上。当前已有Google和移动支付公司Square4以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common5仓库中，还提供了例子、快速入门指南等相关文档。
- https://github.com/grpc/ &amp;ldquo;gRPC&amp;rdquo; [return] https://http2.</description>
+ https://github.com/grpc/ [return] https://http2.github.io/ [return] http://opensource.</description>
     </item>
     
   </channel>
