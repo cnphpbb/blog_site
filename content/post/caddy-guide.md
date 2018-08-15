@@ -5,7 +5,7 @@ date = "2016-12-22T14:37:00+08:00"
 menu = "main"
 Categories = ["Golang", "Caddy", "Guide"]
 Description = "CaddyServer是一个基于Golang开发，易于配置和使用的Web服务器架设系统，支持HTTP/2、IPV6、WebSockets、FastCGI、Markdown等，无论你是设计师还是开发者都可以通过该系统轻松的架设自己的站点，传统的Web服务器架设很复杂，而CaddyServer更注重简化的操控。"
-Tags = ["caddy", "guide","solutions","golang"]
+Tags = ["caddy", "guide","solutions","golang","开源"]
 +++
 
 Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It's 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:

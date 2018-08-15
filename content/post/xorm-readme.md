@@ -1,7 +1,7 @@
 +++
 Categories = ["Xorm", "GoLang",]
 Description = "xorm readme"
-Tags = ["xorm", "golang", "guide"]
+Tags = ["xorm", "golang", "guide","开源"]
 date = "2015-10-09T16:13:10+08:00"
 draft = false
 menu = "main"
