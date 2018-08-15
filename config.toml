@@ -1,7 +1,22 @@
 baseurl = "https://48474.net/"
+defaultContentLanguage = "en"
+enableEmoji = true
 languageCode = "en-us"
+metaDataFormat = "toml"
 title = "DenysG的个人博客"
 theme = "angels-ladder"
+
+pluralizeListTitles = false
+
+# Highlighting config (Pygments)
+pygmentsCodeFences = true
+pygmentsOptions = ""
+# Use the Chroma stylesheet
+pygmentsUseClasses = true
+pygmentsUseClassic = false
+
+# See https://help.farbox.com/pygments.html
+pygmentsStyle = "trac"
 
 [params]
     description = "DenysG'blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。"
@@ -9,3 +24,10 @@ theme = "angels-ladder"
     github    = "https://github.com/cnphpbb/"
     copyright = "© 2018 135Get_Team. All rights reserved."
     dateFormat = "2006/01/02"
+
+[blackfriday]
+    plainIDAnchors = true
+    # See https://github.com/gohugoio/hugo/issues/2424
+    hrefTargetBlank = false
+    angledQuotes = false
+    latexDashes = true
