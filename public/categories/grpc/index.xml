@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Guide on DenysG的个人博客</title>
-    <link>https://48474.net/categories/guide/</link>
-    <description>Recent content in Guide on DenysG的个人博客</description>
+    <title>Grpc on DenysG的个人博客</title>
+    <link>https://48474.net/categories/grpc/</link>
+    <description>Recent content in Grpc on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Aug 2018 11:16:15 +0800</lastBuildDate>
     
-	<atom:link href="https://48474.net/categories/guide/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://48474.net/categories/grpc/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -26,21 +26,6 @@ gRPC具有以下重要特征：
 gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
  低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等  近日，gRPC开发团队宣布gRPC基于 [BSD 3-Clause License]3 许可协议开源，相关代码已托管在[GitHub]1上。当前已有Google和移动支付公司Square4以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common5仓库中，还提供了例子、快速入门指南等相关文档。
  https://github.com/grpc/ &amp;ldquo;gRPC&amp;rdquo; [return] https://http2.</description>
-    </item>
-    
-    <item>
-      <title>CaddyServer使用记录</title>
-      <link>https://48474.net/post/caddy-guide/</link>
-      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
-      
-      <guid>https://48474.net/post/caddy-guide/</guid>
-      <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
- HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
-下面举几个例子：
- 简单的测试网站
-  :8530 { root /var/www/test_site }   使用git同步测试环境
-  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }   站点跳转
-  http://48474.com, http://www.48474.com { redir https://48474.com{uri} }  看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。</description>
     </item>
     
   </channel>
