@@ -47,9 +47,9 @@ gRPC已经应用在Google的云服务和对外提供的API中，其主要应用�
 
 近日，gRPC开发团队宣布gRPC基于 [BSD 3-Clause License][^bsd3] 许可协议开源，相关代码已托管在[GitHub][^grpc]上。当前已有Google和移动支付公司[Square][^Square]以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在[gRPC-common][^gRPC-common]仓库中，还提供了例子、快速入门指南等相关文档。
 
-[^bsd3]: http://opensource.org/licenses/BSD-3-Clause/  "BSD 3-Clause License"
-[^grpc]: https://github.com/grpc/  "gRPC"
-[^Square]: https://squareup.com/  "Square"
+[^bsd3]: http://opensource.org/licenses/BSD-3-Clause/
+[^grpc]: https://github.com/grpc/
+[^Square]: https://squareup.com/s
 [^gRPC-common]: https://github.com/grpc/grpc-common
 [^http2]: https://http2.github.io/
 [^protobuf]: http://en.wikipedia.org/wiki/Protocol_Buffers
