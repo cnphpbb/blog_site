@@ -75,15 +75,15 @@
     <article>
       
 
-<h5 id="问题阐述">问题阐述</h5>
+<h3 id="问题阐述">问题阐述</h3>
 
 <p>当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。</p>
 
-<h5 id="问题解决">问题解决</h5>
+<h3 id="问题解决">问题解决</h3>
 
 <p>我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题</p>
 
-<h5 id="具体步骤">具体步骤</h5>
+<h3 id="具体步骤">具体步骤</h3>
 
 <ul>
 <li><p>生成第一个ssh key(这里我用于github，用的gmail邮箱)</p>
@@ -112,7 +112,7 @@ id_rsa_gitlab.pub
 
 <li><p>打开ssh-agent</p>
 
-<p>这里如果你用的github官方的bash，ssh-agent -s,<br>
+<p>这里如果你用的github官方的bash，ssh-agent -s,<br />
 如果是其他的，比如msysgit,eval $(ssh-agent -s)。</p></li>
 
 <li><p>添加私钥</p>
@@ -134,7 +134,7 @@ ssh-add ~/.ssh/id_rsa_gitlab
 </ul>
 
 <pre><code># gitlab
-Host git.iboxpay.com
+Host git.int-5262.com
 HostName git.int-5262.com  //这里填你们公司的git网址即可
 PreferredAuthentications publickey
 IdentityFile ~/.ssh/id_rsa_gitlab
@@ -160,7 +160,8 @@ Welcome to GitLab, yong.geng!
 
 <h5 id="补充一下">补充一下</h5>
 
-<p>如果之前有设置全局用户名和邮箱的话，需要unset一下</p>
+<p>如果之前有设置全局用户名和邮箱的话，需要unset一下</p></li>
+</ul>
 
 <pre><code>git config --global --unset user.name
 git config --global --unset user.email
@@ -173,8 +174,7 @@ git config --global --unset user.email
 git config user.email &quot;youremail&quot;
 </code></pre>
 
-<p>在自己的github的仓库在执行刚刚的命令一遍即可。</p></li>
-</ul>
+<p>在自己的github的仓库在执行刚刚的命令一遍即可。</p>
 
 <p><strong>这样就可以在不同的仓库，已不同的账号登录。</strong></p>
 

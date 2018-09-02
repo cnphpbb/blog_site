@@ -34,7 +34,7 @@ ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab  创建并修改config
 新建一个txt文本，然后将名字后缀一起改成config即可。
  linux|unix
 在bash下的话直接touch config 即可。
-  # gitlab Host git.iboxpay.com HostName git.int-5262.com //这里填你们公司的git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
+  # gitlab Host git.int-5262.com HostName git.int-5262.com //这里填你们公司的git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
     </item>
     
   </channel>
