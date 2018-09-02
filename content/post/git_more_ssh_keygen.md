@@ -9,15 +9,15 @@ Tags = ["knowledge","git","ssh_keygen"]
 +++
 
 
-##### 问题阐述
+### 问题阐述
 
 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
 
-##### 问题解决
+### 问题解决
 
 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
 
-##### 具体步骤
+### 具体步骤
 
 * 生成第一个ssh key(这里我用于github，用的gmail邮箱)
 
@@ -49,7 +49,7 @@ Tags = ["knowledge","git","ssh_keygen"]
 
 * 打开ssh-agent
 
-	这里如果你用的github官方的bash，ssh-agent -s,<br>
+	这里如果你用的github官方的bash，ssh-agent -s,  
 	如果是其他的，比如msysgit,eval $(ssh-agent -s)。
 
 * 添加私钥
@@ -71,7 +71,7 @@ Tags = ["knowledge","git","ssh_keygen"]
 	
 	```
 	# gitlab
-    Host git.iboxpay.com
+    Host git.int-5262.com
     HostName git.int-5262.com  //这里填你们公司的git网址即可
     PreferredAuthentications publickey
     IdentityFile ~/.ssh/id_rsa_gitlab
@@ -95,16 +95,20 @@ Tags = ["knowledge","git","ssh_keygen"]
 ***
 ##### 补充一下
 如果之前有设置全局用户名和邮箱的话，需要unset一下
+
 ```
 git config --global --unset user.name
 git config --global --unset user.email
 ```
+
 然后在不同的仓库下设置局部的用户名和邮箱
 比如在公司的repository下
+
 ```
 git config user.name "yourname"
 git config user.email "youremail"
 ```
+
 在自己的github的仓库在执行刚刚的命令一遍即可。
 
 **这样就可以在不同的仓库，已不同的账号登录。**
