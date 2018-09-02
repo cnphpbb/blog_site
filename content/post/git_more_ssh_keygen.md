@@ -21,79 +21,81 @@ Tags = ["knowledge","git","ssh_keygen"]
 
 * 生成第一个ssh key(这里我用于github，用的gmail邮箱)
 
-	```
-	ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-	```
+    ```
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    ```
 
-	这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。<br>
-	完成之后我们可以看到~/.ssh目录下多了两个文件。
+    这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。  
+    完成之后我们可以看到~/.ssh目录下多了两个文件。
 
-	```
-	id_rsa_github
-	id_rsa_github.pub
-	```
+    ```
+    id_rsa_github
+    id_rsa_github.pub
+    ```
 
 * 生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
 
-	```
-	ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
-	```
+    ```
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    ```
 
-	还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。<br>
-	完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
+    还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。  
+    完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
 
-	```
-	id_rsa_gitlab
-	id_rsa_gitlab.pub
-	```
+    ```
+    id_rsa_gitlab
+    id_rsa_gitlab.pub
+    ```
 
 * 打开ssh-agent
 
-	这里如果你用的github官方的bash，ssh-agent -s,  
-	如果是其他的，比如msysgit,eval $(ssh-agent -s)。
+    这里如果你用的github官方的bash，ssh-agent -s,  
+    如果是其他的，比如msysgit,eval $(ssh-agent -s)。
 
 * 添加私钥
 
-	```
-	ssh-add ~/.ssh/id_rsa_github
-	ssh-add ~/.ssh/id_rsa_gitlab
-	```
+    ```
+    ssh-add ~/.ssh/id_rsa_github
+    ssh-add ~/.ssh/id_rsa_gitlab
+    ```
 
 * 创建并修改config文件
 
-	* windows
-	
-		新建一个txt文本，然后将名字后缀一起改成config即可。
-	
-	* linux|unix
-	
-		在bash下的话直接touch config 即可。
-	
-	```
-	# gitlab
-    Host git.int-5262.com
-    HostName git.int-5262.com  //这里填你们公司的git网址即可
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_gitlab
-    User yong.geng
+  * windows
 
-    # github
-    Host github.com
-    HostName github.com
-    PreferredAuthentications publickey
-    IdentityFile ~/.ssh/id_rsa_github
-    User cnphpbb
-	```
-	
+    新建一个txt文本，然后将名字后缀一起改成config即可。
+
+  * linux|unix
+
+    在bash下的话直接touch config 即可。
+
+    ```
+    # gitlab
+      Host git.int-5262.com      //别名
+      HostName git.int-5262.com  //主机地址  这里填git网址即可
+      PreferredAuthentications publickey
+      IdentityFile ~/.ssh/id_rsa_gitlab
+      User yong.geng
+
+      # github
+      Host github.com
+      HostName github.com
+      PreferredAuthentications publickey
+      IdentityFile ~/.ssh/id_rsa_github
+      User cnphpbb
+    ```
+
 * 在github和gitlab上添加公钥即可，这里不再多说。
 * 最后一步`测试`
 
-	```
-	$ ssh -T git@git.int-5262.com
-	Welcome to GitLab, yong.geng!
-	```
+  ```shell
+  $ ssh -T git@git.int-5262.com
+  Welcome to GitLab, yong.geng!
+  ```
+
 ***
-##### 补充一下
+#### 补充一下
+
 如果之前有设置全局用户名和邮箱的话，需要unset一下
 
 ```
