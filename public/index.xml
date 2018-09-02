@@ -96,7 +96,7 @@ $ brew update
       <description>问题阐述 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
 问题解决 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
 具体步骤  生成第一个ssh key(这里我用于github，用的gmail邮箱)
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  这里不要一路回传，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
+ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件。
 id_rsa_github id_rsa_github.pub  生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
 ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
@@ -106,11 +106,9 @@ id_rsa_gitlab id_rsa_gitlab.pub  打开ssh-agent
 如果是其他的，比如msysgit,eval $(ssh-agent -s)。
  添加私钥
 ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab  创建并修改config文件
- windows
-新建一个txt文本，然后将名字后缀一起改成config即可。
- linux|unix
-在bash下的话直接touch config 即可。
-  # gitlab Host git.int-5262.com HostName git.int-5262.com //这里填你们公司的git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
+ windows  新建一个txt文本，然后将名字后缀一起改成config即可。
+ linux|unix  在bash下的话直接touch config 即可。
+# gitlab Host git.int-5262.com //别名 HostName git.int-5262.com //主机地址 这里填git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
     </item>
     
     <item>
