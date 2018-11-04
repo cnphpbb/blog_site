@@ -90,12 +90,25 @@
 <h3 id="开发常用的指令">开发常用的指令</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker search debian  
 </span><span class="c1"># docker pull debian:&lt;tag&gt;
-</span><span class="c1"># docker run -it --rm debian // 启动一个容器，并且在运行结束后删除容器
-</span><span class="c1"># docker run --name mydebian -it --rm debian // 启动一个容器并命名为mydebian
-</span><span class="c1"># docker run -it --rm debian sh -c &#34;cmd1 &amp;&amp; cmd2&#34; //启动容器并执行多个命令
-</span><span class="c1"># docker run -it --rm --mount type=bind,source=/&lt;host-path&gt;,target=/&lt;container-path&gt; debian // 启动容器并挂载本机目录
-</span><span class="c1"></span># docker run -it --rm -v &lt;host-path&gt;:&lt;container-path&gt; debian //上面的简化</code></pre></div>
-<h3 id="创建新的网络-并在启动本地容器的时候-指定ip">创建新的网络,并在启动本地容器的时候 <code>指定ip</code></h3>
+</span><span class="c1"></span>
+// 启动一个容器，并且在运行结束后删除容器
+<span class="c1"># docker run -it --rm debian
+</span><span class="c1"></span>
+// 启动一个容器并命名为mydebian
+<span class="c1"># docker run --name mydebian -it --rm debian
+</span><span class="c1"></span>
+//启动容器并执行多个命令
+<span class="c1"># docker run -it --rm debian sh -c &#34;cmd1 &amp;&amp; cmd2&#34;
+</span><span class="c1"></span>
+// 启动容器并挂载本机目录
+<span class="c1"># docker run -it --rm \
+</span><span class="c1"></span>  --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/&lt;host-path&gt;, <span class="se">\
+</span><span class="se"></span>  <span class="nv">target</span><span class="o">=</span>/&lt;container-path&gt; <span class="se">\
+</span><span class="se"></span>  debian
+
+//上面的简化
+# docker run -it --rm -v &lt;host-path&gt;:&lt;container-path&gt; debian</code></pre></div>
+<h3 id="创建新的网络-并在启动本地容器的时候-指定ip">创建新的网络,并在启动本地容器的时候 <strong>指定ip</strong></h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker network create --subnet=172.20.0.0/16 mynet
 </span><span class="c1"></span># docker run --net mynet --ip <span class="m">172</span>.20.0.22 -it alpine:3 sh</code></pre></div>
 <h3 id="清理操作">清理操作</h3>
