@@ -95,6 +95,8 @@ Tags = ["docker","guide"]
   cnphpbb/php7.1.23-alpine:1.2.3 php start.php
 ```
 
-> 使用docker作为开发环境，特别的方便。 本地系统没有任何污染，拯救系统洁癖专用。尤其是在windows下面，省去了很多麻烦。
+> 使用docker作为开发环境，特别的方便。  
+本地系统没有任何污染，拯救系统洁癖专用。  
+尤其是在windows下面，省去了很多麻烦。
 
 [1]: https://docs.docker.com/engine/reference/commandline/cli/
