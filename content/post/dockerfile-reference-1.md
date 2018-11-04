@@ -1,7 +1,7 @@
 +++
 title = "Dockerfile 参考文档 （一）"
 date = "2018-09-02T12:01:39+08:00"
-draft = true
+draft = false
 menu = "main"
 Categories = ["Docker", "Dockerfile", "Guide"]
 Description = "Dockerfile参考文档, 写好Dockerfile的一个非常重要的文档。"

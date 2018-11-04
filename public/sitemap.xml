@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://48474.net/post/dockerfile-reference-1/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://48474.net/post/grpc-google-http2-protobuf/</loc>
     <lastmod>2018-08-15T11:16:15+08:00</lastmod>
   </url>
@@ -103,7 +108,31 @@
   
   <url>
     <loc>https://48474.net/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/docker/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/categories/docker/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/dockerfile/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/categories/dockerfile/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -145,13 +174,13 @@
   
   <url>
     <loc>https://48474.net/tags/guide/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://48474.net/categories/guide/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -199,7 +228,13 @@
   
   <url>
     <loc>https://48474.net/post/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/reference/</loc>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -283,7 +318,7 @@
   
   <url>
     <loc>https://48474.net/tags/%E5%BC%80%E6%BA%90/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
+    <lastmod>2018-09-02T12:01:39+08:00</lastmod>
     <priority>0</priority>
   </url>
   

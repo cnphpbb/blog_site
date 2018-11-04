@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dockerfile on DenysG的个人博客</title>
+    <link>https://48474.net/tags/dockerfile/</link>
+    <description>Recent content in Dockerfile on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 02 Sep 2018 12:01:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://48474.net/tags/dockerfile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerfile 参考文档 （一）</title>
+      <link>https://48474.net/post/dockerfile-reference-1/</link>
+      <pubDate>Sun, 02 Sep 2018 12:01:39 +0800</pubDate>
+      
+      <guid>https://48474.net/post/dockerfile-reference-1/</guid>
+      <description>Dockerfile Dockerfile 是由一系列命令和参数构成的脚本，一个 Dockerfile 里面包含了构建整个 image 的完整命令。Docker通过 docker build 执行Dockerfile 中的一系列命令自动构建 image。
+Dockerfile 其语法非常简单，此页面描述了您可以在 Dockerfile 中使用的命令。 阅读此页面后，你可以参阅Dockerfile最佳实践。
+Usage docker build 命令从 Dockerfile 和 context 构建image。context 是 PATH 或URL 处的文件。PATH 本地文件目录。 URL 是Git repository的位置。
+context 以递归方式处理。因此，PATH 包括任何子目录，URL 包括repository及submodules。一个使用当前目录作为 context 的简单构建命令：
+$ docker build . Sending build context to Docker daemon 6.51 MB ... 构建由Docker守护程序运行，而不是由CLI运行。构建过程所做的第一件事是将整个context（递归地）发送给守护进程。大多数情况下，最好是将 Dockerfile 和所需文件复制到一个空的目录，再到这个目录进行构建。
+ 警告：不要使用根目录 / 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。
+ build时添加文件，通过 Dockerfile 引用指令中指定的文件，例如 COPY 指令。要增加构建的性能，请通过将.dockerignore 文件添加到 context 目录中来排除文件和目录。有关如何创建 .dockerignore 文件的信息，请参阅此页上的文档。</description>
+    </item>
+    
+  </channel>
+</rss>
