@@ -197,12 +197,10 @@ article p {
   margin: 25px 0;
 }
 article code {
-  color: #333;
-  background-color: #eee;
+  color: #ff9401;
   padding: 0 3px;
   margin: 0 3px;
-  border: 1px solid #ccc;
-  font-family: consolas, "Courier New", monospace;
+  border: 0;
 }
 article pre code {
   font-family: consolas, "Courier New", monospace;

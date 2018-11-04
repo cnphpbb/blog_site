@@ -23,14 +23,27 @@ Tags = ["docker","guide"]
 ```sh
 # docker search debian  
 # docker pull debian:<tag>
-# docker run -it --rm debian // 启动一个容器，并且在运行结束后删除容器
-# docker run --name mydebian -it --rm debian // 启动一个容器并命名为mydebian
-# docker run -it --rm debian sh -c "cmd1 && cmd2" //启动容器并执行多个命令
-# docker run -it --rm --mount type=bind,source=/<host-path>,target=/<container-path> debian // 启动容器并挂载本机目录
-# docker run -it --rm -v <host-path>:<container-path> debian //上面的简化
+
+// 启动一个容器，并且在运行结束后删除容器
+# docker run -it --rm debian
+
+// 启动一个容器并命名为mydebian
+# docker run --name mydebian -it --rm debian
+
+//启动容器并执行多个命令
+# docker run -it --rm debian sh -c "cmd1 && cmd2"
+
+// 启动容器并挂载本机目录
+# docker run -it --rm \
+  --mount type=bind,source=/<host-path>, \
+  target=/<container-path> \
+  debian
+
+//上面的简化
+# docker run -it --rm -v <host-path>:<container-path> debian
 ```
 
-### 创建新的网络,并在启动本地容器的时候 `指定ip`
+### 创建新的网络,并在启动本地容器的时候 **指定ip**
 
 ```sh
 # docker network create --subnet=172.20.0.0/16 mynet
