@@ -4,8 +4,8 @@ date: 2018-11-05T02:31:05+08:00
 draft: true
 menu: "main"
 Categories: ["mysql", "Guide"]
-Description = "Mysql 的 sql_mode 配置"
-Tags = ["mysql", "guide","sql_mode"]
+Description: "Mysql 的 sql_mode 配置"
+Tags: ["mysql", "guide","sql_mode"]
 ---
 
 在 `oracle` 或 `sqlserver` 或 `PostgreSQL` 中，如果某个表的字段设置成 `not null`， `insert` 或 `update` 时不给这个字段赋值，必然报错。
