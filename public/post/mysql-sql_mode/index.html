@@ -101,9 +101,12 @@
 <p>如果使用 <code>mysql</code>，为了继续保留大家使用 <code>oracle</code> 的习惯，可以对 <code>mysql</code> 的<code>sql_mode</code> 设置如下：</p>
 
 <p>在my.cnf添加如下配置</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim">[<span class="nx">mysqld</span>]<span class="err">
-</span><span class="err"></span><span class="nx">sql_mode</span><span class="p">=</span>&#39;<span class="nx">ONLY_FULL_GROUP_BY</span><span class="p">,</span><span class="nx">NO_AUTO_VALUE_ON_ZERO</span><span class="p">,</span><span class="nx">STRICT_TRANS_TABLES</span><span class="p">,</span><span class="nx">NO_ZERO_IN_DATE</span><span class="p">,</span><span class="nx">NO_ZERO_DATE</span><span class="p">,</span><span class="err">
-</span><span class="err"></span><span class="nx">ERROR_FOR_DIVISION_BY_ZERO</span><span class="p">,</span><span class="nx">NO_AUTO_CREATE_USER</span><span class="p">,</span><span class="nx">NO_ENGINE_SUBSTITUTION</span><span class="p">,</span><span class="nx">PIPES_AS_CONCAT</span><span class="p">,</span><span class="nx">ANSI_QUOTES</span>&#39;</code></pre></div>
+
+<pre><code>[mysqld]
+sql_mode='ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,
+ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES'
+</code></pre>
+
 <p>补充两句：</p>
 
 <p>在 <code>mysql 5.7</code> 版本以后 默认是开启了 <strong>严格模式</strong> 的。 这点我也比较赞成的。</p>
@@ -117,8 +120,10 @@
 </code></pre></li>
 
 <li><p>修改 <code>my.cnf</code>, 简单</p>
-<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim">[<span class="nx">mysqld</span>]<span class="err">
-</span><span class="err"></span><span class="nx">sql_mode</span><span class="p">=</span><span class="nx">NO_ENGINE_SUBSTITUTION</span><span class="p">,</span><span class="nx">STRICT_TRANS_TABLES</span></code></pre></div></li>
+
+<pre><code>[mysqld]
+sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
+</code></pre></li>
 </ol>
 
 <p>参考网址：
