@@ -1,7 +1,7 @@
 ---
 title: "Mysql 的 sql_mode 配置"
 date: 2018-11-05T02:31:05+08:00
-draft: true
+draft: false
 menu: "main"
 Categories: ["mysql", "Guide"]
 Description: "Mysql 的 sql_mode 配置"
@@ -25,7 +25,7 @@ Tags: ["mysql", "guide","sql_mode"]
     这种模式下，`not null` 的字段，在 `insert` 或 `update` 时不设置值也能成功，db在插入时，会自动给默认值。  
     比如: `int` 会给 `0` 值，甚至可以把 `abc` 赋值给 `int型` 的字段`（`当然，db会自动忽略该值，变成默认值 **0** `）`
 
-1. 所谓的严格模式
+2. 所谓的严格模式
 
     具体有很多可选值，设置成严格模式后，`mysql` 就跟传统的 `oracle`、`sqlserver`、 `PostgreSQL`, 表现一致了，这也是我个人强烈推荐的模式。
 
