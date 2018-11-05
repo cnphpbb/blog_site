@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://48474.net/post/mysql-sql_mode/</loc>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://48474.net/post/docker-readme01/</loc>
     <lastmod>2018-11-05T00:08:48+08:00</lastmod>
   </url>
@@ -113,7 +118,7 @@
   
   <url>
     <loc>https://48474.net/</loc>
-    <lastmod>2018-11-05T00:08:48+08:00</lastmod>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -179,13 +184,13 @@
   
   <url>
     <loc>https://48474.net/tags/guide/</loc>
-    <lastmod>2018-11-05T00:08:48+08:00</lastmod>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://48474.net/categories/guide/</loc>
-    <lastmod>2018-11-05T00:08:48+08:00</lastmod>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -226,6 +231,18 @@
   </url>
   
   <url>
+    <loc>https://48474.net/tags/mysql/</loc>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/categories/mysql/</loc>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://48474.net/tags/nfs/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
     <priority>0</priority>
@@ -233,7 +250,7 @@
   
   <url>
     <loc>https://48474.net/post/</loc>
-    <lastmod>2018-11-05T00:08:48+08:00</lastmod>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -270,6 +287,12 @@
   <url>
     <loc>https://48474.net/categories/solutions/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/sql_mode/</loc>
+    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
     <priority>0</priority>
   </url>
   

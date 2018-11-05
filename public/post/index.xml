@@ -6,10 +6,31 @@
     <description>Recent content in Post on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Nov 2018 00:08:48 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 05 Nov 2018 02:31:05 +0800</lastBuildDate>
     
 	<atom:link href="https://48474.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Mysql 的 sql_mode 配置</title>
+      <link>https://48474.net/post/mysql-sql_mode/</link>
+      <pubDate>Mon, 05 Nov 2018 02:31:05 +0800</pubDate>
+      
+      <guid>https://48474.net/post/mysql-sql_mode/</guid>
+      <description>在 oracle 或 sqlserver 或 PostgreSQL 中，如果某个表的字段设置成 not null， insert 或 update 时不给这个字段赋值，必然报错。
+比如下面这样：
+表 t_test(id,name)中 id, name 都不允许为空，
+insert into t_test(name) values(&#39;xxx&#39;) 必然报错，这是天经地义的事情，但是在mysql中这是有可能成功，具体取决于 sql_mode 的设置。
+sql_mode 可以分为二大类：
+ 所谓的宽松无敌模式
+my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
+这种模式下，not null 的字段，在 insert 或 update 时不设置值也能成功，db在插入时，会自动给默认值。
+比如: int 会给 0 值，甚至可以把 abc 赋值给 int型 的字段（当然，db会自动忽略该值，变成默认值 0 ）
+ 所谓的严格模式
+具体有很多可选值，设置成严格模式后，mysql 就跟传统的 oracle、sqlserver、 PostgreSQL, 表现一致了，这也是我个人强烈推荐的模式。
+  最后，无耻的从网上抄一段贴在这里备份：
+如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：</description>
+    </item>
     
     <item>
       <title>Docker 常用命令（一）</title>
