@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <title>
+    Mysql 的 sql_mode 配置 | DenysG的个人博客
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://48474.net/post/mysql-sql_mode/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+
+  
+  
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          <li><a href="https://github.com/cnphpbb/" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>Mysql 的 sql_mode 配置</h1>
+      <div class="meta">
+        Nov 5, 2018 &nbsp;
+        
+          #<a href="/tags/mysql">mysql</a>&nbsp;
+        
+          #<a href="/tags/guide">guide</a>&nbsp;
+        
+          #<a href="/tags/sql_mode">sql_mode</a>&nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p>在 <code>oracle</code> 或 <code>sqlserver</code> 或 <code>PostgreSQL</code> 中，如果某个表的字段设置成 <code>not null</code>， <code>insert</code> 或 <code>update</code> 时不给这个字段赋值，必然报错。</p>
+
+<p>比如下面这样：</p>
+
+<p>表 <code>t_test(id,name)</code>中 <code>id</code>, <code>name</code> 都不允许为空，</p>
+
+<p><code>insert into t_test(name) values('xxx')</code> 必然报错，这是天经地义的事情，但是在mysql中这是有可能成功，具体取决于 <code>sql_mode</code> 的设置。</p>
+
+<p><code>sql_mode</code> 可以分为二大类：</p>
+
+<ol>
+<li><p>所谓的宽松无敌模式</p>
+
+<p><code>my.cnf</code> 中 <code>sql_mode</code> 设置为空或仅 <code>NO_ENGINE_SUBSTITUTION</code>.</p>
+
+<p>这种模式下，<code>not null</code> 的字段，在 <code>insert</code> 或 <code>update</code> 时不设置值也能成功，db在插入时，会自动给默认值。<br />
+比如: <code>int</code> 会给 <code>0</code> 值，甚至可以把 <code>abc</code> 赋值给 <code>int型</code> 的字段<code>（</code>当然，db会自动忽略该值，变成默认值 <strong>0</strong> <code>）</code></p></li>
+
+<li><p>所谓的严格模式</p>
+
+<p>具体有很多可选值，设置成严格模式后，<code>mysql</code> 就跟传统的 <code>oracle</code>、<code>sqlserver</code>、 <code>PostgreSQL</code>, 表现一致了，这也是我个人强烈推荐的模式。</p></li>
+</ol>
+
+<p>最后，无耻的从网上抄一段贴在这里备份：</p>
+
+<p>如果使用 <code>mysql</code>，为了继续保留大家使用 <code>oracle</code> 的习惯，可以对 <code>mysql</code> 的<code>sql_mode</code> 设置如下：</p>
+
+<p>在my.cnf添加如下配置</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim">[<span class="nx">mysqld</span>]<span class="err">
+</span><span class="err"></span><span class="nx">sql_mode</span><span class="p">=</span>&#39;<span class="nx">ONLY_FULL_GROUP_BY</span><span class="p">,</span><span class="nx">NO_AUTO_VALUE_ON_ZERO</span><span class="p">,</span><span class="nx">STRICT_TRANS_TABLES</span><span class="p">,</span><span class="nx">NO_ZERO_IN_DATE</span><span class="p">,</span><span class="nx">NO_ZERO_DATE</span><span class="p">,</span><span class="err">
+</span><span class="err"></span><span class="nx">ERROR_FOR_DIVISION_BY_ZERO</span><span class="p">,</span><span class="nx">NO_AUTO_CREATE_USER</span><span class="p">,</span><span class="nx">NO_ENGINE_SUBSTITUTION</span><span class="p">,</span><span class="nx">PIPES_AS_CONCAT</span><span class="p">,</span><span class="nx">ANSI_QUOTES</span>&#39;</code></pre></div>
+<p>补充两句：</p>
+
+<p>在 <code>mysql 5.7</code> 版本以后 默认是开启了 <strong>严格模式</strong> 的。 这点我也比较赞成的。</p>
+
+<p>但在开发过程中，因为种种原因（工期缩短，开发人员的水平，等等）需要使用非严格模式开发。</p>
+
+<ol>
+<li><p>在连接 <code>mysql</code> 后, 使用 <code>set</code> 来关闭严格模式</p>
+
+<pre><code>set global sql_mode='';
+</code></pre></li>
+
+<li><p>修改 <code>my.cnf</code>, 简单</p>
+<div class="highlight"><pre class="chroma"><code class="language-vim" data-lang="vim">[<span class="nx">mysqld</span>]<span class="err">
+</span><span class="err"></span><span class="nx">sql_mode</span><span class="p">=</span><span class="nx">NO_ENGINE_SUBSTITUTION</span><span class="p">,</span><span class="nx">STRICT_TRANS_TABLES</span></code></pre></div></li>
+</ol>
+
+<p>参考网址：
+1. <a href="https://dev.mysql.com/doc/refman/5.6/en/sql-mode.html#sql-mode-setting">https://dev.mysql.com/doc/refman/5.6/en/sql-mode.html#sql-mode-setting</a>
+2. <a href="https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting">https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting</a>
+3. <a href="https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting">https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting</a></p>
+
+      
+      
+      
+    </article>
+    
+
+
+  </main>
+  
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="https://48474.net/post/docker-readme01/" rel="prev">Docker 常用命令（一）</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      © 2018 135Get_Team. All rights reserved.
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</body>
+</html>
+
