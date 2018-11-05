@@ -62,7 +62,7 @@ ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_C
     ```
 
 参考网址：
-1. https://dev.mysql.com/doc/refman/5.6/en/sql-mode.html#sql-mode-setting
-2. https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting
-3. https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting
+1.  https://dev.mysql.com/doc/refman/5.6/en/sql-mode.html#sql-mode-setting  
+1. https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting  
+1. https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting  
 
