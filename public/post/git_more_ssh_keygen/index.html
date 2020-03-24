@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -42,7 +42,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -73,68 +73,48 @@
       </div>
     </div>
     <article>
-      
-
-<h3 id="问题阐述">问题阐述</h3>
-
+      <h3 id="heading">问题阐述</h3>
 <p>当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。</p>
-
-<h3 id="问题解决">问题解决</h3>
-
+<h3 id="heading-1">问题解决</h3>
 <p>我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题</p>
-
-<h3 id="具体步骤">具体步骤</h3>
-
+<h3 id="heading-2">具体步骤</h3>
 <ul>
-<li><p>生成第一个ssh key(这里我用于github，用的gmail邮箱)</p>
-
+<li>
+<p>生成第一个ssh key(这里我用于github，用的gmail邮箱)</p>
 <pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-</code></pre>
-
-<p>这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。<br />
+</code></pre><p>这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。<br>
 完成之后我们可以看到~/.ssh目录下多了两个文件。</p>
-
 <pre><code>id_rsa_github
 id_rsa_github.pub
 </code></pre></li>
-
-<li><p>生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）</p>
-
+<li>
+<p>生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）</p>
 <pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
-</code></pre>
-
-<p>还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。<br />
+</code></pre><p>还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。<br>
 完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）</p>
-
 <pre><code>id_rsa_gitlab
 id_rsa_gitlab.pub
 </code></pre></li>
-
-<li><p>打开ssh-agent</p>
-
-<p>这里如果你用的github官方的bash，ssh-agent -s,<br />
-如果是其他的，比如msysgit,eval $(ssh-agent -s)。</p></li>
-
-<li><p>添加私钥</p>
-
+<li>
+<p>打开ssh-agent</p>
+<p>这里如果你用的github官方的bash，ssh-agent -s,<br>
+如果是其他的，比如msysgit,eval $(ssh-agent -s)。</p>
+</li>
+<li>
+<p>添加私钥</p>
 <pre><code>ssh-add ~/.ssh/id_rsa_github
 ssh-add ~/.ssh/id_rsa_gitlab
 </code></pre></li>
-
-<li><p>创建并修改config文件</p>
-
+<li>
+<p>创建并修改config文件</p>
 <ul>
-<li>windows</li>
-</ul>
-
+<li>
+<p>windows</p>
 <p>新建一个txt文本，然后将名字后缀一起改成config即可。</p>
-
-<ul>
-<li>linux|unix</li>
-</ul>
-
+</li>
+<li>
+<p>linux|unix</p>
 <p>在bash下的话直接touch config 即可。</p>
-
 <pre><code># gitlab
   Host git.int-5262.com      //别名
   HostName git.int-5262.com  //主机地址  这里填git网址即可
@@ -149,32 +129,27 @@ ssh-add ~/.ssh/id_rsa_gitlab
   IdentityFile ~/.ssh/id_rsa_github
   User cnphpbb
 </code></pre></li>
-
-<li><p>在github和gitlab上添加公钥即可，这里不再多说。</p></li>
-
-<li><p>最后一步<code>测试</code></p></li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">  $ ssh -T git@git.int-5262.com
-  Welcome to GitLab, yong.geng!</code></pre></div>
-<hr />
-
-<h4 id="补充一下">补充一下</h4>
-
+</li>
+<li>
+<p>在github和gitlab上添加公钥即可，这里不再多说。</p>
+</li>
+<li>
+<p>最后一步<code>测试</code></p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">$ ssh -T git@git.int-5262.com
+Welcome to GitLab, yong.geng!
+</code></pre></div></li>
+</ul>
+<hr>
+<h4 id="heading-3">补充一下</h4>
 <p>如果之前有设置全局用户名和邮箱的话，需要unset一下</p>
-
 <pre><code>git config --global --unset user.name
 git config --global --unset user.email
-</code></pre>
-
-<p>然后在不同的仓库下设置局部的用户名和邮箱
+</code></pre><p>然后在不同的仓库下设置局部的用户名和邮箱
 比如在公司的repository下</p>
-
 <pre><code>git config user.name &quot;yourname&quot;
 git config user.email &quot;youremail&quot;
-</code></pre>
-
-<p>在自己的github的仓库在执行刚刚的命令一遍即可。</p>
-
+</code></pre><p>在自己的github的仓库在执行刚刚的命令一遍即可。</p>
 <p><strong>这样就可以在不同的仓库，已不同的账号登录。</strong></p>
 
       

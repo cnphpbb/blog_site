@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Brew on DenysG的个人博客</title>
+    <title>brew on DenysG的个人博客</title>
     <link>https://48474.net/categories/brew/</link>
-    <description>Recent content in Brew on DenysG的个人博客</description>
+    <description>Recent content in brew on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 26 Dec 2016 12:51:15 +0800</lastBuildDate>
@@ -31,9 +31,7 @@ $ brew update
  再次执行brew doctor, 正常啦！！！
 再次执行brew update, 终于正常，正常啦！！！
 总结一下：
- 升级了macos后没执行brew doctor，导致brew 出现问题。
- 升级系统，一定要检测下第三方软件是否能正常工作。
- 检测工作没执行到底呀。  </description>
+ 升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。  </description>
     </item>
     
   </channel>

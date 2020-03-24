@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on DenysG的个人博客</title>
@@ -6,44 +6,44 @@
     <description>Recent content in Categories on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Dec 2016 12:51:15 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 01:42:15 +0800</lastBuildDate>
     
 	<atom:link href="https://48474.net/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Brew</title>
-      <link>https://48474.net/categories/brew/</link>
-      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      <title>Days</title>
+      <link>https://48474.net/categories/days/</link>
+      <pubDate>Sun, 15 Mar 2020 01:42:15 +0800</pubDate>
       
-      <guid>https://48474.net/categories/brew/</guid>
+      <guid>https://48474.net/categories/days/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Caddy</title>
-      <link>https://48474.net/categories/caddy/</link>
-      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
+      <title>生活</title>
+      <link>https://48474.net/categories/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Sun, 15 Mar 2020 01:42:15 +0800</pubDate>
       
-      <guid>https://48474.net/categories/caddy/</guid>
+      <guid>https://48474.net/categories/%E7%94%9F%E6%B4%BB/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Config</title>
-      <link>https://48474.net/categories/config/</link>
-      <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>
+      <title>Guide</title>
+      <link>https://48474.net/categories/guide/</link>
+      <pubDate>Mon, 05 Nov 2018 02:31:05 +0800</pubDate>
       
-      <guid>https://48474.net/categories/config/</guid>
+      <guid>https://48474.net/categories/guide/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Debian8</title>
-      <link>https://48474.net/categories/debian8/</link>
-      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
+      <title>mysql</title>
+      <link>https://48474.net/categories/mysql/</link>
+      <pubDate>Mon, 05 Nov 2018 02:31:05 +0800</pubDate>
       
-      <guid>https://48474.net/categories/debian8/</guid>
+      <guid>https://48474.net/categories/mysql/</guid>
       <description></description>
     </item>
     
@@ -66,7 +66,7 @@
     </item>
     
     <item>
-      <title>Golang</title>
+      <title>GoLang</title>
       <link>https://48474.net/categories/golang/</link>
       <pubDate>Wed, 15 Aug 2018 11:16:15 +0800</pubDate>
       
@@ -75,7 +75,7 @@
     </item>
     
     <item>
-      <title>Grpc</title>
+      <title>gRPC</title>
       <link>https://48474.net/categories/grpc/</link>
       <pubDate>Wed, 15 Aug 2018 11:16:15 +0800</pubDate>
       
@@ -84,43 +84,16 @@
     </item>
     
     <item>
-      <title>Guide</title>
-      <link>https://48474.net/categories/guide/</link>
-      <pubDate>Mon, 05 Nov 2018 02:31:05 +0800</pubDate>
+      <title>Debian8</title>
+      <link>https://48474.net/categories/debian8/</link>
+      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
       
-      <guid>https://48474.net/categories/guide/</guid>
+      <guid>https://48474.net/categories/debian8/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Knowledge</title>
-      <link>https://48474.net/categories/knowledge/</link>
-      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/knowledge/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mac</title>
-      <link>https://48474.net/categories/mac/</link>
-      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mysql</title>
-      <link>https://48474.net/categories/mysql/</link>
-      <pubDate>Mon, 05 Nov 2018 02:31:05 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/mysql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Solutions</title>
+      <title>solutions</title>
       <link>https://48474.net/categories/solutions/</link>
       <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
       
@@ -129,20 +102,65 @@
     </item>
     
     <item>
-      <title>Storage</title>
-      <link>https://48474.net/categories/storage/</link>
-      <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/storage/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Vps</title>
+      <title>vps</title>
       <link>https://48474.net/categories/vps/</link>
       <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
       
       <guid>https://48474.net/categories/vps/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>brew</title>
+      <link>https://48474.net/categories/brew/</link>
+      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/brew/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://48474.net/categories/mac/</link>
+      <pubDate>Mon, 26 Dec 2016 12:51:15 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Caddy</title>
+      <link>https://48474.net/categories/caddy/</link>
+      <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/caddy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>knowledge</title>
+      <link>https://48474.net/categories/knowledge/</link>
+      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/knowledge/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Config</title>
+      <link>https://48474.net/categories/config/</link>
+      <pubDate>Sat, 10 Oct 2015 13:44:31 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/config/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>storage</title>
+      <link>https://48474.net/categories/storage/</link>
+      <pubDate>Sat, 10 Oct 2015 12:23:12 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/storage/</guid>
       <description></description>
     </item>
     

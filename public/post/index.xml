@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Post on DenysG的个人博客</title>
@@ -6,10 +6,20 @@
     <description>Recent content in Post on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Nov 2018 02:31:05 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 01:42:15 +0800</lastBuildDate>
     
 	<atom:link href="https://48474.net/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>《诗经·邶风·击鼓》</title>
+      <link>https://48474.net/post/days/</link>
+      <pubDate>Sun, 15 Mar 2020 01:42:15 +0800</pubDate>
+      
+      <guid>https://48474.net/post/days/</guid>
+      <description>《诗经·邶风·击鼓》
+击鼓其镗，踊跃用兵。土国城漕，我独南行。 从孙子仲，平陈与宋。不我以归，忧心有忡。 爰居爰处？爰丧其马？于以求之？于林之下。 死生契阔，与子成说。执子之手，与子偕老。 于嗟阔兮，不我活兮。于嗟洵兮，不我信兮。</description>
+    </item>
     
     <item>
       <title>Mysql 的 sql_mode 配置</title>
@@ -22,11 +32,11 @@
 表 t_test(id,name)中 id, name 都不允许为空，
 insert into t_test(name) values(&#39;xxx&#39;) 必然报错，这是天经地义的事情，但是在mysql中这是有可能成功，具体取决于 sql_mode 的设置。
 sql_mode 可以分为二大类：
- 所谓的宽松无敌模式
+  所谓的宽松无敌模式
 my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
 这种模式下，not null 的字段，在 insert 或 update 时不设置值也能成功，db在插入时，会自动给默认值。
 比如: int 会给 0 值，甚至可以把 abc 赋值给 int型 的字段（当然，db会自动忽略该值，变成默认值 0 ）
- 所谓的严格模式
+  所谓的严格模式
 具体有很多可选值，设置成严格模式后，mysql 就跟传统的 oracle、sqlserver、 PostgreSQL, 表现一致了，这也是我个人强烈推荐的模式。
   最后，无耻的从网上抄一段贴在这里备份：
 如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：</description>
@@ -41,7 +51,7 @@ my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
       <description>使用了一段时间 docker 了。现整理出一些常用的 docker cli 指令，方便查找。
 官方CLI网址 - Docker CLI
  对开发，测试和运维人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。 确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊？！” 这类问题。 由于 Docker 确保了执行环境的一致性，使得应用的迁移更加容易。   Docker 好， Docker化 好！ 好！ 好！
- 开发常用的指令 # docker search debian # docker pull debian:&amp;lt;tag&amp;gt;  // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian  // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian  //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34;  // 启动容器并挂载本机目录 # docker run -it --rm \  --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \  target=/&amp;lt;container-path&amp;gt; \  debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
+ 开发常用的指令 # docker search debian # docker pull debian:&amp;lt;tag&amp;gt; // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34; // 启动容器并挂载本机目录 # docker run -it --rm \ --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \  target=/&amp;lt;container-path&amp;gt; \  debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
     </item>
     
     <item>
@@ -67,12 +77,12 @@ $ docker build . Sending build context to Docker daemon 6.51 MB ... 构建由Doc
       <guid>https://48474.net/post/grpc-google-http2-protobuf/</guid>
       <description>gRPC是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于HTTP/2协议标准而设计，基于ProtoBuf(Protocol Buffers)序列化协议开发，且支持众多开发语言。gRPC提供了一种简单的方法来精确地定义服务和为iOS、Android和后台支持服务自动生成可靠性很强的客户端功能库。客户端充分利用高级流和链接功能，从而有助于节省带宽、降低的TCP链接次数、节省CPU使用、和电池寿命。
 gRPC具有以下重要特征：
- 强大的IDL特性
+  强大的IDL特性
 gRPC使用ProtoBuf来定义服务，ProtoBuf是由Google开发的一种数据序列化协议（类似于XML、JSON、hessian）。ProtoBuf能够将数据进行序列化，并广泛应用在数据存储、通信协议等方面。不过，当前gRPC仅支持 Protobuf ，且不支持在浏览器中使用。由于gRPC的设计能够支持支持多种数据格式，所以读者能够很容易实现对其他数据格式（如XML、JSON等）的支持。
 定义服务的示例代码如下：
-message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); }  支持多语言
+message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); }   支持多语言
 gRPC支持多种语言，并能够基于语言自动生成客户端和服务端功能库。目前，在GitHub上已提供了 C版本grpc、Java版本grpc-java 和 Go版本grpc-go，其它语言的版本正在积极开发中，其中 grpc支持 C、C++、Node.js、Python、Ruby、Objective-C、PHP 和 C# 等语言，grpc-java 已经支持Android开发。
- 基于HTTP/2标准设计
+  基于HTTP/2标准设计
 由于gRPC基于HTTP/2标准设计，所以相对于其他RPC框架，gRPC带来了更多强大功能，如双向流、头部压缩、多复用请求等。这些功能给移动设备带来重大益处，如节省带宽、降低TCP链接次数、节省CPU使用和延长电池寿命等。同时，gRPC还能够提高了云端服务和Web应用的性能。gRPC既能够在客户端应用，也能够在服务器端应用，从而以透明的方式实现客户端和服务器端的通信和简化通信系统的构建。
   gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
  低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等  近日，gRPC开发团队宣布gRPC基于 BSD 3-Clause License 许可协议开源，相关代码已托管在GitHub上。当前已有Google和移动支付公司Square以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common仓库中，还提供了例子、快速入门指南等相关文档。</description>
@@ -88,11 +98,11 @@ gRPC支持多种语言，并能够基于语言自动生成客户端和服务端�
 现在使用的vps是ufovps出售的香港云服务器。
 安装的是linux的Debian8版本。
 安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
-  exim4 rpcbind nfs+portmap   以上这些服务我都不使用，需要关闭。方法如下：
+   exim4 rpcbind nfs+portmap  以上这些服务我都不使用，需要关闭。方法如下：
 删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
-$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/  删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
-$ apt-get purge --auto-remove rpcbind  删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap  如果不删除只是关闭相关服务，可以如下执行
-$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4   PS：几句废话。</description>
+$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/ 删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
+$ apt-get purge --auto-remove rpcbind 删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap 如果不删除只是关闭相关服务，可以如下执行
+$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4  PS：几句废话。</description>
     </item>
     
     <item>
@@ -115,9 +125,7 @@ $ brew update
  再次执行brew doctor, 正常啦！！！
 再次执行brew update, 终于正常，正常啦！！！
 总结一下：
- 升级了macos后没执行brew doctor，导致brew 出现问题。
- 升级系统，一定要检测下第三方软件是否能正常工作。
- 检测工作没执行到底呀。  </description>
+ 升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。  </description>
     </item>
     
     <item>
@@ -126,13 +134,12 @@ $ brew update
       <pubDate>Thu, 22 Dec 2016 14:37:00 +0800</pubDate>
       
       <guid>https://48474.net/post/caddy-guide/</guid>
-      <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
+      <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&#39;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
  HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
 下面举几个例子：
- 简单的测试网站
-  :8530 { root /var/www/test_site }   使用git同步测试环境
-  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }   站点跳转
-  http://48474.com, http://www.48474.com { redir https://48474.com{uri} }  看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。</description>
+ 简单的测试网站  :8530 { root /var/www/test_site }  使用git同步测试环境  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }  站点跳转  http://48474.com, http://www.48474.com { redir https://48474.com{uri} } 看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。
+启动caddy也很简单
+/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot;  Caddy官网 https://caddyserver.</description>
     </item>
     
     <item>
@@ -143,20 +150,22 @@ $ brew update
       <guid>https://48474.net/post/git_more_ssh_keygen/</guid>
       <description>问题阐述 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
 问题解决 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
-具体步骤  生成第一个ssh key(这里我用于github，用的gmail邮箱)
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
+具体步骤   生成第一个ssh key(这里我用于github，用的gmail邮箱)
+ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件。
-id_rsa_github id_rsa_github.pub  生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot;  还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
+id_rsa_github id_rsa_github.pub   生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
+ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
-id_rsa_gitlab id_rsa_gitlab.pub  打开ssh-agent
+id_rsa_gitlab id_rsa_gitlab.pub   打开ssh-agent
 这里如果你用的github官方的bash，ssh-agent -s,
 如果是其他的，比如msysgit,eval $(ssh-agent -s)。
- 添加私钥
-ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab  创建并修改config文件
- windows  新建一个txt文本，然后将名字后缀一起改成config即可。
- linux|unix  在bash下的话直接touch config 即可。
-# gitlab Host git.int-5262.com //别名 HostName git.int-5262.com //主机地址 这里填git网址即可 PreferredAuthentications publickey IdentityFile ~/.</description>
+  添加私钥
+ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab   创建并修改config文件
+  windows
+新建一个txt文本，然后将名字后缀一起改成config即可。
+  linux|unix
+在bash下的话直接touch config 即可。
+# gitlab Host git.int-5262.com //别名 HostName git.</description>
     </item>
     
     <item>
@@ -165,7 +174,7 @@ ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab  创建并修改config
       <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
       
       <guid>https://48474.net/post/service_interface_advantages_and_disadvantages/</guid>
-      <description> 使用 Service Interface 模式会导致下面的优缺点： 优点  服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。 通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。  缺点  很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。 服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。 Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适  </description>
+      <description>使用 Service Interface 模式会导致下面的优缺点： 优点  服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。 通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。  缺点  很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。 服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。 Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适  </description>
     </item>
     
     <item>

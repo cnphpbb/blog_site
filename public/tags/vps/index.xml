@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vps on DenysG的个人博客</title>
+    <title>vps on DenysG的个人博客</title>
     <link>https://48474.net/tags/vps/</link>
-    <description>Recent content in Vps on DenysG的个人博客</description>
+    <description>Recent content in vps on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 16 Jan 2017 13:18:39 +0800</lastBuildDate>
@@ -21,11 +21,11 @@
 现在使用的vps是ufovps出售的香港云服务器。
 安装的是linux的Debian8版本。
 安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
-  exim4 rpcbind nfs+portmap   以上这些服务我都不使用，需要关闭。方法如下：
+   exim4 rpcbind nfs+portmap  以上这些服务我都不使用，需要关闭。方法如下：
 删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
-$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/  删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
-$ apt-get purge --auto-remove rpcbind  删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap  如果不删除只是关闭相关服务，可以如下执行
-$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4   PS：几句废话。</description>
+$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/ 删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
+$ apt-get purge --auto-remove rpcbind 删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap 如果不删除只是关闭相关服务，可以如下执行
+$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4  PS：几句废话。</description>
     </item>
     
   </channel>

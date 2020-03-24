@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -42,7 +42,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -76,41 +76,31 @@
     </div>
     <article>
       <p>今天在Mac下执行<code>brew update</code>时出现以下错误提示：</p>
-
 <blockquote>
-<p>$ brew update<br />
+<p>$ brew update<br>
 Error: /usr/local must be writable!</p>
 </blockquote>
-
 <p>以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。
 按我习惯性的方法，修改下目录的权限吧</p>
-
 <blockquote>
-<p>$ sudo chmod -R g+w /usr/local<br />
-$ brew update<br />
+<p>$ sudo chmod -R g+w /usr/local<br>
+$ brew update<br>
 还是出现错误提示    <code>Error: /usr/local must be writable!</code></p>
 </blockquote>
-
 <p>有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。</p>
-
 <blockquote>
 <p>$ brew doctor</p>
 </blockquote>
-
 <p>上面是修改目录的写权限，现在修改目录的用户权限吧！！</p>
-
 <blockquote>
 <p>$ sudo chown -R $(whoami) /usr/local</p>
 </blockquote>
-
-<p>再次执行<code>brew doctor</code>, 正常啦！！！<br />
+<p>再次执行<code>brew doctor</code>, 正常啦！！！<br>
 再次执行<code>brew update</code>, 终于正常，正常啦！！！</p>
-
 <p><strong>总结一下：</strong></p>
-
 <ul>
-<li>升级了macos后没执行<code>brew doctor</code>，导致<code>brew</code> 出现问题。<br /></li>
-<li>升级系统，一定要检测下第三方软件是否能正常工作。<br /></li>
+<li>升级了macos后没执行<code>brew doctor</code>，导致<code>brew</code> 出现问题。</li>
+<li>升级系统，一定要检测下第三方软件是否能正常工作。</li>
 <li>检测工作没执行到底呀。</li>
 </ul>
 

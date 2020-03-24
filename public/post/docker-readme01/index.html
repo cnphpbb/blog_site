@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -42,7 +42,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -71,83 +71,77 @@
       </div>
     </div>
     <article>
-      
-
-<p>使用了一段时间 <code>docker</code> 了。现整理出一些常用的 <code>docker cli</code> 指令，方便查找。</p>
-
+      <p>使用了一段时间 <code>docker</code> 了。现整理出一些常用的 <code>docker cli</code> 指令，方便查找。</p>
 <p>官方CLI网址 - <a href="https://docs.docker.com/engine/reference/commandline/cli/">Docker CLI</a></p>
-
 <ul>
 <li>对开发，测试和运维人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。</li>
 <li>确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊？！” 这类问题。</li>
 <li>由于 <code>Docker</code> 确保了执行环境的一致性，使得应用的迁移更加容易。</li>
 </ul>
-
 <blockquote>
 <p>Docker 好， Docker化 好！ 好！ 好！</p>
 </blockquote>
+<h3 id="heading">开发常用的指令</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker search debian</span>  
+<span class="c1"># docker pull debian:&lt;tag&gt;</span>
 
-<h3 id="开发常用的指令">开发常用的指令</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker search debian  
-</span><span class="c1"># docker pull debian:&lt;tag&gt;
-</span><span class="c1"></span>
 // 启动一个容器，并且在运行结束后删除容器
-<span class="c1"># docker run -it --rm debian
-</span><span class="c1"></span>
+<span class="c1"># docker run -it --rm debian</span>
+
 // 启动一个容器并命名为mydebian
-<span class="c1"># docker run --name mydebian -it --rm debian
-</span><span class="c1"></span>
+<span class="c1"># docker run --name mydebian -it --rm debian</span>
+
 //启动容器并执行多个命令
-<span class="c1"># docker run -it --rm debian sh -c &#34;cmd1 &amp;&amp; cmd2&#34;
-</span><span class="c1"></span>
+<span class="c1"># docker run -it --rm debian sh -c &#34;cmd1 &amp;&amp; cmd2&#34;</span>
+
 // 启动容器并挂载本机目录
-<span class="c1"># docker run -it --rm \
-</span><span class="c1"></span>  --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/&lt;host-path&gt;, <span class="se">\
+<span class="c1"># docker run -it --rm \</span>
+  --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span>/&lt;host-path&gt;, <span class="se">\
 </span><span class="se"></span>  <span class="nv">target</span><span class="o">=</span>/&lt;container-path&gt; <span class="se">\
 </span><span class="se"></span>  debian
 
 //上面的简化
-# docker run -it --rm -v &lt;host-path&gt;:&lt;container-path&gt; debian</code></pre></div>
-<h3 id="创建新的网络-并在启动本地容器的时候-指定ip">创建新的网络,并在启动本地容器的时候 <strong>指定ip</strong></h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker network create --subnet=172.20.0.0/16 mynet
-</span><span class="c1"></span># docker run --net mynet --ip <span class="m">172</span>.20.0.22 -it alpine:3 sh</code></pre></div>
-<h3 id="清理操作">清理操作</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker image prune  // 删除临时image
-</span><span class="c1"></span># docker container prune // 删除已经停止的container</code></pre></div>
-<h3 id="导入导出image操作">导入导出image操作</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker save debian &gt; debian.tar
-</span><span class="c1"></span># docker load &lt; debian.tar</code></pre></div>
-<h3 id="新建和删除image">新建和删除image</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker build -t cnphpbb/php7.1.23-alpine:latest .
-</span><span class="c1"># docker commit -a &#34;cnphpbb&#34; -m &#34;php7.1.23&#34; a404c6c174a2  cnphpbb/php7.1.23-alpine:v1
-</span><span class="c1"></span># docker rmi cnphpbb/php7.1.23-alpine</code></pre></div>
-<h3 id="启动mysql">启动mysql</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \
-</span><span class="c1"></span>  --name mysql <span class="se">\
+<span class="c1"># docker run -it --rm -v &lt;host-path&gt;:&lt;container-path&gt; debian</span>
+</code></pre></div><h3 id="-ip">创建新的网络,并在启动本地容器的时候 <strong>指定ip</strong></h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker network create --subnet=172.20.0.0/16 mynet</span>
+<span class="c1"># docker run --net mynet --ip 172.20.0.22 -it alpine:3 sh</span>
+</code></pre></div><h3 id="heading-1">清理操作</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker image prune  // 删除临时image</span>
+<span class="c1"># docker container prune // 删除已经停止的container</span>
+</code></pre></div><h3 id="image">导入导出image操作</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker save debian &gt; debian.tar</span>
+<span class="c1"># docker load &lt; debian.tar</span>
+</code></pre></div><h3 id="image-1">新建和删除image</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker build -t cnphpbb/php7.1.23-alpine:latest .</span>
+<span class="c1"># docker commit -a &#34;cnphpbb&#34; -m &#34;php7.1.23&#34; a404c6c174a2  cnphpbb/php7.1.23-alpine:v1</span>
+<span class="c1"># docker rmi cnphpbb/php7.1.23-alpine</span>
+</code></pre></div><h3 id="mysql">启动mysql</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
+  --name mysql <span class="se">\
 </span><span class="se"></span>  --net mynet <span class="se">\
-</span><span class="se"></span>  --ip <span class="m">172</span>.20.0.10 <span class="se">\
-</span><span class="se"></span>  -p <span class="m">3306</span>:3306 <span class="se">\
+</span><span class="se"></span>  --ip 172.20.0.10 <span class="se">\
+</span><span class="se"></span>  -p 3306:3306 <span class="se">\
 </span><span class="se"></span>  -v D:<span class="se">\v</span>ar<span class="se">\m</span>ysql:/var/lib/mysql <span class="se">\
 </span><span class="se"></span>  -e <span class="nv">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="o">=</span>yes <span class="se">\
-</span><span class="se"></span>  mysql:5.6</code></pre></div>
-<h3 id="启动redis">启动redis</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \
-</span><span class="c1"></span>  --name redis <span class="se">\
-</span><span class="se"></span>  --net mynet --ip <span class="m">172</span>.20.0.18 <span class="se">\
-</span><span class="se"></span>  -p <span class="m">6379</span>:6379 <span class="se">\
-</span><span class="se"></span>  redis:alpine</code></pre></div>
-<h3 id="启动一个swoole服务">启动一个swoole服务</h3>
-<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \
-</span><span class="c1"></span>  --name Bases <span class="se">\
+</span><span class="se"></span>  mysql:5.6
+</code></pre></div><h3 id="redis">启动redis</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
+  --name redis <span class="se">\
+</span><span class="se"></span>  --net mynet --ip 172.20.0.18 <span class="se">\
+</span><span class="se"></span>  -p 6379:6379 <span class="se">\
+</span><span class="se"></span>  redis:alpine
+</code></pre></div><h3 id="swoole">启动一个swoole服务</h3>
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
+  --name Bases <span class="se">\
 </span><span class="se"></span>  --net mynet <span class="se">\
-</span><span class="se"></span>  --ip <span class="m">172</span>.20.0.30 <span class="se">\
-</span><span class="se"></span>  -p <span class="m">9901</span>:9701 <span class="se">\
+</span><span class="se"></span>  --ip 172.20.0.30 <span class="se">\
+</span><span class="se"></span>  -p 9901:9701 <span class="se">\
 </span><span class="se"></span>  -v D:<span class="se">\d</span>evlodGit<span class="se">\B</span>ases:/data/Bases <span class="se">\
 </span><span class="se"></span>  --workdir<span class="o">=</span>/data/Bases
-  cnphpbb/php7.1.23-alpine:1.2.3 php start.php</code></pre></div>
-<blockquote>
-<p>使用docker作为开发环境，特别的方便。<br />
-本地系统没有任何污染，拯救系统洁癖专用。<br />
+  cnphpbb/php7.1.23-alpine:1.2.3 php start.php
+</code></pre></div><blockquote>
+<p>使用docker作为开发环境，特别的方便。<br>
+本地系统没有任何污染，拯救系统洁癖专用。<br>
 尤其是在windows下面，省去了很多麻烦。</p>
 </blockquote>
 

@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -42,7 +42,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -77,8 +77,7 @@
       </div>
     </div>
     <article>
-      <p>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:</p>
-
+      <p>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It's 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:</p>
 <ul>
 <li>HTTP/2</li>
 <li>Automatic HTTPS</li>
@@ -90,24 +89,17 @@
 <li>FastCGI</li>
 <li>&hellip;</li>
 </ul>
-
 <p>在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。</p>
-
 <p><strong>下面举几个例子：</strong></p>
-
 <ul>
-<li>简单的测试网站<br /></li>
+<li>简单的测试网站</li>
 </ul>
-
 <pre><code>:8530 {
     root /var/www/test_site
 }
-</code></pre>
-
-<ul>
-<li>使用git同步测试环境<br /></li>
+</code></pre><ul>
+<li>使用git同步测试环境</li>
 </ul>
-
 <pre><code>:8530 {
     root /var/www/test_site/public
     git git.int5262.com/user_name/project_name {
@@ -116,33 +108,22 @@
     }
     fastcgi / 127.0.0.1:9001 php
 }
-</code></pre>
-
-<ul>
-<li>站点跳转<br /></li>
+</code></pre><ul>
+<li>站点跳转</li>
 </ul>
-
 <pre><code>http://48474.com, http://www.48474.com {
     redir https://48474.com{uri}
 }
-</code></pre>
-
-<p>看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的<a href="https://caddyserver.com/docs">User Guide</a>。</p>
-
+</code></pre><p>看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的<a href="https://caddyserver.com/docs">User Guide</a>。</p>
 <p><strong>启动caddy也很简单</strong></p>
-
 <pre><code>/path/to/caddy -conf=&quot;/path/to/caddy/caddyfile&quot; 
-</code></pre>
-
-<ul>
-<li>Caddy官网 <a href="https://caddyserver.com">https://caddyserver.com</a><br />
-官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。<br /></li>
-<li>Caddy一键安装脚本 <a href="https://getcaddy.com">https://getcaddy.com</a><br /></li>
+</code></pre><ul>
+<li>Caddy官网 <a href="https://caddyserver.com">https://caddyserver.com</a><br>
+官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。</li>
+<li>Caddy一键安装脚本 <a href="https://getcaddy.com">https://getcaddy.com</a></li>
 </ul>
-
 <pre><code>curl https://getcaddy.com | bash
 </code></pre>
-
       
       
       

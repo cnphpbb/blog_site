@@ -24,8 +24,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -42,7 +42,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -81,59 +81,42 @@
       </div>
     </div>
     <article>
-      
-
-<p>本人喜欢使用linux的debian发行版本。也用过其他的发行版本。<br />
-现在使用的vps是<a href="https://www.ufovps.com/">ufovps</a>出售的香港云服务器。<br />
-安装的是linux的Debian8版本。<br />
+      <p>本人喜欢使用linux的debian发行版本。也用过其他的发行版本。<br>
+现在使用的vps是<a href="https://www.ufovps.com/">ufovps</a>出售的香港云服务器。<br>
+安装的是linux的Debian8版本。<br>
 安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。</p>
-
 <blockquote>
+</blockquote>
 <ul>
 <li>exim4</li>
 <li>rpcbind</li>
 <li>nfs+portmap</li>
 </ul>
-</blockquote>
-
 <p>以上这些服务我都不使用，需要关闭。方法如下：</p>
-
-<h4 id="删除-exim4-服务">删除 <code>exim4</code> 服务</h4>
-
+<h4 id="-exim4-">删除 <code>exim4</code> 服务</h4>
 <p><code>exim4</code>服务  开放 <code>port :25</code> 大家都知道这个端口做啥都吧！</p>
-
 <pre><code>$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light
 $ rm -rf /var/log/exim4/
-</code></pre>
-
-<h4 id="删除-rpcbind-服务">删除 <code>rpcbind</code> 服务</h4>
-
+</code></pre><h4 id="-rpcbind-">删除 <code>rpcbind</code> 服务</h4>
 <p><code>rpcbind</code> 服务  此服务开启<code>port :111</code> 这个端口。</p>
-
 <pre><code>$ apt-get purge --auto-remove rpcbind
-</code></pre>
-
-<h4 id="删除-nfs-服务">删除<code>nfs</code>服务</h4>
-
+</code></pre><h4 id="nfs">删除<code>nfs</code>服务</h4>
 <pre><code>$ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap
-</code></pre>
-
-<p>如果不删除只是关闭相关服务，可以如下执行</p>
-
+</code></pre><p>如果不删除只是关闭相关服务，可以如下执行</p>
 <pre><code>$ systemctl disable nfs-common
 $ systemctl disable rpcbind
 $ systemctl disable exim4
 $ systemctl stop nfs-common
 $ systemctl stop rpcbind
 $ systemctl stop exim4
-</code></pre>
-
-<blockquote>
-<p>PS：几句废话。<br />
-1. debian8 已经开始用systemd来做系统的启动服务。<br />
-2. systemd 要比sysv要先进很多。<br />
-3. remove没用的服务也是安全保证吧。</p>
+</code></pre><blockquote>
+<p>PS：几句废话。</p>
 </blockquote>
+<ol>
+<li>debian8 已经开始用systemd来做系统的启动服务。</li>
+<li>systemd 要比sysv要先进很多。</li>
+<li>remove没用的服务也是安全保证吧。</li>
+</ol>
 
       
       
