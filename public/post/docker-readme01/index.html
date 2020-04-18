@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -43,7 +43,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -82,7 +82,7 @@
 <blockquote>
 <p>Docker 好， Docker化 好！ 好！ 好！</p>
 </blockquote>
-<h3 id="heading">开发常用的指令</h3>
+<h3 id="开发常用的指令">开发常用的指令</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker search debian</span>  
 <span class="c1"># docker pull debian:&lt;tag&gt;</span>
 
@@ -103,20 +103,20 @@
 
 //上面的简化
 <span class="c1"># docker run -it --rm -v &lt;host-path&gt;:&lt;container-path&gt; debian</span>
-</code></pre></div><h3 id="-ip">创建新的网络,并在启动本地容器的时候 <strong>指定ip</strong></h3>
+</code></pre></div><h3 id="创建新的网络并在启动本地容器的时候-指定ip">创建新的网络,并在启动本地容器的时候 <strong>指定ip</strong></h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker network create --subnet=172.20.0.0/16 mynet</span>
 <span class="c1"># docker run --net mynet --ip 172.20.0.22 -it alpine:3 sh</span>
-</code></pre></div><h3 id="heading-1">清理操作</h3>
+</code></pre></div><h3 id="清理操作">清理操作</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker image prune  // 删除临时image</span>
 <span class="c1"># docker container prune // 删除已经停止的container</span>
-</code></pre></div><h3 id="image">导入导出image操作</h3>
+</code></pre></div><h3 id="导入导出image操作">导入导出image操作</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker save debian &gt; debian.tar</span>
 <span class="c1"># docker load &lt; debian.tar</span>
-</code></pre></div><h3 id="image-1">新建和删除image</h3>
+</code></pre></div><h3 id="新建和删除image">新建和删除image</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker build -t cnphpbb/php7.1.23-alpine:latest .</span>
 <span class="c1"># docker commit -a &#34;cnphpbb&#34; -m &#34;php7.1.23&#34; a404c6c174a2  cnphpbb/php7.1.23-alpine:v1</span>
 <span class="c1"># docker rmi cnphpbb/php7.1.23-alpine</span>
-</code></pre></div><h3 id="mysql">启动mysql</h3>
+</code></pre></div><h3 id="启动mysql">启动mysql</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
   --name mysql <span class="se">\
 </span><span class="se"></span>  --net mynet <span class="se">\
@@ -125,13 +125,13 @@
 </span><span class="se"></span>  -v D:<span class="se">\v</span>ar<span class="se">\m</span>ysql:/var/lib/mysql <span class="se">\
 </span><span class="se"></span>  -e <span class="nv">MYSQL_ALLOW_EMPTY_PASSWORD</span><span class="o">=</span>yes <span class="se">\
 </span><span class="se"></span>  mysql:5.6
-</code></pre></div><h3 id="redis">启动redis</h3>
+</code></pre></div><h3 id="启动redis">启动redis</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
   --name redis <span class="se">\
 </span><span class="se"></span>  --net mynet --ip 172.20.0.18 <span class="se">\
 </span><span class="se"></span>  -p 6379:6379 <span class="se">\
 </span><span class="se"></span>  redis:alpine
-</code></pre></div><h3 id="swoole">启动一个swoole服务</h3>
+</code></pre></div><h3 id="启动一个swoole服务">启动一个swoole服务</h3>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># docker run -d --restart=always \</span>
   --name Bases <span class="se">\
 </span><span class="se"></span>  --net mynet <span class="se">\

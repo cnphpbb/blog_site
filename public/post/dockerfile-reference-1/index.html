@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -43,7 +43,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -136,7 +136,7 @@ Successfully built 7ea8aef582cc
 </span></code></pre></div><p>因出现两次，无效：</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># directive=value1</span><span class="err">
 </span><span class="err"></span><span class="c"># directive=value2</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
 </span></code></pre></div><p>因写在构建指令后，无效：</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
@@ -165,7 +165,7 @@ Successfully built 7ea8aef582cc
 <p>请考虑以下示例，这将在Windows上以非显而易见的方式失败。第二行末尾的第二个\将被解释为换行符，而不是从第一个\转义的目标。类似地，假设第三行结尾处的\实际上作为一条指令处理，它将被视为行继续。这个dockerfile的结果是第二行和第三行被认为是单个指令：</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\\</span>
-RUN dir c:<span class="err">\</span><span class="err">
+RUN dir c:<span class="err">\
 </span></code></pre></div><p>结构是：</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">PS C:<span class="se">\J</span>ohn&gt; docker build -t cmd .
 Sending build context to Docker daemon 3.072 kB
@@ -177,10 +177,10 @@ PS C:<span class="se">\J</span>ohn&gt;
 </code></pre></div><p>上述的一个解决方案是使用 <code>/</code> 作为 <code>COPY</code> 指令和 <code>dir</code> 的目标。然而，这种语法，最好的情况是混乱，因为它在 <code>Windows</code> 上是不平常的路径，最坏的情况下，错误倾向，因为并不是 <code>Windows</code> 上的所有命令支持 <code>/</code> 作为路径分隔符。</p>
 <p>通过添加转义解析器指令，下面的Dockerfile在Windows上使用文件路径的自然平台语义成功：</p>
 <div class="highlight"><pre class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># escape=`</span><span class="err">
-</span><span class="err"></span><span class="err">
+</span><span class="err">
 </span><span class="err"></span><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
 </span><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\
-</span><span class="se"></span>RUN dir c:<span class="err">\</span><span class="err">
+</span><span class="se"></span>RUN dir c:<span class="err">\
 </span></code></pre></div><p>结果是：</p>
 <div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">PS C:<span class="se">\J</span>ohn&gt; docker build -t succeeds --no-cache<span class="o">=</span><span class="nb">true</span> .
 Sending build context to Docker daemon 3.072 kB

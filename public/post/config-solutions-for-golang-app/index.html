@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -43,7 +43,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -75,7 +75,7 @@
     </div>
     <article>
       <p>在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：<a href="https://sfxpt.wordpress.com/2015/06/16/providing-%20options-for-go-applications/">在这里</a>。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。</p>
-<h2 id="heading">一、背景</h2>
+<h2 id="一背景">一、背景</h2>
 <p>无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。</p>
 <p>文章作者认为一个良好的应用配置层次应该是这样的：</p>
 <ol>
@@ -84,7 +84,7 @@
 <li>命令行选项和参数值具有最高优先级，可以override前两层的配置项值。</li>
 </ol>
 <p>下面就按作者的思路循序渐进探讨golang程序配置方案。</p>
-<h2 id="heading-1">二、解析命令行选项和参数</h2>
+<h2 id="二解析命令行选项和参数">二、解析命令行选项和参数</h2>
 <p>这一节关注golang程序如何访问命令行选项和参数。</p>
 <p>golang对访问到命令行参数提供了内建的支持：</p>
 <pre><code>//cmdlineargs.go
@@ -219,8 +219,8 @@ I: 0 C: 'aa'
 <li>命令行标志的位置不能任意放置，比如无法放在non-flag parameter的后面。</li>
 </ol>
 <p>不过毕竟flag是golang内置标准库包，你无须付出任何cost，就能使用它的功能。另外支持bool型的flag也是其一大亮点。</p>
-<h2 id="tomlgo">三、TOML，Go配置文件的事实标准（这个可能不能得到认同）</h2>
-<p>命令行虽然是一种可选的配置方案，但更多的时候，我们使用配置文件来存储静态的配置数据。就像Java配xml，ruby配yaml，windows配 ini，Go也有自己的搭配组合，那就是TOML（Tom's Obvious, Minimal Language）。</p>
+<h2 id="三tomlgo配置文件的事实标准这个可能不能得到认同">三、TOML，Go配置文件的事实标准（这个可能不能得到认同）</h2>
+<p>命令行虽然是一种可选的配置方案，但更多的时候，我们使用配置文件来存储静态的配置数据。就像Java配xml，ruby配yaml，windows配 ini，Go也有自己的搭配组合，那就是TOML（Tom&rsquo;s Obvious, Minimal Language）。</p>
 <p>初看toml语法有些类似windows ini，但细致研究你会发现它远比ini强大的多，下面是一个toml配置文件例子：</p>
 <pre><code># This is a TOML document. Boom.
 
@@ -317,7 +317,7 @@ if _, err := toml.Decode(tomlData, &amp;conf); err != nil {
 <li>用命令行标志变量值覆盖配置(cf)值。</li>
 </ol>
 <p>少一步你都无法实现三层配置能力。</p>
-<h2 id="toml">四、超越TOML</h2>
+<h2 id="四超越toml">四、超越TOML</h2>
 <p>本节将关注如何克服TOML的各种局限。</p>
 <p>为了达成这个目标，很多人会说：使用<a href="https://github.com/spf13/viper">viper</a>，不过在介绍viper这一重量级选手 之前，我要为大家介绍另外一位不那么知名的选手：<a href="https://github.com/koding/multiconfig">multiconfig</a>。</p>
 <p>有些人总是认为大的就是好的，但我相信适合的还是更好的。因为：</p>
@@ -411,7 +411,7 @@ After Loading:
 &amp;{Name:koding Port:6066 Enabled:false Users:[ankara istanbul] Postgres:{Enabled:true Port:5432 Hosts:[192.168.2.1 192.168.2.2 192.168.2.3] DBName: AvailabilityRatio:8.23}}
 Enabled field is set to false
 </code></pre><p>检查一下输出结果吧，是不是每项都符合我们之前的预期呢！</p>
-<h2 id="viper">五、Viper</h2>
+<h2 id="五viper">五、Viper</h2>
 <p>我们的重量级选手<a href="https://github.com/spf13/viper">viper</a>该出场了！</p>
 <p>毫无疑问，viper非常强大。但如果你想用命令行参数覆盖预定义的配置项值，viper自己还不足以。要想让viper爆发，你需要另外一个包配合，它就是cobra（https://github.com/spf13/cobra）。</p>
 <p>不同于注重简化配置处理的multiconfig，viper让你拥有全面控制力。不幸的是，在得到这种控制力之前，你需要做一些体力活。</p>
@@ -519,7 +519,7 @@ Flags:
       –smtp-user=&quot;&quot;: User to authenticate with the SMTP server
 
 Use &quot;dispatch help [command]&quot; for more information about a command.
-</code></pre><h2 id="heading-2">六、小结</h2>
+</code></pre><h2 id="六小结">六、小结</h2>
 <p>以上例子的完整源码在作者的<a href="https://github.com/suntong/lang/tree/master/lang/Go/src/sys">github repository</a>里可以找到。</p>
 <hr>
 <p>关于golang配置文件，我个人用到了toml这一层次，因为不需要太复杂的配置，不需要环境变量或命令行override默认值或配置文件数据。不过 从作者的例子中可以看到multiconfig、viper的确强大，后续在实现复杂的golang应用时会考虑真正应用。</p>

@@ -25,8 +25,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -43,7 +43,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -74,11 +74,11 @@
       </div>
     </div>
     <article>
-      <h3 id="heading">问题阐述</h3>
+      <h3 id="问题阐述">问题阐述</h3>
 <p>当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。</p>
-<h3 id="heading-1">问题解决</h3>
+<h3 id="问题解决">问题解决</h3>
 <p>我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题</p>
-<h3 id="heading-2">具体步骤</h3>
+<h3 id="具体步骤">具体步骤</h3>
 <ul>
 <li>
 <p>生成第一个ssh key(这里我用于github，用的gmail邮箱)</p>
@@ -142,7 +142,7 @@ Welcome to GitLab, yong.geng!
 </code></pre></div></li>
 </ul>
 <hr>
-<h4 id="heading-3">补充一下</h4>
+<h4 id="补充一下">补充一下</h4>
 <p>如果之前有设置全局用户名和邮箱的话，需要unset一下</p>
 <pre><code>git config --global --unset user.name
 git config --global --unset user.email
