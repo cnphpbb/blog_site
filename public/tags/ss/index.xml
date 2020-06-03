@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>linux on DenysG的个人博客</title>
-    <link>https://48474.net/tags/linux/</link>
-    <description>Recent content in linux on DenysG的个人博客</description>
+    <title>ss on DenysG的个人博客</title>
+    <link>https://48474.net/tags/ss/</link>
+    <description>Recent content in ss on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 03 Jun 2020 04:25:15 +0800</lastBuildDate>
     
-	<atom:link href="https://48474.net/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://48474.net/tags/ss/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -27,23 +27,6 @@ netstat -at | wc 耗时 15.60 秒 ss -atr | wc 耗时 5.40 秒（未利用tcp_di
 # apt-cache show net-tools Package: net-tools Version: 1.60+git20180626.aebd88e-1 而ss命令是iproute2工具集中的一员：
 # apt-cache show iproute2 Package: iproute2 Version: 4.20.0-2 如果你无法使用ss命令，那么可能是缺少了 iproute2 ，需要安装一下：
 # apt install -y iproute2 从某种意义上说，iproute2 工具集几乎可以替代掉 net-tools 工具集，具体的替代方案是这样的：</description>
-    </item>
-    
-    <item>
-      <title>VPS Debian8 删除一些没用的服务的方法</title>
-      <link>https://48474.net/post/vps_debian_unremove_service/</link>
-      <pubDate>Mon, 16 Jan 2017 13:18:39 +0800</pubDate>
-      
-      <guid>https://48474.net/post/vps_debian_unremove_service/</guid>
-      <description>本人喜欢使用linux的debian发行版本。也用过其他的发行版本。
-现在使用的vps是ufovps出售的香港云服务器。
-安装的是linux的Debian8版本。
-安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
-   exim4 rpcbind nfs+portmap  以上这些服务我都不使用，需要关闭。方法如下：
-删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
-$ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/ 删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
-$ apt-get purge --auto-remove rpcbind 删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap 如果不删除只是关闭相关服务，可以如下执行
-$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4  PS：几句废话。</description>
     </item>
     
   </channel>

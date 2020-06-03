@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  
+  <meta charset="UTF-8">
+  <meta name="description" content="Linux 使用ss命令代替 netstat">
+  <title>
+    使用 ss 命令代替 netstat | DenysG的个人博客
+  </title>
+
+
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+
+  
+  <link rel="canonical" href="https://48474.net/post/ss-replace-netstat/"/>
+
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+
+  
+  
+
+
+</head>
+
+
+
+<body>
+<div class="container">
+
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          <li><a href="https://github.com/cnphpbb/" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>使用 ss 命令代替 netstat</h1>
+      <div class="meta">
+        Jun 3, 2020 &nbsp;
+        
+          #<a href="/tags/linux">linux</a>&nbsp;
+        
+          #<a href="/tags/debian">debian</a>&nbsp;
+        
+          #<a href="/tags/solutions">solutions</a>&nbsp;
+        
+          #<a href="/tags/guide">Guide</a>&nbsp;
+        
+          #<a href="/tags/ss">ss</a>&nbsp;
+        
+          #<a href="/tags/netstat">netstat</a>&nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p><code>ss</code> 是Socket Statistics的缩写。</p>
+<p>顾名思义，<code>ss</code> 命令可以用来获取socket统计信息，它可以显示和netstat类似的内容。但ss的优势在于它能够显示更多更详细的有关TCP和连接状态的信息，而且比netstat更快速更高效。</p>
+<h3 id="和netstat说再见的原因">和netstat说再见的原因</h3>
+<p>当服务器的socket连接数量变得非常大时，无论是使用netstat命令还是直接cat /proc/net/tcp，执行速度都会很慢。可能你不会有切身的感受，但请相信我，当服务器维持的连接达到上万个的时候，使用netstat等于浪费 生命，而用ss才是节省时间。</p>
+<p>天下武功唯快不破。ss快的秘诀在于，它利用到了TCP协议栈中tcp_diag。tcp_diag是一个用于分析统计的模块，可以获得Linux 内核中第一手的信息，这就确保了ss的快捷高效。当然，如果你的系统中没有tcp_diag，ss也可以正常运行，只是效率会变得稍慢。（但仍然比 netstat要快。）</p>
+<h3 id="用数据说话">用数据说话</h3>
+<p>为了让你更坚决的和netstat说再见，列举一些测试数据，以便证明ss的确名不虚传。</p>
+<p>当服务器维持3万个socket连接，Admin需要计算具体的连接数量时，不同情况的耗时如下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">netstat -at <span class="p">|</span> wc  耗时 15.60 秒
+ss -atr     <span class="p">|</span> wc  耗时  5.40 秒（未利用tcp_diag）
+ss -atr     <span class="p">|</span> wc  耗时  0.47 秒（利用tcp_diag）
+</code></pre></div><h3 id="好马配上好鞍">好马配上好鞍</h3>
+<p>几乎所有的Linux系统都会默认包含<code>netstat</code>命令，但并非所有系统都会默认包含ss命令。<code>netstat</code> 命令是 <code>net-tools</code> 工具集中的一员：</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show net-tools</span>
+Package: net-tools
+Version: 1.60+git20180626.aebd88e-1
+</code></pre></div><p>而ss命令是iproute2工具集中的一员：</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show iproute2</span>
+Package: iproute2
+Version: 4.20.0-2
+</code></pre></div><p>如果你无法使用ss命令，那么可能是缺少了 <code>iproute2</code> ，需要安装一下：</p>
+<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt install -y iproute2</span>
+</code></pre></div><p>从某种意义上说，<code>iproute2</code> 工具集几乎可以替代掉 <code>net-tools</code> 工具集，具体的替代方案是这样的：</p>
+<table>
+<thead>
+<tr>
+<th>用途</th>
+<th>net-tool（被淘汰）</th>
+<th>iproute2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>路由表</td>
+<td>route</td>
+<td>ip route</td>
+</tr>
+<tr>
+<td>邻居</td>
+<td>arp</td>
+<td>ip neigh</td>
+</tr>
+<tr>
+<td>VLAN</td>
+<td>vconfig</td>
+<td>ip link</td>
+</tr>
+<tr>
+<td>隧道</td>
+<td>iptunnel</td>
+<td>ip tunnel</td>
+</tr>
+<tr>
+<td>组播</td>
+<td>ipmaddr</td>
+<td>ip maddr</td>
+</tr>
+<tr>
+<td>统计</td>
+<td>netstat</td>
+<td>ss</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ss-功能说明">ss 功能说明</h3>
+<p>想获得ss命令的帮助信息和版本信息，都非常简单，你应该可以猜到的：</p>
+<pre><code># ss -h //获得帮助信息，直接man ss会更全面
+# ss -v //取得版本号，-V也支持
+ss utility, iproute2-ss190107
+</code></pre><h4 id="常用命令">常用命令</h4>
+<pre><code>ss -l 显示本地打开的所有端口
+ss -pl 显示每个进程具体打开的socket
+ss -t -a 显示所有tcp socket
+ss -u -a 显示所有的UDP Socekt
+ss -o state established '( dport = :smtp or sport = :smtp )' 显示所有已建立的SMTP连接
+ss -o state established '( dport = :http or sport = :http )' 显示所有已建立的HTTP连接
+ss -x src /tmp/.X11-unix/* 找出所有连接X服务器的进程
+ss -s 列出当前socket详细信息
+
+</code></pre><p>详细的使用方法，还要在实际中多多的摸索。</p>
+<p>参考：</p>
+<p><a href="https://www.cyberciti.biz/tips/linux-investigate-sockets-network-connections.html">ss command: Display Linux TCP / UDP Network/Socket Information</a></p>
+
+      
+      
+      
+    </article>
+    
+
+
+  </main>
+  
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="https://48474.net/post/days-0418/" rel="prev">自尊，自强，自信，自律，自省，自觉</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      © 2020 135Get_Team. All rights reserved.
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</body>
+</html>
+

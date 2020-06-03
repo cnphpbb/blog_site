@@ -3,9 +3,9 @@ title: "使用 ss 命令代替 netstat"
 date: 2020-06-03T04:25:15+08:00
 draft: false
 menu: "main"
-Categories: ["Days", "Guide", "solutions"]
+Categories: ["Guide", "solutions"]
 Description: "Linux 使用ss命令代替 netstat"
-Tags = ["linux", "debian", "solutions", "Guide", "ss", "netstat"]
+Tags: ["linux", "debian", "solutions", "Guide", "ss", "netstat"]
 ---
 
 `ss` 是Socket Statistics的缩写。

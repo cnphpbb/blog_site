@@ -4,7 +4,67 @@
   
   <url>
     <loc>https://48474.net/categories/</loc>
-    <lastmod>2020-04-18T00:42:15+08:00</lastmod>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/debian/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/categories/guide/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/guide/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/linux/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/netstat/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/post/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/solutions/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/categories/solutions/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/ss/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/tags/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://48474.net/post/ss-replace-netstat/</loc>
+    <lastmod>2020-06-03T04:25:15+08:00</lastmod>
   </url>
   
   <url>
@@ -14,21 +74,6 @@
   
   <url>
     <loc>https://48474.net/tags/days/</loc>
-    <lastmod>2020-04-18T00:42:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/</loc>
-    <lastmod>2020-04-18T00:42:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/post/</loc>
-    <lastmod>2020-04-18T00:42:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/tags/</loc>
     <lastmod>2020-04-18T00:42:15+08:00</lastmod>
   </url>
   
@@ -50,16 +95,6 @@
   <url>
     <loc>https://48474.net/post/days/</loc>
     <lastmod>2020-03-15T01:42:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/categories/guide/</loc>
-    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/tags/guide/</loc>
-    <lastmod>2018-11-05T02:31:05+08:00</lastmod>
   </url>
   
   <url>
@@ -153,16 +188,6 @@
   </url>
   
   <url>
-    <loc>https://48474.net/tags/solutions/</loc>
-    <lastmod>2018-08-15T11:16:15+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/tags/debian/</loc>
-    <lastmod>2017-01-16T13:18:39+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://48474.net/categories/debian8/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
   </url>
@@ -173,22 +198,12 @@
   </url>
   
   <url>
-    <loc>https://48474.net/tags/linux/</loc>
-    <lastmod>2017-01-16T13:18:39+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://48474.net/tags/nfs/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://48474.net/tags/rpcbind/</loc>
-    <lastmod>2017-01-16T13:18:39+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://48474.net/categories/solutions/</loc>
     <lastmod>2017-01-16T13:18:39+08:00</lastmod>
   </url>
   
