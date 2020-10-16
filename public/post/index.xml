@@ -6,10 +6,27 @@
     <description>Recent content in Post on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2020 04:25:15 +0800</lastBuildDate>
-    
-	<atom:link href="https://48474.net/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Wed, 14 Oct 2020 12:25:15 +0800</lastBuildDate><atom:link href="https://48474.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>折腾日志(1) -- 自用树莓派内网穿透搭建GITEA</title>
+      <link>https://48474.net/post/toss-log-01-raspberrypi/</link>
+      <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
+      
+      <guid>https://48474.net/post/toss-log-01-raspberrypi/</guid>
+      <description>自备树莓派4B  这台自行组装的树莓派4B，主要用途: 存储，应用服务。
+   安装树莓派系统, 并且安装到树莓派到硬盘中
+这里不多说安装树莓派的方法，可以自行搜索 度娘 或 谷歌
+  我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
+  SSD硬盘 2块：
+一块 256G(上面红色的),
+另一块 512G(下面银色的)。 全部是 浦科特（Plextor） M8VC。
+扩展板 2块：
+  X829 扩展板:: 一款2.5&#39; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
+  X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
+  俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用   以上都安装好了，就可以部署自己的服务器啦。
+ 开始折腾部署 Gitea  因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
+   Pull docker images</description>
+    </item>
     
     <item>
       <title>使用 ss 命令代替 netstat</title>
@@ -96,7 +113,7 @@ my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
       <description>使用了一段时间 docker 了。现整理出一些常用的 docker cli 指令，方便查找。
 官方CLI网址 - Docker CLI
  对开发，测试和运维人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。 确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊？！” 这类问题。 由于 Docker 确保了执行环境的一致性，使得应用的迁移更加容易。   Docker 好， Docker化 好！ 好！ 好！
- 开发常用的指令 # docker search debian # docker pull debian:&amp;lt;tag&amp;gt; // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34; // 启动容器并挂载本机目录 # docker run -it --rm \ --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \  target=/&amp;lt;container-path&amp;gt; \  debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
+ 开发常用的指令 # docker search debian  # docker pull debian:&amp;lt;tag&amp;gt; // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34; // 启动容器并挂载本机目录 # docker run -it --rm \ --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \  target=/&amp;lt;container-path&amp;gt; \  debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
     </item>
     
     <item>

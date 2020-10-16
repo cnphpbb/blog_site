@@ -6,11 +6,7 @@
     <description>Recent content in storage on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2015 12:23:12 +0800</lastBuildDate>
-    
-	<atom:link href="https://48474.net/categories/storage/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 10 Oct 2015 12:23:12 +0800</lastBuildDate><atom:link href="https://48474.net/categories/storage/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>存储知识：比较在线、近线和离线存储</title>
       <link>https://48474.net/post/storage_knowledge/</link>

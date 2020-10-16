@@ -6,11 +6,7 @@
     <description>Recent content in nfs on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Jan 2017 13:18:39 +0800</lastBuildDate>
-    
-	<atom:link href="https://48474.net/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 16 Jan 2017 13:18:39 +0800</lastBuildDate><atom:link href="https://48474.net/tags/nfs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VPS Debian8 删除一些没用的服务的方法</title>
       <link>https://48474.net/post/vps_debian_unremove_service/</link>
