@@ -193,9 +193,9 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
     > 1.  树莓派系统, 最后选择了 **OPENFANS开源社区 & 树莓派爱好者社区** 联合出品的 [Debian-Pi-Aarch64](https://github.com/openfans-community-offical/Debian-Pi-Aarch64)     
             "最初直接使用的树莓派官方的系统在安装 docker 及后期的docker 部署上 各种各样的问题. "    
             "还烧了一块 512GB的SSD. 还好在保,  漂亮温和的客服MM、直接就给我换了一块. 赞👍👍👍"
-    2.  mysql 没有 docker的ARM镜像. 
-    3.  postgres 提供的变量, 应该带 子数据库和子数据库账号&子数据库账号密码的变量. 免得多次部署
-    4.  gitea 中 cache & seesion, 默认走的是内存模式, 应该在配置UI中增加此处的配置选择.
-    5.  frp 不能 22 - 22 有点小遗憾. 我抽空看看代码为啥会这样.(或许是安全方面的考虑吧)
-    6.  caddy2 配置上没有 caddy1 那样简单明了. 我还要看看是不是替换到v1版本. 越来越像NGINX的配置啦. 遗憾    
+    > 2.  mysql 没有 docker的ARM镜像. 
+    > 3.  postgres 提供的变量, 应该带 子数据库和子数据库账号&子数据库账号密码的变量. 免得多次部署
+    > 4.  gitea 中 cache & seesion, 默认走的是内存模式, 应该在配置UI中增加此处的配置选择.
+    > 5.  frp 不能 22 - 22 有点小遗憾. 我抽空看看代码为啥会这样.(或许是安全方面的考虑吧)
+    > 6.  caddy2 配置上没有 caddy1 那样简单明了. 我还要看看是不是替换到v1版本. 越来越像NGINX的配置啦. 遗憾    
     
