@@ -68,12 +68,12 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
     
     1. 建立一个网络
     
-        ```docker
+        ```sql
         docker network create -d bridge --subnet=172.20.0.0/16 myGitNet
         ```
     2. 创建 `Redis` 容器
     
-        ```docker
+        ```sql
         docker run -d --name gitea-redis \
         --restart always \
         -v redis_data:/data \
@@ -84,7 +84,7 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
     
     3. 创建 `postgres` 容器
     
-        ```docker
+        ```sql
         docker run -d --name gitea-pgsql \
         --restart always \
         -v postgres_data:/var/lib/postgresql/data \
@@ -117,7 +117,7 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
         
     4. 创建 `gitea` 容器
     
-        ```docker
+        ```sql
         docker run -d --name my-gitea \
         --restart always -v gitea_data:/data \
         --net myGitNet --ip 172.20.0.37 \
