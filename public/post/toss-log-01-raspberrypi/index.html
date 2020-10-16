@@ -147,28 +147,28 @@
 <ol>
 <li>
 <p>建立一个网络</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker network create -d bridge --subnet<span class="o">=</span>172.20.0.0/16 myGitNet
-</code></pre></div></li>
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">docker network create -d bridge --subnet<span class="o">=</span>172.20.0.0/16 myGitNet<span class="err">
+</span></code></pre></div></li>
 <li>
 <p>创建 <code>Redis</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker run -d --name gitea-redis <span class="se">\
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">docker run -d --name gitea-redis <span class="se">\
 </span><span class="se"></span>--restart always <span class="se">\
 </span><span class="se"></span>-v redis_data:/data <span class="se">\
 </span><span class="se"></span>--net myGitNet --ip 172.20.0.201 <span class="se">\
 </span><span class="se"></span>redis:6-alpine <span class="se">\
-</span><span class="se"></span>--requirepass gitea
-</code></pre></div></li>
+</span><span class="se"></span>--requirepass gitea<span class="err">
+</span></code></pre></div></li>
 <li>
 <p>创建 <code>postgres</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker run -d --name gitea-pgsql <span class="se">\
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">docker run -d --name gitea-pgsql <span class="se">\
 </span><span class="se"></span>--restart always <span class="se">\
 </span><span class="se"></span>-v postgres_data:/var/lib/postgresql/data <span class="se">\
 </span><span class="se"></span>-e <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>hub#postgres <span class="se">\
 </span><span class="se"></span>--net myGitNet --ip 172.20.0.229 <span class="se">\
-</span><span class="se"></span><span class="c1"># 这里开放端口是要进行全程管理, 后期可以关闭哦.</span>
--p 5432:5432 <span class="se">\
-</span><span class="se"></span>postgres:13-alpine
-</code></pre></div><p>使用数据库管理工具 <code>Navicat </code>,  建立<code>Postgres</code> 用户，密码, 数据库</p>
+</span><span class="se"></span><span class="c1"># 这里开放端口是要进行全程管理, 后期可以关闭哦.</span><span class="err">
+</span><span class="err"></span>-p 5432:5432 <span class="se">\
+</span><span class="se"></span>postgres:13-alpine<span class="err">
+</span></code></pre></div><p>使用数据库管理工具 <code>Navicat </code>,  建立<code>Postgres</code> 用户，密码, 数据库</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 
 </span><span class="c1">-- 创建用户、密码
 </span><span class="c1">--
@@ -187,12 +187,12 @@
 </code></pre></div></li>
 <li>
 <p>创建 <code>gitea</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">docker run -d --name my-gitea <span class="se">\
+<div class="highlight"><pre class="chroma"><code class="language-docker" data-lang="docker">docker run -d --name my-gitea <span class="se">\
 </span><span class="se"></span>--restart always -v gitea_data:/data <span class="se">\
 </span><span class="se"></span>--net myGitNet --ip 172.20.0.37 <span class="se">\
 </span><span class="se"></span>-p 3022:22 -p 3000:3000 <span class="se">\
-</span><span class="se"></span>gitea/gitea:1.12.5
-</code></pre></div></li>
+</span><span class="se"></span>gitea/gitea:1.12.5<span class="err">
+</span></code></pre></div></li>
 <li>
 <p>配置 <code>gittea</code>,  访问 http://localhost:3000/</p>
 <p>安装上面的UI界面, 进行逐步的配置.</p>
