@@ -190,6 +190,7 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
     ![git.tp229.com](https://gitee.com/kevinGunn/myimgs/raw/master/20201015174822.png)    
     
     ### 总结一下, 我折腾过程遇到的坑
+    
     > 1.  树莓派系统, 最后选择了 **OPENFANS开源社区 & 树莓派爱好者社区** 联合出品的 [Debian-Pi-Aarch64](https://github.com/openfans-community-offical/Debian-Pi-Aarch64)     
             "最初直接使用的树莓派官方的系统在安装 docker 及后期的docker 部署上 各种各样的问题. "    
             "还烧了一块 512GB的SSD. 还好在保,  漂亮温和的客服MM、直接就给我换了一块. 赞👍👍👍"
