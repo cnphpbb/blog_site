@@ -19,7 +19,7 @@ pygmentsUseClassic = false
 pygmentsStyle = "trac"
 
 [params]
-    description = "DenysG'blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。"
+    description  = "DenysG'blog,技术博客,golang,hugo，没啥技术，没啥经验，没啥文笔，向往自由，不断折腾的技术男。"
     subtitle = "我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文"
     github    = "https://github.com/cnphpbb/"
     copyright = "© 2020 135Get_Team. All rights reserved."
