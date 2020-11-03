@@ -4,7 +4,7 @@ date: 2020-11-03T03:12:35+08:00
 draft: false
 menu: "main"
 Categories: ["Guide", "solutions"]
-Description: "折腾 -- 自用树莓派内网穿透搭建GITEA"
+Description: "网络上的两个程序通过一个双向的通信连接实现数据的交换，这个双向链路的一端称为一个socket。"
 Tags: ["tcp/ip", "socket", "network", "solutions", "Guide", "linux"]
 ---
 
