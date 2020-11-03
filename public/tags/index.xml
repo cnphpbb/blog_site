@@ -6,7 +6,52 @@
     <description>Recent content in Tags on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Oct 2020 12:25:15 +0800</lastBuildDate><atom:link href="https://48474.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Nov 2020 03:12:35 +0800</lastBuildDate><atom:link href="https://48474.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>guide</title>
+      <link>https://48474.net/tags/guide/</link>
+      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>linux</title>
+      <link>https://48474.net/tags/linux/</link>
+      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>network</title>
+      <link>https://48474.net/tags/network/</link>
+      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>socket</title>
+      <link>https://48474.net/tags/socket/</link>
+      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/socket/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>solutions</title>
+      <link>https://48474.net/tags/solutions/</link>
+      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/solutions/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>debian</title>
       <link>https://48474.net/tags/debian/</link>
@@ -17,38 +62,11 @@
     </item>
     
     <item>
-      <title>guide</title>
-      <link>https://48474.net/tags/guide/</link>
-      <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
-      
-      <guid>https://48474.net/tags/guide/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>https://48474.net/tags/linux/</link>
-      <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
-      
-      <guid>https://48474.net/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>raspberrypi</title>
       <link>https://48474.net/tags/raspberrypi/</link>
       <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
       
       <guid>https://48474.net/tags/raspberrypi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>solutions</title>
-      <link>https://48474.net/tags/solutions/</link>
-      <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
-      
-      <guid>https://48474.net/tags/solutions/</guid>
       <description></description>
     </item>
     
@@ -301,6 +319,15 @@
       <pubDate>Fri, 09 Oct 2015 16:13:10 +0800</pubDate>
       
       <guid>https://48474.net/tags/xorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tcp/ip</title>
+      <link>https://48474.net/tags/tcp/ip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://48474.net/tags/tcp/ip/</guid>
       <description></description>
     </item>
     
