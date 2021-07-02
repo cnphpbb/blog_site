@@ -141,52 +141,52 @@
 <ol>
 <li>
 <p>建立一个网络</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span> <span class="n">network</span> <span class="k">create</span> <span class="o">-</span><span class="n">d</span> <span class="n">bridge</span> <span class="c1">--subnet=172.20.0.0/16 myGitNet
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="c1">--subnet=172.20.0.0/16 myGitNet
 </span></code></pre></div></li>
 <li>
 <p>创建 <code>Redis</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="c1">--name gitea-redis \
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-redis \
 </span><span class="c1">--restart always \
-</span><span class="c1"></span><span class="o">-</span><span class="n">v</span> <span class="n">redis_data</span><span class="p">:</span><span class="o">/</span><span class="k">data</span> <span class="err">\</span>
-<span class="c1">--net myGitNet --ip 172.20.0.201 \
-</span><span class="c1"></span><span class="n">redis</span><span class="p">:</span><span class="mi">6</span><span class="o">-</span><span class="n">alpine</span> <span class="err">\</span>
-<span class="c1">--requirepass gitea
+</span><span class="c1"></span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">redis_data</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="c1">--net myGitNet --ip 172.20.0.201 \
+</span><span class="c1"></span><span class="n">redis</span><span class="p">:</span><span class="mi">6</span><span class="o">-</span><span class="n">alpine</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="c1">--requirepass gitea
 </span></code></pre></div></li>
 <li>
 <p>创建 <code>postgres</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="c1">--name gitea-pgsql \
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-pgsql \
 </span><span class="c1">--restart always \
-</span><span class="c1"></span><span class="o">-</span><span class="n">v</span> <span class="n">postgres_data</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="k">data</span> <span class="err">\</span>
-<span class="o">-</span><span class="n">e</span> <span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="n">hub</span><span class="o">#</span><span class="n">postgres</span> <span class="err">\</span>
-<span class="c1">--net myGitNet --ip 172.20.0.229 \
-</span><span class="c1"></span><span class="o">#</span> <span class="err">这里开放端口是要进行全程管理</span><span class="p">,</span> <span class="err">后期可以关闭哦</span><span class="p">.</span>
-<span class="o">-</span><span class="n">p</span> <span class="mi">5432</span><span class="p">:</span><span class="mi">5432</span> <span class="err">\</span>
-<span class="n">postgres</span><span class="p">:</span><span class="mi">13</span><span class="o">-</span><span class="n">alpine</span>
-</code></pre></div><p>使用数据库管理工具 <code>Navicat </code>,  建立<code>Postgres</code> 用户，密码, 数据库</p>
+</span><span class="c1"></span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">postgres_data</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="k">data</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="n">hub</span><span class="o">#</span><span class="n">postgres</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="c1">--net myGitNet --ip 172.20.0.229 \
+</span><span class="c1"></span><span class="o">#</span><span class="w"> </span><span class="err">这里开放端口是要进行全程管理</span><span class="p">,</span><span class="w"> </span><span class="err">后期可以关闭哦</span><span class="p">.</span><span class="w">
+</span><span class="w"></span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">5432</span><span class="p">:</span><span class="mi">5432</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="n">postgres</span><span class="p">:</span><span class="mi">13</span><span class="o">-</span><span class="n">alpine</span><span class="w">
+</span></code></pre></div><p>使用数据库管理工具 <code>Navicat </code>,  建立<code>Postgres</code> 用户，密码, 数据库</p>
 <div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 
 </span><span class="c1">-- 创建用户、密码
 </span><span class="c1">--
-</span><span class="c1"></span>       
-<span class="k">CREATE</span> <span class="k">ROLE</span> <span class="s2">&#34;kevinGit&#34;</span> <span class="n">LOGIN</span> <span class="n">PASSWORD</span> <span class="s1">&#39;gY#0412#Pgsql&#39;</span><span class="p">;</span>
-       
-<span class="c1">-- 
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">ROLE</span><span class="w"> </span><span class="s2">&#34;kevinGit&#34;</span><span class="w"> </span><span class="n">LOGIN</span><span class="w"> </span><span class="n">PASSWORD</span><span class="w"> </span><span class="s1">&#39;gY#0412#Pgsql&#39;</span><span class="p">;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c1">-- 
 </span><span class="c1">-- 创建数据库
 </span><span class="c1">-- 
-</span><span class="c1"></span>       
-<span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="s2">&#34;myGiteaDB&#34;</span>
-<span class="k">WITH</span>
-  <span class="k">OWNER</span> <span class="o">=</span> <span class="s2">&#34;kevinGit&#34;</span>
-  <span class="n">TABLESPACE</span> <span class="o">=</span> <span class="s2">&#34;pg_default&#34;</span>
-<span class="p">;</span>
-</code></pre></div></li>
+</span><span class="c1"></span><span class="w">
+</span><span class="w"></span><span class="k">CREATE</span><span class="w"> </span><span class="k">DATABASE</span><span class="w"> </span><span class="s2">&#34;myGiteaDB&#34;</span><span class="w">
+</span><span class="w"></span><span class="k">WITH</span><span class="w">
+</span><span class="w">  </span><span class="k">OWNER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;kevinGit&#34;</span><span class="w">
+</span><span class="w">  </span><span class="n">TABLESPACE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&#34;pg_default&#34;</span><span class="w">
+</span><span class="w"></span><span class="p">;</span><span class="w">
+</span></code></pre></div></li>
 <li>
 <p>创建 <code>gitea</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="c1">--name my-gitea \
+<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name my-gitea \
 </span><span class="c1">--restart always -v gitea_data:/data \
 </span><span class="c1">--net myGitNet --ip 172.20.0.37 \
-</span><span class="c1"></span><span class="o">-</span><span class="n">p</span> <span class="mi">3022</span><span class="p">:</span><span class="mi">22</span> <span class="o">-</span><span class="n">p</span> <span class="mi">3000</span><span class="p">:</span><span class="mi">3000</span> <span class="err">\</span>
-<span class="n">gitea</span><span class="o">/</span><span class="n">gitea</span><span class="p">:</span><span class="mi">1</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">5</span>
-</code></pre></div></li>
+</span><span class="c1"></span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">3022</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">3000</span><span class="p">:</span><span class="mi">3000</span><span class="w"> </span><span class="err">\</span><span class="w">
+</span><span class="w"></span><span class="n">gitea</span><span class="o">/</span><span class="n">gitea</span><span class="p">:</span><span class="mi">1</span><span class="p">.</span><span class="mi">12</span><span class="p">.</span><span class="mi">5</span><span class="w">
+</span></code></pre></div></li>
 <li>
 <p>配置 <code>gittea</code>,  访问 http://localhost:3000/</p>
 <p>安装上面的UI界面, 进行逐步的配置.</p>
@@ -232,8 +232,8 @@
 <span class="na">type</span> <span class="o">=</span> <span class="s">http</span>
 <span class="na">local_ip</span> <span class="o">=</span> <span class="s">127.0.0.1</span>
 <span class="na">local_port</span> <span class="o">=</span> <span class="s">3000</span>
-<span class="na">custom_domains</span> <span class="o">=</span> <span class="s">git.tp229.com
-</span><span class="s">       </span>
+<span class="na">custom_domains</span> <span class="o">=</span> <span class="s">git.tp229.com</span>
+
 <span class="k">[gitea-ssh]</span>
 <span class="na">type</span> <span class="o">=</span> <span class="s">tcp</span>
 <span class="na">local_ip</span> <span class="o">=</span> <span class="s">127.0.0.1</span>

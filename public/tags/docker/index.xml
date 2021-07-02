@@ -6,7 +6,23 @@
     <description>Recent content in docker on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Nov 2018 00:08:48 +0800</lastBuildDate><atom:link href="https://48474.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jul 2021 09:38:48 +0800</lastBuildDate><atom:link href="https://48474.net/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker：清理Docker占用的磁盘空间</title>
+      <link>https://48474.net/post/docker-prune/</link>
+      <pubDate>Fri, 02 Jul 2021 09:38:48 +0800</pubDate>
+      
+      <guid>https://48474.net/post/docker-prune/</guid>
+      <description>现整理出一些常用的 清理Docker占用的磁盘空间 指令，方便查找。
+官方CLI网址 - Docker CLI
+ Docker 好， Docker化 好！ 好！ 好！
+ 容器清理  docker container prune : 仅删除停止运行的容器。 docker rm -f $(docker ps -aq) : 删除所有容器（包括停止的、正在运行的）。 docker container rm -f $(docker container ls -aq): 同上。  镜像清理 docker rmi &amp;lt;image id&amp;gt; ：通过镜像的id来删除指定镜像。
+有一些镜像是隐形的：
+ 子镜像，就是被其他镜像引用的中间镜像，不能被删除。 悬挂状态的镜像，就是不会再被使用的镜像，可以被删除。  其他命令：
+ docker image ls -f dangling=true: 可以列出所有悬挂状态的镜像.
+并使用命令 docker image rm $(docker image ls -f dangling=true -q) 或 docker image prune 进行删除。 docker image rm $(docker image ls -q) ：删除所有镜像。但正在被容器使用的镜像无法删除。  数据卷清理  docker volume rm $(docker volume ls -q) ：删除不再使用的数据卷。 docker volume prune ：同上。  缓存清理 Docker 18.</description>
+    </item>
+    
     <item>
       <title>Docker 常用命令（一）</title>
       <link>https://48474.net/post/docker-readme01/</link>
