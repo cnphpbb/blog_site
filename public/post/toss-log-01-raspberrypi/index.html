@@ -141,11 +141,11 @@
 <ol>
 <li>
 <p>建立一个网络</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="c1">--subnet=172.20.0.0/16 myGitNet
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">network</span><span class="w"> </span><span class="k">create</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="n">bridge</span><span class="w"> </span><span class="c1">--subnet=172.20.0.0/16 myGitNet
 </span></code></pre></div></li>
 <li>
 <p>创建 <code>Redis</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-redis \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-redis \
 </span><span class="c1">--restart always \
 </span><span class="c1"></span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">redis_data</span><span class="p">:</span><span class="o">/</span><span class="k">data</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="w"></span><span class="c1">--net myGitNet --ip 172.20.0.201 \
@@ -154,7 +154,7 @@
 </span></code></pre></div></li>
 <li>
 <p>创建 <code>postgres</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-pgsql \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name gitea-pgsql \
 </span><span class="c1">--restart always \
 </span><span class="c1"></span><span class="o">-</span><span class="n">v</span><span class="w"> </span><span class="n">postgres_data</span><span class="p">:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="k">data</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="w"></span><span class="o">-</span><span class="n">e</span><span class="w"> </span><span class="n">POSTGRES_PASSWORD</span><span class="o">=</span><span class="n">hub</span><span class="o">#</span><span class="n">postgres</span><span class="w"> </span><span class="err">\</span><span class="w">
@@ -163,7 +163,7 @@
 </span><span class="w"></span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">5432</span><span class="p">:</span><span class="mi">5432</span><span class="w"> </span><span class="err">\</span><span class="w">
 </span><span class="w"></span><span class="n">postgres</span><span class="p">:</span><span class="mi">13</span><span class="o">-</span><span class="n">alpine</span><span class="w">
 </span></code></pre></div><p>使用数据库管理工具 <code>Navicat </code>,  建立<code>Postgres</code> 用户，密码, 数据库</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="c1">-- 
 </span><span class="c1">-- 创建用户、密码
 </span><span class="c1">--
 </span><span class="c1"></span><span class="w">
@@ -181,7 +181,7 @@
 </span></code></pre></div></li>
 <li>
 <p>创建 <code>gitea</code> 容器</p>
-<div class="highlight"><pre class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name my-gitea \
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="n">docker</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="c1">--name my-gitea \
 </span><span class="c1">--restart always -v gitea_data:/data \
 </span><span class="c1">--net myGitNet --ip 172.20.0.37 \
 </span><span class="c1"></span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">3022</span><span class="p">:</span><span class="mi">22</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="mi">3000</span><span class="p">:</span><span class="mi">3000</span><span class="w"> </span><span class="err">\</span><span class="w">
@@ -205,7 +205,7 @@
 <ul>
 <li>配置文件。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
 <span class="na">bind_port</span> <span class="o">=</span> <span class="s">61007</span>
 <span class="na">vhost_http_port</span> <span class="o">=</span> <span class="s">8080</span>
 <span class="na">token</span> <span class="o">=</span> <span class="s">myToken</span>
@@ -223,7 +223,7 @@
 <ul>
 <li>配置文件。</li>
 </ul>
-<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[common]</span>
 <span class="na">server_addr</span> <span class="o">=</span> <span class="s">**.**.**.**</span>
 <span class="na">server_port</span> <span class="o">=</span> <span class="s">61007</span>
 <span class="na">token</span> <span class="o">=</span> <span class="s">myToken</span>

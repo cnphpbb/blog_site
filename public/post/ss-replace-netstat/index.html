@@ -82,20 +82,20 @@
 <h3 id="用数据说话">用数据说话</h3>
 <p>为了让你更坚决的和netstat说再见，列举一些测试数据，以便证明ss的确名不虚传。</p>
 <p>当服务器维持3万个socket连接，Admin需要计算具体的连接数量时，不同情况的耗时如下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell">netstat -at <span class="p">|</span> wc  耗时 15.60 秒
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">netstat -at <span class="p">|</span> wc  耗时 15.60 秒
 ss -atr     <span class="p">|</span> wc  耗时  5.40 秒（未利用tcp_diag）
 ss -atr     <span class="p">|</span> wc  耗时  0.47 秒（利用tcp_diag）
 </code></pre></div><h3 id="好马配上好鞍">好马配上好鞍</h3>
 <p>几乎所有的Linux系统都会默认包含<code>netstat</code>命令，但并非所有系统都会默认包含ss命令。<code>netstat</code> 命令是 <code>net-tools</code> 工具集中的一员：</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show net-tools</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show net-tools</span>
 Package: net-tools
 Version: 1.60+git20180626.aebd88e-1
 </code></pre></div><p>而ss命令是iproute2工具集中的一员：</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show iproute2</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt-cache show iproute2</span>
 Package: iproute2
 Version: 4.20.0-2
 </code></pre></div><p>如果你无法使用ss命令，那么可能是缺少了 <code>iproute2</code> ，需要安装一下：</p>
-<div class="highlight"><pre class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt install -y iproute2</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="c1"># apt install -y iproute2</span>
 </code></pre></div><p>从某种意义上说，<code>iproute2</code> 工具集几乎可以替代掉 <code>net-tools</code> 工具集，具体的替代方案是这样的：</p>
 <table>
 <thead>

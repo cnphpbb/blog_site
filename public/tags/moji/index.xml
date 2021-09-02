@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>git on DenysG的个人博客</title>
-    <link>https://48474.net/tags/git/</link>
-    <description>Recent content in git on DenysG的个人博客</description>
+    <title>moji on DenysG的个人博客</title>
+    <link>https://48474.net/tags/moji/</link>
+    <description>Recent content in moji on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Sep 2021 04:13:10 +0800</lastBuildDate><atom:link href="https://48474.net/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Sep 2021 04:13:10 +0800</lastBuildDate><atom:link href="https://48474.net/tags/moji/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gitmoji &amp; 代码</title>
       <link>https://48474.net/post/gitmoji-210902/</link>
@@ -14,32 +14,6 @@
       
       <guid>https://48474.net/post/gitmoji-210902/</guid>
       <description>Gitmoji &amp;amp; 代码    Gitmoji 代码 说明     🎨(调色板) 🎨 改进代码结构/代码格式   ⚡️(闪电) ⚡ 提升性能   🔥(火焰) 🔥 移除代码或文件   🐛(bug) 🐛 修复   🚑(急救车) 🚑 重要补丁   ✨(火花) ✨ 引入新功能   📝(备忘录) 📝 撰写文档   🚀(火箭) 🚀 部署功能   💄(口红) 💄 更新   🎉(庆祝) 🎉 初次提交   ✅(复选框) ✅ 增加测试   🔒(锁) 🔒 修复安全问题   🍎(苹果) 🍎 修复   🐧(企鹅) 🐧 修复   🏁(旗帜) 🏁 修复   🤖(机器人) 🤖 修复   🍏(苹果) 🍏 修复   🔖(书签) 🔖 发行/版本标签   🚨(警车灯) 🚨 移除   🚧(施工) 🚧 工作进行中   💚(绿心) 💚 修复   ⬇️(下降箭头) ⬇️ 降级依赖   ⬆️(上升箭头) ⬆️ 升级依赖   📌(图钉) 📌 依赖固定到特定版本   👷(工人) 👷‍♂️ 添加   📈(上升趋势图) 📈 添加分析或跟踪代码   ♻️(回收) ♻️ 重构代码   🐳(鲸鱼) 🐳 Docker   🔨(锤子) 🔨 重大重构   ➕(加号) ➕ 增加一个依赖   ➖(减号) ➖ 减少一个依赖   🔧(扳手) 🔧 修改配置文件   🌐(地球) 🌐 国际化与本地化   ✏️(铅笔) ✏️ 修复错别字   💩(粑粑) 💩 编写需要改进的错误代码   ⏪(后退) ⏪ 还原更改   🔀	(Merge分支) 🔀 Merge 分支   📦(包裹) 📦 更新编译文件或Package   👽(外星人) 👽 由于外部API的更改而更新了代码   🚚(卡车) 🚚 移动或重命名文件   📄(文件) 📄 添加或更新   💥(隆隆声) 💥 引入重大变化   🍱(便当) 🍱 添加或更新Assets   👌(OK) 👌 由于代码评审更改而更新代码   ♿️(轮椅) ♿ 提高可访问性   💡(电灯泡) 💡 记录源代码   🍻(啤酒) 🍻 醉醺醺地编写代码   💬(发言) 💬 更新文本和文字   🗃(文件盒) 🗃️ 执行与数据库相关的更改   🔊(巨大声响) 🔊 添加日志   🔇(静音) 🔇 移除日志   👥(轮廓半身像) 👥 添加贡献者   🚸(儿童通过) 🚸 提高用户体验/可用性   🏗(房屋) 🏗️ 使建筑变化   📱(苹果手机) 📱 致力于响应式设计   🤡(小丑) 🤡 Mock相关   🥚(彩蛋) 🥚 加入一个复活节彩蛋   🙈(非礼勿视) 🙈 添加或更新 .</description>
-    </item>
-    
-    <item>
-      <title>管理git生成的多个ssh key</title>
-      <link>https://48474.net/post/git_more_ssh_keygen/</link>
-      <pubDate>Thu, 31 Dec 2015 09:24:10 +0800</pubDate>
-      
-      <guid>https://48474.net/post/git_more_ssh_keygen/</guid>
-      <description>问题阐述 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
-问题解决 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
-具体步骤   生成第一个ssh key(这里我用于github，用的gmail邮箱)
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
-完成之后我们可以看到~/.ssh目录下多了两个文件。
-id_rsa_github id_rsa_github.pub   生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
-完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
-id_rsa_gitlab id_rsa_gitlab.pub   打开ssh-agent
-这里如果你用的github官方的bash，ssh-agent -s,
-如果是其他的，比如msysgit,eval $(ssh-agent -s)。
-  添加私钥
-ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab   创建并修改config文件
-  windows
-新建一个txt文本，然后将名字后缀一起改成config即可。
-  linux|unix
-在bash下的话直接touch config 即可。
-# gitlab Host git.int-5262.com //别名 HostName git.</description>
     </item>
     
   </channel>
