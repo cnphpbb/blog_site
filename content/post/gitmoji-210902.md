@@ -2,7 +2,7 @@
 Categories = ["knowledge"]
 Description = "Gitmoji & 代码"
 Tags = ["knowledge","git","gitmoji", "moji"]
-date = "2021-09-02T04\:13\:10+08\:00"
+date = "2021-09-02T04:13:10+08:00"
 draft = false
 menu = "main"
 title = "Gitmoji & 代码"
