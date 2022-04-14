@@ -82,7 +82,7 @@ TCP/IP协议族中的网络互连层（internet layer）在OSI模型中叫做网
 
 图1: OSI和TCP/IP的关系图    
 
-![OSI和TCP/IP的关系图](https://gitee.com/kevinGunn/myimgs/raw/master/20201103112504.png)
+![OSI和TCP/IP的关系图](https://imgs.7y2.org/20201103112504.png)
 
 ## Socket 在 TCP/IP 中的角色
 
@@ -90,7 +90,7 @@ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一�
 
 图2: Socket在TCP/IP中的角色图 
 
-![Socket在TCP/IP中的角色图](https://gitee.com/kevinGunn/myimgs/raw/master/20201103112505.png)
+![Socket在TCP/IP中的角色图](https://imgs.7y2.org/20201103112505.png)
 
 ## Socket通信流程
 
@@ -100,7 +100,7 @@ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一�
 
 图3：Socket交互流程图
 
-![Socket交互流程图](https://gitee.com/kevinGunn/myimgs/raw/master/20201103112503.png)
+![Socket交互流程图](https://imgs.7y2.org/20201103112503.png)
 
 - 服务器根据地址类型（ipv4,ipv6）、socket类型、协议创建socket
 - 服务器为socket绑定ip地址和端口号
@@ -121,7 +121,7 @@ Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一�
 
 图3：TCP/IP协议图
 
-![TCP/IP协议图](https://gitee.com/kevinGunn/myimgs/raw/master/20201103112506.png)
+![TCP/IP协议图](https://imgs.7y2.org/20201103112506.png)
 
 - 第一次握手：客户端尝试连接服务器，向服务器发送syn包（同步序列编号Synchronize Sequence Numbers），syn=j，客户端进入SYN_SEND状态等待服务器确认。
 - 第二次握手：服务器接收客户端syn包并确认（ack=j+1），同时向客户端发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态。
