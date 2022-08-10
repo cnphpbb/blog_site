@@ -31,11 +31,11 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
 
 
   俯视图 
-![我的树莓派](https://gitee.com/kevinGunn/myimgs/raw/master/20201014085439.jpg)
+![我的树莓派](https://imgs.7y2.org/20201014085439.jpg)
 右侧接口
-![我的树莓派](https://gitee.com/kevinGunn/myimgs/raw/master/20201014085457.jpg)
+![我的树莓派](https://imgs.7y2.org/20201014085457.jpg)
 左侧HHD指示灯
-![我的树莓派](https://gitee.com/kevinGunn/myimgs/raw/master/20201014085508.jpg)
+![我的树莓派](https://imgs.7y2.org/20201014085508.jpg)
 
 
 3. 安装好docker，frpc 这2个服务应用
@@ -187,7 +187,7 @@ Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
     4. 我采用了`caddy` 做了proxy, 最终https访问.
     
     ### 最后放置一张截图, 看下折腾到最后的成果.
-    ![git.tp229.com](https://gitee.com/kevinGunn/myimgs/raw/master/20201015174822.png)    
+    ![git.tp229.com](https://imgs.7y2.org/20201015174822.png)    
     
     ### 总结一下, 我折腾过程遇到的坑
     

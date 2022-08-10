@@ -119,16 +119,16 @@
 <p>该层包括所有和应用程序协同工作，利用基础网络交换应用程序专用的数据的协议。 应用层是大多数普通与网络相关的程序为了通过网络与其他程序通信所使用的层。这个层的处理过程是应用特有的；数据从网络相关的程序以这种应用内部使用的格式进行传送，然后被编码成标准协议的格式。</p>
 <p>每一个应用层协议一般都会使用到两个传输层协议之一： 面向连接的TCP传输控制协议和无连接的包传输的UDP用户数据报文协议。</p>
 <p>图1: OSI和TCP/IP的关系图</p>
-<p><img src="https://gitee.com/kevinGunn/myimgs/raw/master/20201103112504.png" alt="OSI和TCP/IP的关系图"></p>
+<p><img src="https://imgs.7y2.org/20201103112504.png" alt="OSI和TCP/IP的关系图"></p>
 <h2 id="socket-在-tcpip-中的角色">Socket 在 TCP/IP 中的角色</h2>
 <p>Socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
 <p>图2: Socket在TCP/IP中的角色图</p>
-<p><img src="https://gitee.com/kevinGunn/myimgs/raw/master/20201103112505.png" alt="Socket在TCP/IP中的角色图"></p>
+<p><img src="https://imgs.7y2.org/20201103112505.png" alt="Socket在TCP/IP中的角色图"></p>
 <h2 id="socket通信流程">Socket通信流程</h2>
 <p><code>Socket</code> 起源于UNIX，在Unix一切皆文件哲学的思想下，socket是一种”打开—读/写—关闭”模式的实现，服务器和客户端各自维护一个”文件”，在建立连接打开后，可以向自己文件写入内容供对方读取或者读取对方内容，通讯结束时关闭文件。</p>
 <p><code>Socket</code> 是 ”打开—读/写—关闭”模式的实现，以使用TCP协议通讯的 <code>Socket</code> 为例，其交互流程大概是这样子的：</p>
 <p>图3：Socket交互流程图</p>
-<p><img src="https://gitee.com/kevinGunn/myimgs/raw/master/20201103112503.png" alt="Socket交互流程图"></p>
+<p><img src="https://imgs.7y2.org/20201103112503.png" alt="Socket交互流程图"></p>
 <ul>
 <li>服务器根据地址类型（ipv4,ipv6）、socket类型、协议创建socket</li>
 <li>服务器为socket绑定ip地址和端口号</li>
@@ -146,7 +146,7 @@
 <h2 id="三次握手和四次分手">三次握手和四次分手</h2>
 <p>在TCP/IP协议中，TCP协议通过三次握手建立一个可靠的连接，服务器socket与客户端socket建立连接的部分其实就是靠 TCP 三次握手来实现。而断开连接需要经过四次分手。</p>
 <p>图3：TCP/IP协议图</p>
-<p><img src="https://gitee.com/kevinGunn/myimgs/raw/master/20201103112506.png" alt="TCP/IP协议图"></p>
+<p><img src="https://imgs.7y2.org/20201103112506.png" alt="TCP/IP协议图"></p>
 <ul>
 <li>第一次握手：客户端尝试连接服务器，向服务器发送syn包（同步序列编号Synchronize Sequence Numbers），syn=j，客户端进入SYN_SEND状态等待服务器确认。</li>
 <li>第二次握手：服务器接收客户端syn包并确认（ack=j+1），同时向客户端发送一个SYN包（syn=k），即SYN+ACK包，此时服务器进入SYN_RECV状态。</li>

@@ -47,7 +47,7 @@ Tags = ["docker","guide"]
 
 **`docker system df`** 命令，类似于 **Linux**上的 **df** 命令，用于查看 **Docker** 的磁盘使用情况：
 
-![docker system df](https://gitee.com/kevinGunn/myimgs/raw/master/20210703040827.png)
+![docker system df](https://imgs.7y2.org/20210703040827.png)
 
 **TYPE**列出了 **Docker** 使用磁盘的 4 种类型：
 
