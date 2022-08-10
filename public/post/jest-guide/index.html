@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  
+  <meta charset="UTF-8" />
+  <meta name="description" content="Jest是一款优雅、简洁的 JavaScript 测试框架。支持 Babel、TypeScript、Node、React、Angular、Vue 等诸多框架！" />
+  <title>
+    今天学到了 Jest 单元测试 | DenysG的个人博客
+  </title>
+  
+  <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
+  
+  <link rel="canonical" href="https://48474.net/post/jest-guide/"/>
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/sanitize.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  <link rel="stylesheet" href="/css/highlight_monokai.css">
+  <link rel="stylesheet" href="/css/theme.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  
+  
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+
+  
+  
+
+</head>
+
+
+
+<body>
+<div class="container">
+  
+  <header role="banner">
+    <div class="row gutters">
+      <div id="site-title" class="col span_6">
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
+        <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
+      </div>
+      <div id="social" class="col span_6">
+        <ul>
+          
+          
+          <li><a href="https://github.com/cnphpbb/" target="_blank">GitHub</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </header>
+
+
+  
+  <main id="single" role="main">
+    <div class="article-header">
+      <h1>今天学到了 Jest 单元测试</h1>
+      <div class="meta">
+        Aug 10, 2022 &nbsp;
+        
+          #<a href="/tags/jest">jest</a>&nbsp;
+        
+          #<a href="/tags/guide">guide</a>&nbsp;
+        
+          #<a href="/tags/solutions">solutions</a>&nbsp;
+        
+          #<a href="/tags/javascript">JavaScript</a>&nbsp;
+        
+          #<a href="/tags/vue">vue</a>&nbsp;
+        
+          #<a href="/tags/%E5%BC%80%E6%BA%90">开源</a>&nbsp;
+        
+      </div>
+    </div>
+    <article>
+      <p><strong>Jest 是一款优雅、简洁的 JavaScript 测试框架。</strong></p>
+<p><strong>Jest 支持 Babel、TypeScript、Node、React、Angular、Vue 等诸多框架！</strong></p>
+<p>有幸参与了一个微信小程序项目前端开发，此项目使用 uniapp vue2开发。 接触了一次jest单元测试，写下笔记有益于以后继续学习和回顾。</p>
+<p>为了保证项目中代码方法的正确性，必然就需要去做单元测试。选择了 Jest 测试框架。</p>
+<h3 id="jest单元测试npm包">jest单元测试NPM包</h3>
+<p>在项目目录下执行如下指令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn add --dev jest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  babel-jest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  @babel/core <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  @babel/preset-env <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  @vue/vue2-jest <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  @vue/test-utils <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jsdom <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  jest-environment-jsdom
+</span></span></code></pre></div><p>需要注意下 Vue2 版本中npm包的版本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="s2">&#34;@babel/preset-env&#34;</span>: <span class="s2">&#34;^7.18.10&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;@vue/test-utils&#34;</span>: <span class="s2">&#34;^1.2.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;@vue/test-utils&#34;</span>: <span class="s2">&#34;^1.3.0&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;@vue/vue2-jest&#34;</span>: <span class="s2">&#34;^28.0.1&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;babel-jest&#34;</span>: <span class="s2">&#34;^28.1.3&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;jest&#34;</span>: <span class="s2">&#34;^28.1.3&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;jest-environment-jsdom&#34;</span>: <span class="s2">&#34;^28.1.3&#34;</span>,
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;jsdom&#34;</span>: <span class="s2">&#34;^20.0.0&#34;</span>,
+</span></span></code></pre></div><p>以上内容直接添加到 <code>package.json</code> 文件 <code>devDependencies</code> 节点中， 执行 <code>yarn install</code> 即可。 🚧</p>
+<h3 id="jest单元测试配置">jest单元测试配置</h3>
+<ul>
+<li>jest.config.js</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">testEnvironment</span><span class="o">:</span> <span class="s2">&#34;jsdom&#34;</span><span class="p">,</span> <span class="c1">//用于测试的测试环境
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">testMatch</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//检测测试文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s1">&#39;**/test/units/**/?(*.)+(spec|test).[jt]s?(x)&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">moduleNameMapper</span><span class="o">:</span> <span class="p">{</span> <span class="c1">//映射路径到模块名称 完成`@/`的路径映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s2">&#34;^@/(.*)$&#34;</span><span class="o">:</span> <span class="s2">&#34;&lt;rootDir&gt;/$1&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transform</span><span class="o">:</span> <span class="p">{</span>    <span class="c1">//转换器路径的映射
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s2">&#34;^.+\.js$&#34;</span><span class="o">:</span> <span class="s2">&#34;babel-jest&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;^.+\.vue$&#34;</span><span class="o">:</span> <span class="s2">&#34;@vue/vue2-jest&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">moduleFileExtensions</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//使用的文件扩展名
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s2">&#34;js&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;vue&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">collectCoverage</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>  <span class="c1">//收集测试时的覆盖率信息
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">coverageDirectory</span><span class="o">:</span> <span class="s1">&#39;&lt;rootDir&gt;/test/coverage&#39;</span><span class="p">,</span>   <span class="c1">//输出其覆盖范围文件的目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">testPathIgnorePatterns</span><span class="o">:</span> <span class="p">[</span>   <span class="c1">//忽略的目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s2">&#34;&lt;rootDir&gt;/node_modules/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">transformIgnorePatterns</span><span class="o">:</span> <span class="p">[</span>  <span class="c1">//转换器忽略的目录
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="s2">&#34;&lt;rootDir&gt;/node_modules/&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>在 <code>jest.config.js</code> 中 <code>testMatch</code>节点配置了测试文件的目录 <code>test/units</code>。 在研发时要在这里写入单元测试的文件。 🔥</p>
+<ul>
+<li>.babelrc</li>
+</ul>
+<pre tabindex="0"><code class="language-json5" data-lang="json5">{
+    presets: [
+        [
+            &#34;@babel/preset-env&#34;,
+            {
+                &#34;targets&#34;: {
+                    &#34;node&#34;: &#34;current&#34;
+                }
+            }
+        ]
+    ]
+}
+</code></pre><ul>
+<li>package.json</li>
+</ul>
+<p>在 <code>package.json</code> 中 <code>scripts</code> 节点，添加如下配置。</p>
+<pre tabindex="0"><code class="language-json5" data-lang="json5">{
+  &#34;scripts&#34;: {
+    ......
+    &#34;test:mp-weixin&#34;: &#34;cross-env UNI_PLATFORM=mp-weixin jest -i&#34;,
+    ......
+  },
+}
+</code></pre><p>在进行单元测试时，在终端中就可以看到执行结果和覆盖率报告。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">yarn test:mp-weixin
+</span></span></code></pre></div><h3 id="单元测试常用api">单元测试常用API</h3>
+<ul>
+<li><a href="https://www.jestjs.cn/docs/api#describename-fn">describe</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">myBeverage</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">delicious</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">sour</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">describe</span><span class="p">(</span><span class="s1">&#39;my beverage&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;is delicious&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">expect</span><span class="p">(</span><span class="nx">myBeverage</span><span class="p">.</span><span class="nx">delicious</span><span class="p">).</span><span class="nx">toBeTruthy</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">test</span><span class="p">(</span><span class="s1">&#39;is not sour&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">expect</span><span class="p">(</span><span class="nx">myBeverage</span><span class="p">.</span><span class="nx">sour</span><span class="p">).</span><span class="nx">toBeFalsy</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><ul>
+<li><a href="https://www.jestjs.cn/docs/api#testname-fn-timeout">test</a></li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;has lemon in it&#39;</span><span class="p">,</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">fetchBeverageList</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">list</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">expect</span><span class="p">(</span><span class="nx">list</span><span class="p">).</span><span class="nx">toContain</span><span class="p">(</span><span class="s1">&#39;lemon&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>参考网址：</p>
+<ul>
+<li><a href="https://blog.csdn.net/u012961419/article/details/123638655">Jest 学习04 - DOM 测试、快照测试、测试覆盖率</a></li>
+<li><a href="https://juejin.cn/post/6946580423954661384">在uniapp框架下实现用jest进行h5环境的自动测试</a></li>
+<li><a href="https://www.jestjs.cn/">Jest中文文档</a></li>
+</ul>
+
+      
+      
+      
+    </article>
+    
+
+
+  </main>
+  
+  <nav class="pagination-single">
+    
+      <span class="previous">&larr; <a href="https://48474.net/post/gitmoji-210902/" rel="prev">Gitmoji &amp; 代码</a></span>
+    
+    
+  </nav>
+
+
+  
+  <footer role="contentinfo">
+    <div style="text-align:center;">
+      
+      © 2020 135Get_Team. All rights reserved.
+    </div>
+  </footer>
+
+
+</div>
+
+<script src="/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+</body>
+</html>
+

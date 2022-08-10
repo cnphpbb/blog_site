@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vue on DenysG的个人博客</title>
+    <link>https://48474.net/tags/vue/</link>
+    <description>Recent content in vue on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Aug 2022 07:56:00 +0800</lastBuildDate><atom:link href="https://48474.net/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>今天学到了 Jest 单元测试</title>
+      <link>https://48474.net/post/jest-guide/</link>
+      <pubDate>Wed, 10 Aug 2022 07:56:00 +0800</pubDate>
+      
+      <guid>https://48474.net/post/jest-guide/</guid>
+      <description>Jest 是一款优雅、简洁的 JavaScript 测试框架。
+Jest 支持 Babel、TypeScript、Node、React、Angular、Vue 等诸多框架！
+有幸参与了一个微信小程序项目前端开发，此项目使用 uniapp vue2开发。 接触了一次jest单元测试，写下笔记有益于以后继续学习和回顾。
+为了保证项目中代码方法的正确性，必然就需要去做单元测试。选择了 Jest 测试框架。
+jest单元测试NPM包 在项目目录下执行如下指令
+yarn add --dev jest \ babel-jest \ @babel/core \ @babel/preset-env \ @vue/vue2-jest \ @vue/test-utils \ jsdom \ jest-environment-jsdom 需要注意下 Vue2 版本中npm包的版本
+&amp;#34;@babel/preset-env&amp;#34;: &amp;#34;^7.18.10&amp;#34;, &amp;#34;@vue/test-utils&amp;#34;: &amp;#34;^1.2.0&amp;#34; &amp;#34;@vue/test-utils&amp;#34;: &amp;#34;^1.3.0&amp;#34;, &amp;#34;@vue/vue2-jest&amp;#34;: &amp;#34;^28.0.1&amp;#34;, &amp;#34;babel-jest&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jest&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jest-environment-jsdom&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jsdom&amp;#34;: &amp;#34;^20.0.0&amp;#34;, 以上内容直接添加到 package.json 文件 devDependencies 节点中， 执行 yarn install 即可。 🚧
+jest单元测试配置 jest.config.js module.exports = { testEnvironment: &amp;#34;jsdom&amp;#34;, //用于测试的测试环境 testMatch: [ //检测测试文件 &amp;#39;**/test/units/**/?</description>
+    </item>
+    
+  </channel>
+</rss>

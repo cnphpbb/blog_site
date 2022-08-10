@@ -6,7 +6,23 @@
     <description>Recent content in guide on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Jul 2021 09:38:48 +0800</lastBuildDate><atom:link href="https://48474.net/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Aug 2022 07:56:00 +0800</lastBuildDate><atom:link href="https://48474.net/tags/guide/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>今天学到了 Jest 单元测试</title>
+      <link>https://48474.net/post/jest-guide/</link>
+      <pubDate>Wed, 10 Aug 2022 07:56:00 +0800</pubDate>
+      
+      <guid>https://48474.net/post/jest-guide/</guid>
+      <description>Jest 是一款优雅、简洁的 JavaScript 测试框架。
+Jest 支持 Babel、TypeScript、Node、React、Angular、Vue 等诸多框架！
+有幸参与了一个微信小程序项目前端开发，此项目使用 uniapp vue2开发。 接触了一次jest单元测试，写下笔记有益于以后继续学习和回顾。
+为了保证项目中代码方法的正确性，必然就需要去做单元测试。选择了 Jest 测试框架。
+jest单元测试NPM包 在项目目录下执行如下指令
+yarn add --dev jest \ babel-jest \ @babel/core \ @babel/preset-env \ @vue/vue2-jest \ @vue/test-utils \ jsdom \ jest-environment-jsdom 需要注意下 Vue2 版本中npm包的版本
+&amp;#34;@babel/preset-env&amp;#34;: &amp;#34;^7.18.10&amp;#34;, &amp;#34;@vue/test-utils&amp;#34;: &amp;#34;^1.2.0&amp;#34; &amp;#34;@vue/test-utils&amp;#34;: &amp;#34;^1.3.0&amp;#34;, &amp;#34;@vue/vue2-jest&amp;#34;: &amp;#34;^28.0.1&amp;#34;, &amp;#34;babel-jest&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jest&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jest-environment-jsdom&amp;#34;: &amp;#34;^28.1.3&amp;#34;, &amp;#34;jsdom&amp;#34;: &amp;#34;^20.0.0&amp;#34;, 以上内容直接添加到 package.json 文件 devDependencies 节点中， 执行 yarn install 即可。 🚧
+jest单元测试配置 jest.config.js module.exports = { testEnvironment: &amp;#34;jsdom&amp;#34;, //用于测试的测试环境 testMatch: [ //检测测试文件 &amp;#39;**/test/units/**/?</description>
+    </item>
+    
     <item>
       <title>Docker：清理Docker占用的磁盘空间</title>
       <link>https://48474.net/post/docker-prune/</link>
@@ -15,12 +31,12 @@
       <guid>https://48474.net/post/docker-prune/</guid>
       <description>现整理出一些常用的 清理Docker占用的磁盘空间 指令，方便查找。
 官方CLI网址 - Docker CLI
- Docker 好， Docker化 好！ 好！ 好！
- 容器清理  docker container prune : 仅删除停止运行的容器。 docker rm -f $(docker ps -aq) : 删除所有容器（包括停止的、正在运行的）。 docker container rm -f $(docker container ls -aq): 同上。  镜像清理 docker rmi &amp;lt;image id&amp;gt; ：通过镜像的id来删除指定镜像。
+Docker 好， Docker化 好！ 好！ 好！
+容器清理 docker container prune : 仅删除停止运行的容器。 docker rm -f $(docker ps -aq) : 删除所有容器（包括停止的、正在运行的）。 docker container rm -f $(docker container ls -aq): 同上。 镜像清理 docker rmi &amp;lt;image id&amp;gt; ：通过镜像的id来删除指定镜像。
 有一些镜像是隐形的：
- 子镜像，就是被其他镜像引用的中间镜像，不能被删除。 悬挂状态的镜像，就是不会再被使用的镜像，可以被删除。  其他命令：
- docker image ls -f dangling=true: 可以列出所有悬挂状态的镜像.
-并使用命令 docker image rm $(docker image ls -f dangling=true -q) 或 docker image prune 进行删除。 docker image rm $(docker image ls -q) ：删除所有镜像。但正在被容器使用的镜像无法删除。  数据卷清理  docker volume rm $(docker volume ls -q) ：删除不再使用的数据卷。 docker volume prune ：同上。  缓存清理 Docker 18.</description>
+子镜像，就是被其他镜像引用的中间镜像，不能被删除。 悬挂状态的镜像，就是不会再被使用的镜像，可以被删除。 其他命令：
+docker image ls -f dangling=true: 可以列出所有悬挂状态的镜像.
+并使用命令 docker image rm $(docker image ls -f dangling=true -q) 或 docker image prune 进行删除。 docker image rm $(docker image ls -q) ：删除所有镜像。但正在被容器使用的镜像无法删除。 数据卷清理 docker volume rm $(docker volume ls -q) ：删除不再使用的数据卷。 docker volume prune ：同上。 缓存清理 Docker 18.</description>
     </item>
     
     <item>
@@ -40,8 +56,8 @@ Socket 直译是 插座 的意思，一般翻译成 套接字，简单的来说�
 第5层 会话层(Session Layer) 负责在数据传输中设置和维护电脑网络中两台电脑之间的通信连接。
 第6层 表达层(Presentation Layer) 把数据转换为能与接收者的系统格式兼容并适合传输的格式。
 第7层 应用层(Application Layer) 提供为应用软件而设的界面，以设置与另一应用软件之间的通信。例如: HTTP，HTTPS，FTP，TELNET，SSH，SMTP，POP3等。应用层直接和应用程序接口并提供常见的网络应用服务，应用层也向第六层表示层发出请求。
- 上述主要内容来自 维基百科
- TCP/IP TCP/IP协议族（英语：TCP/IP Protocol Suite，或TCP/IP Protocols），简称TCP/IP，名称源自该协议家族的两个核心协议：TCP（Transmission Control Protocol 传输控制协议）和IP（Internet Protocol 互联网协议）。</description>
+上述主要内容来自 维基百科
+TCP/IP TCP/IP协议族（英语：TCP/IP Protocol Suite，或TCP/IP Protocols），简称TCP/IP，名称源自该协议家族的两个核心协议：TCP（Transmission Control Protocol 传输控制协议）和IP（Internet Protocol 互联网协议）。</description>
     </item>
     
     <item>
@@ -50,19 +66,21 @@ Socket 直译是 插座 的意思，一般翻译成 套接字，简单的来说�
       <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
       
       <guid>https://48474.net/post/toss-log-01-raspberrypi/</guid>
-      <description>自备树莓派4B  这台自行组装的树莓派4B，主要用途: 存储，应用服务。
-   安装树莓派系统, 并且安装到树莓派到硬盘中
+      <description>自备树莓派4B 这台自行组装的树莓派4B，主要用途: 存储，应用服务。
+安装树莓派系统, 并且安装到树莓派到硬盘中
 这里不多说安装树莓派的方法，可以自行搜索 度娘 或 谷歌
-  我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
-  SSD硬盘 2块：
+我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
+SSD硬盘 2块：
 一块 256G(上面红色的),
 另一块 512G(下面银色的)。 全部是 浦科特（Plextor） M8VC。
 扩展板 2块：
-  X829 扩展板:: 一款2.5&#39; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
-  X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
-  俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用   以上都安装好了，就可以部署自己的服务器啦。
- 开始折腾部署 Gitea  因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
-   Pull docker images</description>
+X829 扩展板:: 一款2.5&amp;rsquo; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
+X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
+俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用 以上都安装好了，就可以部署自己的服务器啦。
+开始折腾部署 Gitea 因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
+Pull docker images
+mysql &amp;amp; percona 的 Docker Official Images 中都没有ARM &amp;amp; ARM64 的 image 如果使用mysql 做数据库请选择 mariadb
+我本来也想使用 gitea + redis + mysql 的.</description>
     </item>
     
     <item>
@@ -94,14 +112,16 @@ netstat -at | wc 耗时 15.60 秒 ss -atr | wc 耗时 5.40 秒（未利用tcp_di
 表 t_test(id,name)中 id, name 都不允许为空，
 insert into t_test(name) values(&#39;xxx&#39;) 必然报错，这是天经地义的事情，但是在mysql中这是有可能成功，具体取决于 sql_mode 的设置。
 sql_mode 可以分为二大类：
-  所谓的宽松无敌模式
+所谓的宽松无敌模式
 my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
 这种模式下，not null 的字段，在 insert 或 update 时不设置值也能成功，db在插入时，会自动给默认值。
 比如: int 会给 0 值，甚至可以把 abc 赋值给 int型 的字段（当然，db会自动忽略该值，变成默认值 0 ）
-  所谓的严格模式
+所谓的严格模式
 具体有很多可选值，设置成严格模式后，mysql 就跟传统的 oracle、sqlserver、 PostgreSQL, 表现一致了，这也是我个人强烈推荐的模式。
-  最后，无耻的从网上抄一段贴在这里备份：
-如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：</description>
+最后，无耻的从网上抄一段贴在这里备份：
+如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：
+在my.cnf添加如下配置
+[mysqld] sql_mode=&amp;#39;ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE, ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES&amp;#39; 补充两句：</description>
     </item>
     
     <item>
@@ -112,8 +132,8 @@ my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
       <guid>https://48474.net/post/docker-readme01/</guid>
       <description>使用了一段时间 docker 了。现整理出一些常用的 docker cli 指令，方便查找。
 官方CLI网址 - Docker CLI
- 对开发，测试和运维人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。 确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊？！” 这类问题。 由于 Docker 确保了执行环境的一致性，使得应用的迁移更加容易。   Docker 好， Docker化 好！ 好！ 好！
- 开发常用的指令 # docker search debian  # docker pull debian:&amp;lt;tag&amp;gt; // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34; // 启动容器并挂载本机目录 # docker run -it --rm \ --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \  target=/&amp;lt;container-path&amp;gt; \  debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
+对开发，测试和运维人员来说，最希望的就是一次创建或配置，可以在任意地方正常运行。 确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊？！” 这类问题。 由于 Docker 确保了执行环境的一致性，使得应用的迁移更加容易。 Docker 好， Docker化 好！ 好！ 好！
+开发常用的指令 # docker search debian # docker pull debian:&amp;lt;tag&amp;gt; // 启动一个容器，并且在运行结束后删除容器 # docker run -it --rm debian // 启动一个容器并命名为mydebian # docker run --name mydebian -it --rm debian //启动容器并执行多个命令 # docker run -it --rm debian sh -c &amp;#34;cmd1 &amp;amp;&amp;amp; cmd2&amp;#34; // 启动容器并挂载本机目录 # docker run -it --rm \ --mount type=bind,source=/&amp;lt;host-path&amp;gt;, \ target=/&amp;lt;container-path&amp;gt; \ debian //上面的简化 # docker run -it --rm -v &amp;lt;host-path&amp;gt;:&amp;lt;container-path&amp;gt; debian 创建新的网络,并在启动本地容器的时候 指定ip # docker network create --subnet=172.</description>
     </item>
     
     <item>
@@ -127,8 +147,9 @@ Dockerfile 其语法非常简单，此页面描述了您可以在 Dockerfile 中
 Usage docker build 命令从 Dockerfile 和 context 构建image。context 是 PATH 或URL 处的文件。PATH 本地文件目录。 URL 是Git repository的位置。
 context 以递归方式处理。因此，PATH 包括任何子目录，URL 包括repository及submodules。一个使用当前目录作为 context 的简单构建命令：
 $ docker build . Sending build context to Docker daemon 6.51 MB ... 构建由Docker守护程序运行，而不是由CLI运行。构建过程所做的第一件事是将整个context（递归地）发送给守护进程。大多数情况下，最好是将 Dockerfile 和所需文件复制到一个空的目录，再到这个目录进行构建。
- 警告：不要使用根目录 / 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。
- build时添加文件，通过 Dockerfile 引用指令中指定的文件，例如 COPY 指令。要增加构建的性能，请通过将.dockerignore 文件添加到 context 目录中来排除文件和目录。有关如何创建 .dockerignore 文件的信息，请参阅此页上的文档。</description>
+警告：不要使用根目录 / 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。
+build时添加文件，通过 Dockerfile 引用指令中指定的文件，例如 COPY 指令。要增加构建的性能，请通过将.dockerignore 文件添加到 context 目录中来排除文件和目录。有关如何创建 .dockerignore 文件的信息，请参阅此页上的文档。
+一般的，Dockerfile 位于 context 的根中。但使用 -f 标志可指定Dockerfile的位置。</description>
     </item>
     
     <item>
@@ -139,15 +160,15 @@ $ docker build . Sending build context to Docker daemon 6.51 MB ... 构建由Doc
       <guid>https://48474.net/post/grpc-google-http2-protobuf/</guid>
       <description>gRPC是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于HTTP/2协议标准而设计，基于ProtoBuf(Protocol Buffers)序列化协议开发，且支持众多开发语言。gRPC提供了一种简单的方法来精确地定义服务和为iOS、Android和后台支持服务自动生成可靠性很强的客户端功能库。客户端充分利用高级流和链接功能，从而有助于节省带宽、降低的TCP链接次数、节省CPU使用、和电池寿命。
 gRPC具有以下重要特征：
-  强大的IDL特性
+强大的IDL特性
 gRPC使用ProtoBuf来定义服务，ProtoBuf是由Google开发的一种数据序列化协议（类似于XML、JSON、hessian）。ProtoBuf能够将数据进行序列化，并广泛应用在数据存储、通信协议等方面。不过，当前gRPC仅支持 Protobuf ，且不支持在浏览器中使用。由于gRPC的设计能够支持支持多种数据格式，所以读者能够很容易实现对其他数据格式（如XML、JSON等）的支持。
 定义服务的示例代码如下：
-message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); }   支持多语言
+message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); } 支持多语言
 gRPC支持多种语言，并能够基于语言自动生成客户端和服务端功能库。目前，在GitHub上已提供了 C版本grpc、Java版本grpc-java 和 Go版本grpc-go，其它语言的版本正在积极开发中，其中 grpc支持 C、C++、Node.js、Python、Ruby、Objective-C、PHP 和 C# 等语言，grpc-java 已经支持Android开发。
-  基于HTTP/2标准设计
+基于HTTP/2标准设计
 由于gRPC基于HTTP/2标准设计，所以相对于其他RPC框架，gRPC带来了更多强大功能，如双向流、头部压缩、多复用请求等。这些功能给移动设备带来重大益处，如节省带宽、降低TCP链接次数、节省CPU使用和延长电池寿命等。同时，gRPC还能够提高了云端服务和Web应用的性能。gRPC既能够在客户端应用，也能够在服务器端应用，从而以透明的方式实现客户端和服务器端的通信和简化通信系统的构建。
-  gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
- 低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等  近日，gRPC开发团队宣布gRPC基于 BSD 3-Clause License 许可协议开源，相关代码已托管在GitHub上。当前已有Google和移动支付公司Square以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common仓库中，还提供了例子、快速入门指南等相关文档。</description>
+gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
+低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等 近日，gRPC开发团队宣布gRPC基于 BSD 3-Clause License 许可协议开源，相关代码已托管在GitHub上。当前已有Google和移动支付公司Square以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common仓库中，还提供了例子、快速入门指南等相关文档。</description>
     </item>
     
     <item>
@@ -157,20 +178,20 @@ gRPC支持多种语言，并能够基于语言自动生成客户端和服务端�
       
       <guid>https://48474.net/post/brew_update_error_fix/</guid>
       <description>今天在Mac下执行brew update时出现以下错误提示：
- $ brew update
+$ brew update
 Error: /usr/local must be writable!
- 以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
- $ sudo chmod -R g+w /usr/local
+以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
+$ sudo chmod -R g+w /usr/local
 $ brew update
 还是出现错误提示 Error: /usr/local must be writable!
- 有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
- $ brew doctor
- 上面是修改目录的写权限，现在修改目录的用户权限吧！！
- $ sudo chown -R $(whoami) /usr/local
- 再次执行brew doctor, 正常啦！！！
+有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
+$ brew doctor
+上面是修改目录的写权限，现在修改目录的用户权限吧！！
+$ sudo chown -R $(whoami) /usr/local
+再次执行brew doctor, 正常啦！！！
 再次执行brew update, 终于正常，正常啦！！！
 总结一下：
- 升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。  </description>
+升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。 </description>
     </item>
     
     <item>
@@ -180,11 +201,12 @@ $ brew update
       
       <guid>https://48474.net/post/caddy-guide/</guid>
       <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
- HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
+HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip; 在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
 下面举几个例子：
- 简单的测试网站  :8530 { root /var/www/test_site }  使用git同步测试环境  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }  站点跳转  http://48474.com, http://www.48474.com { redir https://48474.com{uri} } 看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。
+简单的测试网站 :8530 { root /var/www/test_site } 使用git同步测试环境 :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php } 站点跳转 http://48474.com, http://www.48474.com { redir https://48474.com{uri} } 看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。
 启动caddy也很简单
-/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot;  Caddy官网 https://caddyserver.</description>
+/path/to/caddy -conf=&amp;#34;/path/to/caddy/caddyfile&amp;#34; Caddy官网 https://caddyserver.com
+官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。 Caddy一键安装脚本 https://getcaddy.com curl https://getcaddy.com | bash </description>
     </item>
     
     <item>
@@ -194,11 +216,12 @@ $ brew update
       
       <guid>https://48474.net/post/xorm-readme/</guid>
       <description>xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。
-特性  支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁）  驱动支持 xorm当前支持的驱动和数据库如下：
- Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc  安装 推荐使用 gopm 进行安装：
-gopm get github.com/go-xorm/xorm  或者您也可以使用go工具进行安装：
-go get github.com/go-xorm/xorm  文档  操作指南 GoWalker代码文档 Godoc代码文档  讨论 请加入QQ群：280360085 进行讨论。
-贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING</description>
+特性 支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁） 驱动支持 xorm当前支持的驱动和数据库如下：
+Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc 安装 推荐使用 gopm 进行安装：
+gopm get github.com/go-xorm/xorm 或者您也可以使用go工具进行安装：
+go get github.com/go-xorm/xorm 文档 操作指南 GoWalker代码文档 Godoc代码文档 讨论 请加入QQ群：280360085 进行讨论。
+贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING
+LICENSE BSD License http://creativecommons.org/licenses/BSD/</description>
     </item>
     
   </channel>

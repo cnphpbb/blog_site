@@ -18,14 +18,16 @@
 表 t_test(id,name)中 id, name 都不允许为空，
 insert into t_test(name) values(&#39;xxx&#39;) 必然报错，这是天经地义的事情，但是在mysql中这是有可能成功，具体取决于 sql_mode 的设置。
 sql_mode 可以分为二大类：
-  所谓的宽松无敌模式
+所谓的宽松无敌模式
 my.cnf 中 sql_mode 设置为空或仅 NO_ENGINE_SUBSTITUTION.
 这种模式下，not null 的字段，在 insert 或 update 时不设置值也能成功，db在插入时，会自动给默认值。
 比如: int 会给 0 值，甚至可以把 abc 赋值给 int型 的字段（当然，db会自动忽略该值，变成默认值 0 ）
-  所谓的严格模式
+所谓的严格模式
 具体有很多可选值，设置成严格模式后，mysql 就跟传统的 oracle、sqlserver、 PostgreSQL, 表现一致了，这也是我个人强烈推荐的模式。
-  最后，无耻的从网上抄一段贴在这里备份：
-如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：</description>
+最后，无耻的从网上抄一段贴在这里备份：
+如果使用 mysql，为了继续保留大家使用 oracle 的习惯，可以对 mysql 的sql_mode 设置如下：
+在my.cnf添加如下配置
+[mysqld] sql_mode=&amp;#39;ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE, ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES&amp;#39; 补充两句：</description>
     </item>
     
   </channel>

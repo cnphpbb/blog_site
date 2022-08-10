@@ -24,8 +24,8 @@ Socket 直译是 插座 的意思，一般翻译成 套接字，简单的来说�
 第5层 会话层(Session Layer) 负责在数据传输中设置和维护电脑网络中两台电脑之间的通信连接。
 第6层 表达层(Presentation Layer) 把数据转换为能与接收者的系统格式兼容并适合传输的格式。
 第7层 应用层(Application Layer) 提供为应用软件而设的界面，以设置与另一应用软件之间的通信。例如: HTTP，HTTPS，FTP，TELNET，SSH，SMTP，POP3等。应用层直接和应用程序接口并提供常见的网络应用服务，应用层也向第六层表示层发出请求。
- 上述主要内容来自 维基百科
- TCP/IP TCP/IP协议族（英语：TCP/IP Protocol Suite，或TCP/IP Protocols），简称TCP/IP，名称源自该协议家族的两个核心协议：TCP（Transmission Control Protocol 传输控制协议）和IP（Internet Protocol 互联网协议）。</description>
+上述主要内容来自 维基百科
+TCP/IP TCP/IP协议族（英语：TCP/IP Protocol Suite，或TCP/IP Protocols），简称TCP/IP，名称源自该协议家族的两个核心协议：TCP（Transmission Control Protocol 传输控制协议）和IP（Internet Protocol 互联网协议）。</description>
     </item>
     
     <item>
@@ -34,19 +34,21 @@ Socket 直译是 插座 的意思，一般翻译成 套接字，简单的来说�
       <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
       
       <guid>https://48474.net/post/toss-log-01-raspberrypi/</guid>
-      <description>自备树莓派4B  这台自行组装的树莓派4B，主要用途: 存储，应用服务。
-   安装树莓派系统, 并且安装到树莓派到硬盘中
+      <description>自备树莓派4B 这台自行组装的树莓派4B，主要用途: 存储，应用服务。
+安装树莓派系统, 并且安装到树莓派到硬盘中
 这里不多说安装树莓派的方法，可以自行搜索 度娘 或 谷歌
-  我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
-  SSD硬盘 2块：
+我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
+SSD硬盘 2块：
 一块 256G(上面红色的),
 另一块 512G(下面银色的)。 全部是 浦科特（Plextor） M8VC。
 扩展板 2块：
-  X829 扩展板:: 一款2.5&#39; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
-  X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
-  俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用   以上都安装好了，就可以部署自己的服务器啦。
- 开始折腾部署 Gitea  因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
-   Pull docker images</description>
+X829 扩展板:: 一款2.5&amp;rsquo; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
+X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
+俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用 以上都安装好了，就可以部署自己的服务器啦。
+开始折腾部署 Gitea 因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
+Pull docker images
+mysql &amp;amp; percona 的 Docker Official Images 中都没有ARM &amp;amp; ARM64 的 image 如果使用mysql 做数据库请选择 mariadb
+我本来也想使用 gitea + redis + mysql 的.</description>
     </item>
     
     <item>
@@ -77,11 +79,11 @@ netstat -at | wc 耗时 15.60 秒 ss -atr | wc 耗时 5.40 秒（未利用tcp_di
 现在使用的vps是ufovps出售的香港云服务器。
 安装的是linux的Debian8版本。
 安装好后远程登陆vps后查看有如下几个服务已经安装并在运行。
-   exim4 rpcbind nfs+portmap  以上这些服务我都不使用，需要关闭。方法如下：
+exim4 rpcbind nfs+portmap 以上这些服务我都不使用，需要关闭。方法如下：
 删除 exim4 服务 exim4服务 开放 port :25 大家都知道这个端口做啥都吧！
 $ apt-get purge --auto-remove exim4 exim4-base exim4-config exim4-daemon-light $ rm -rf /var/log/exim4/ 删除 rpcbind 服务 rpcbind 服务 此服务开启port :111 这个端口。
 $ apt-get purge --auto-remove rpcbind 删除nfs服务 $ apt-get purge --auto-remove nfs-kernel-server nfs-common portmap 如果不删除只是关闭相关服务，可以如下执行
-$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4  PS：几句废话。</description>
+$ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable exim4 $ systemctl stop nfs-common $ systemctl stop rpcbind $ systemctl stop exim4 PS：几句废话。</description>
     </item>
     
     <item>
@@ -91,20 +93,20 @@ $ systemctl disable nfs-common $ systemctl disable rpcbind $ systemctl disable e
       
       <guid>https://48474.net/post/brew_update_error_fix/</guid>
       <description>今天在Mac下执行brew update时出现以下错误提示：
- $ brew update
+$ brew update
 Error: /usr/local must be writable!
- 以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
- $ sudo chmod -R g+w /usr/local
+以前一直默认用的好好的,突然出现这种情况导致不能正常使用了。 按我习惯性的方法，修改下目录的权限吧
+$ sudo chmod -R g+w /usr/local
 $ brew update
 还是出现错误提示 Error: /usr/local must be writable!
- 有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
- $ brew doctor
- 上面是修改目录的写权限，现在修改目录的用户权限吧！！
- $ sudo chown -R $(whoami) /usr/local
- 再次执行brew doctor, 正常啦！！！
+有点晕啦，怎么还是有问题呢？ 仔细想了下，自检以下吧。
+$ brew doctor
+上面是修改目录的写权限，现在修改目录的用户权限吧！！
+$ sudo chown -R $(whoami) /usr/local
+再次执行brew doctor, 正常啦！！！
 再次执行brew update, 终于正常，正常啦！！！
 总结一下：
- 升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。  </description>
+升级了macos后没执行brew doctor，导致brew 出现问题。 升级系统，一定要检测下第三方软件是否能正常工作。 检测工作没执行到底呀。 </description>
     </item>
     
   </channel>

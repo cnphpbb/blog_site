@@ -13,7 +13,7 @@
       <pubDate>Thu, 02 Sep 2021 04:13:10 +0800</pubDate>
       
       <guid>https://48474.net/post/gitmoji-210902/</guid>
-      <description>Gitmoji &amp;amp; 代码    Gitmoji 代码 说明     🎨 (调色板) :art: 改进代码结构/代码格式   ⚡ (闪电) :zap: 提升性能   🔥 (火焰) :fire: 移除代码或文件   🐛 (bug) :bug: 修复   🚑 (急救车) :ambulance: 重要补丁   ✨ (火花) :sparkles: 引入新功能   📝 (备忘录) :memo: 撰写文档   🚀: (火箭) :rocket: 部署功能   💄 (口红) :lipstick: 更新   🎉 (庆祝) :tada: 初次提交   ✅ (复选框) :white_check_mark: 增加测试   🔒 (锁) :lock: 修复安全问题   🍎 (苹果) :apple: 修复   🐧 (企鹅) :penguin: 修复   🏁 (旗帜) :checkered_flag: 修复   🤖 (机器人) :robot: 修复   🍏 (绿苹果) :green_apple: 修复   🔖 (书签) :bookmark: 发行/版本标签   🚨 (警车灯) :rotating_light: 移除   🚧 (施工) :construction: 工作进行中   💚 (绿心) :green_heart: 修复   ⬇️ (下降箭头) :arrow_down: 降级依赖   ⬆️ (上升箭头) :arrow_up: 升级依赖   📌 (图钉) :pushpin: 依赖固定到特定版本   👷‍♂️ (工人) :construction_worker: 添加   📈 (上升趋势图) :chart_with_upwards_trend: 添加分析或跟踪代码   ♻️ (回收) :recycle: 重构代码   🐳 (鲸鱼) :whale: Docker   🔨 (锤子) :hammer: 重大重构   ➕ (加号) :heavy_plus_sign: 增加一个依赖   ➖ (减号) :heavy_minus_sign: 减少一个依赖   🔧 (扳手) :wrench: 修改配置文件   🌐 (地球) :globe_with_meridians: 国际化与本地化   ✏️ (铅笔) :pencil2: 修复错别字   💩 (粑粑) :poop: 编写需要改进的错误代码   ⏪ (后退) :rewind: 还原更改   🔀 (Merge分支) :twisted_rightwards_arrows: Merge 分支   📦 (包裹) :package: 更新编译文件或Package   👽 (外星人) :alien: 由于外部API的更改而更新了代码   🚚 (卡车) :truck: 移动或重命名文件   📄 (文件) :page_facing_up: 添加或更新   💥 (隆隆声) :boom: 引入重大变化   🍱 (便当) :bento: 添加或更新Assets   👌 (OK) :ok_hand: 由于代码评审更改而更新代码   ♿ (轮椅) :wheelchair: 提高可访问性   💡 (电灯泡) :bulb: 记录源代码   🍻 (啤酒) :beers: 醉醺醺地编写代码   💬 (发言) :speech_balloon: 更新文本和文字   🗃️ (文件盒) :card_file_box: 执行与数据库相关的更改   🔊 (巨大声响) :loud_sound: 添加日志   🔇 (静音) :mute: 移除日志   👥 (轮廓半身像) :busts_in_silhouette: 添加贡献者   🚸 (儿童通过) :children_crossing: 提高用户体验/可用性   🏗️ (房屋) :building_construction: 使建筑变化   📱 (苹果手机) :iphone: 致力于响应式设计   🤡 (小丑) :clown_face: Mock相关   🥚 (彩蛋) :egg: 加入一个复活节彩蛋   🙈 (非礼勿视) :see_no_evil: 添加或更新 .</description>
+      <description>Gitmoji &amp;amp; 代码 Gitmoji 代码 说明 🎨 (调色板) :art: 改进代码结构/代码格式 ⚡ (闪电) :zap: 提升性能 🔥 (火焰) :fire: 移除代码或文件 🐛 (bug) :bug: 修复 🚑 (急救车) :ambulance: 重要补丁 ✨ (火花) :sparkles: 引入新功能 📝 (备忘录) :memo: 撰写文档 🚀: (火箭) :rocket: 部署功能 💄 (口红) :lipstick: 更新 🎉 (庆祝) :tada: 初次提交 ✅ (复选框) :white_check_mark: 增加测试 🔒 (锁) :lock: 修复安全问题 🍎 (苹果) :apple: 修复 🐧 (企鹅) :penguin: 修复 🏁 (旗帜) :checkered_flag: 修复 🤖 (机器人) :robot: 修复 🍏 (绿苹果) :green_apple: 修复 🔖 (书签) :bookmark: 发行/版本标签 🚨 (警车灯) :rotating_light: 移除 🚧 (施工) :construction: 工作进行中 💚 (绿心) :green_heart: 修复 ⬇️ (下降箭头) :arrow_down: 降级依赖 ⬆️ (上升箭头) :arrow_up: 升级依赖 📌 (图钉) :pushpin: 依赖固定到特定版本 👷‍♂️ (工人) :construction_worker: 添加 📈 (上升趋势图) :chart_with_upwards_trend: 添加分析或跟踪代码 ♻️ (回收) :recycle: 重构代码 🐳 (鲸鱼) :whale: Docker 🔨 (锤子) :hammer: 重大重构 ➕ (加号) :heavy_plus_sign: 增加一个依赖 ➖ (减号) :heavy_minus_sign: 减少一个依赖 🔧 (扳手) :wrench: 修改配置文件 🌐 (地球) :globe_with_meridians: 国际化与本地化 ✏️ (铅笔) :pencil2: 修复错别字 💩 (粑粑) :poop: 编写需要改进的错误代码 ⏪ (后退) :rewind: 还原更改 🔀 (Merge分支) :twisted_rightwards_arrows: Merge 分支 📦 (包裹) :package: 更新编译文件或Package 👽 (外星人) :alien: 由于外部API的更改而更新了代码 🚚 (卡车) :truck: 移动或重命名文件 📄 (文件) :page_facing_up: 添加或更新 💥 (隆隆声) :boom: 引入重大变化 🍱 (便当) :bento: 添加或更新Assets 👌 (OK) :ok_hand: 由于代码评审更改而更新代码 ♿ (轮椅) :wheelchair: 提高可访问性 💡 (电灯泡) :bulb: 记录源代码 🍻 (啤酒) :beers: 醉醺醺地编写代码 💬 (发言) :speech_balloon: 更新文本和文字 🗃️ (文件盒) :card_file_box: 执行与数据库相关的更改 🔊 (巨大声响) :loud_sound: 添加日志 🔇 (静音) :mute: 移除日志 👥 (轮廓半身像) :busts_in_silhouette: 添加贡献者 🚸 (儿童通过) :children_crossing: 提高用户体验/可用性 🏗️ (房屋) :building_construction: 使建筑变化 📱 (苹果手机) :iphone: 致力于响应式设计 🤡 (小丑) :clown_face: Mock相关 🥚 (彩蛋) :egg: 加入一个复活节彩蛋 🙈 (非礼勿视) :see_no_evil: 添加或更新 .</description>
     </item>
     
     <item>
@@ -24,22 +24,22 @@
       <guid>https://48474.net/post/git_more_ssh_keygen/</guid>
       <description>问题阐述 当有多个git账号的时候，比如一个github，用于自己进行一些开发活动，再来一个gitlab，一般是公司内部的git。这两者你的邮箱如果不同的话，就会涉及到一个问题，生成第二个git的key的时候会覆盖第一个的key，导致必然有一个用不了。
 问题解决 我们可以在~/.ssh目录下新建一个config文件配置一下，就可以解决问题
-具体步骤   生成第一个ssh key(这里我用于github，用的gmail邮箱)
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
+具体步骤 生成第一个ssh key(这里我用于github，用的gmail邮箱)
+ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件。
-id_rsa_github id_rsa_github.pub   生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
-ssh-keygen -t rsa -b 4096 -C &amp;quot;your_email@example.com&amp;quot; 还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
+id_rsa_github id_rsa_github.pub 生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）
+ssh-keygen -t rsa -b 4096 -C &amp;#34;your_email@example.com&amp;#34; 还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。
 完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）
-id_rsa_gitlab id_rsa_gitlab.pub   打开ssh-agent
+id_rsa_gitlab id_rsa_gitlab.pub 打开ssh-agent
 这里如果你用的github官方的bash，ssh-agent -s,
 如果是其他的，比如msysgit,eval $(ssh-agent -s)。
-  添加私钥
-ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab   创建并修改config文件
-  windows
+添加私钥
+ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab 创建并修改config文件
+windows
 新建一个txt文本，然后将名字后缀一起改成config即可。
-  linux|unix
+linux|unix
 在bash下的话直接touch config 即可。
-# gitlab Host git.int-5262.com //别名 HostName git.</description>
+# gitlab Host git.int-5262.com //别名 HostName git.int-5262.com //主机地址 这里填git网址即可 PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa_gitlab User yong.geng # github Host github.com HostName github.</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@ ssh-add ~/.ssh/id_rsa_github ssh-add ~/.ssh/id_rsa_gitlab   创建并修改confi
       <pubDate>Sat, 10 Oct 2015 18:18:56 +0800</pubDate>
       
       <guid>https://48474.net/post/service_interface_advantages_and_disadvantages/</guid>
-      <description>使用 Service Interface 模式会导致下面的优缺点： 优点  服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。 通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。  缺点  很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。 服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。 Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适  </description>
+      <description>使用 Service Interface 模式会导致下面的优缺点： 优点 服务接口机制与应用逻辑分隔。这种分隔使您能够轻松地添加新的接口以及更改基础应用程序的实现，同时对使用者的影响最小。 通过将服务接口代码与服务实现代码分隔开来，您就能够在不同层上部署这两部分代码，这样有可能提高解决方案的部署灵活性。 缺点 很多平台使公开应用程序功能变得很简单。但是，这可能会导致作出粒度方面的错误决定。如果接口粒度太细，可能会导致最后必须很多次调用服务，才能执行特定操作。您需要对服务接口进行相应设计，使其适合网络通信或过程外通信。 服务所提供的每个新增服务接口都会增加在更改服务所公开的功能时所需的工作量。 Service Interface 模式增加了复杂性和性能开销，这对于很简单的面向服务的应用程序来说可能不是很合适 </description>
     </item>
     
     <item>

@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -37,7 +37,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -78,132 +78,132 @@
 <h3 id="usage">Usage</h3>
 <p><code>docker build</code> 命令从 <code>Dockerfile</code> 和 <code>context</code> 构建image。<code>context</code> 是 <code>PATH</code> 或<code>URL</code> 处的文件。<code>PATH</code> 本地文件目录。 <code>URL</code> 是Git repository的位置。</p>
 <p><code>context</code> 以递归方式处理。因此，<code>PATH</code> 包括任何子目录，<code>URL</code> 包括repository及submodules。一个使用当前目录作为 <code>context</code> 的简单构建命令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ docker build .
-Sending build context to Docker daemon  6.51 MB
-...
-</code></pre></div><p>构建由Docker守护程序运行，而不是由CLI运行。构建过程所做的第一件事是将整个context（递归地）发送给守护进程。大多数情况下，最好是将 <code>Dockerfile</code> 和所需文件复制到一个空的目录，再到这个目录进行构建。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ docker build .
+</span></span><span class="line"><span class="cl">Sending build context to Docker daemon  6.51 MB
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>构建由Docker守护程序运行，而不是由CLI运行。构建过程所做的第一件事是将整个context（递归地）发送给守护进程。大多数情况下，最好是将 <code>Dockerfile</code> 和所需文件复制到一个空的目录，再到这个目录进行构建。</p>
 <blockquote>
 <p><code>警告</code>：不要使用根目录 <code>/</code> 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。</p>
 </blockquote>
 <p>build时添加文件，通过 <code>Dockerfile</code> 引用指令中指定的文件，例如 <code>COPY</code> 指令。要增加构建的性能，请通过将<code>.dockerignore</code> 文件添加到 <code>context</code> 目录中来排除文件和目录。有关如何创建 <a href="#.dockerignore-file"><code>.dockerignore</code></a> 文件的信息，请参阅此页上的文档。</p>
 <p>一般的，<code>Dockerfile</code> 位于 <code>context</code> 的根中。但使用 <code>-f</code> 标志可指定Dockerfile的位置。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker build -f /path/to/a/Dockerfile .
-</code></pre></div><p>如果build成功，您可以指定要保存新image的repository和tag：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t cnphpbb/myapp .
-</code></pre></div><p>要在构建后将image标记为多个repositories，请在运行构建命令时添加多个 <code>-t</code> 参数：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t cnphpbb/myapp:1.0.2 -t cnphpbb/myapp:latest .
-</code></pre></div><p><strong>Docker</strong>守护程序一个接一个地运行 <code>Dockerfile</code> 中的指令，如果需要，将每个指令的结果提交到一个新image，最后输出新映像的<strong>ID</strong>。<strong>Docker</strong>守护进程将自动清理您发送的context。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ docker build -f /path/to/a/Dockerfile .
+</span></span></code></pre></div><p>如果build成功，您可以指定要保存新image的repository和tag：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ docker build -t cnphpbb/myapp .
+</span></span></code></pre></div><p>要在构建后将image标记为多个repositories，请在运行构建命令时添加多个 <code>-t</code> 参数：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ docker build -t cnphpbb/myapp:1.0.2 -t cnphpbb/myapp:latest .
+</span></span></code></pre></div><p><strong>Docker</strong>守护程序一个接一个地运行 <code>Dockerfile</code> 中的指令，如果需要，将每个指令的结果提交到一个新image，最后输出新映像的<strong>ID</strong>。<strong>Docker</strong>守护进程将自动清理您发送的context。</p>
 <p>请注意，每个指令独立运行，并导致创建一个新 image  - 因此 <code>RUN cd / tmp</code> 对下一个指令不会有任何影响。</p>
 <p>只要有可能，<strong>Docker</strong>将重新使用中间<strong>images</strong>（缓存），以显着加速 <code>docker build</code> 过程。 这由控制台输出中的使用缓存消息指示。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ docker build -t svendowideit/ambassador .
-Sending build context to Docker daemon 15.36 kB
-Step <span class="m">1</span> : FROM alpine:3.2
- ---&gt; 31f630c65071
-Step <span class="m">2</span> : MAINTAINER SvenDowideit@home.org.au
- ---&gt; Using cache
- ---&gt; 2a1c91448f5f
-Step <span class="m">3</span> : RUN apk update <span class="o">&amp;&amp;</span>      apk add socat <span class="o">&amp;&amp;</span>        rm -r /var/cache/
- ---&gt; Using cache
- ---&gt; 21ed6e7fbb73
-Step <span class="m">4</span> : CMD env <span class="p">|</span> grep <span class="nv">_TCP</span><span class="o">=</span> <span class="p">|</span> <span class="o">(</span>sed <span class="s1">&#39;s/.*_PORT_\([0-9]*\)_TCP=tcp:\/\/\(.*\):\(.*\)/socat -t 100000000 TCP4-LISTEN:\1,fork,reuseaddr TCP4:\2:\3 \&amp;/&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nb">wait</span><span class="o">)</span> <span class="p">|</span> sh
- ---&gt; Using cache
- ---&gt; 7ea8aef582cc
-Successfully built 7ea8aef582cc
-</code></pre></div><p>构建成功后，就可以准备<a href="https://docs.docker.com/engine/tutorials/dockerrepos/#contributing-to-docker-hub">Pushing a repository to its registry</a>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ docker build -t svendowideit/ambassador .
+</span></span><span class="line"><span class="cl">Sending build context to Docker daemon 15.36 kB
+</span></span><span class="line"><span class="cl">Step <span class="m">1</span> : FROM alpine:3.2
+</span></span><span class="line"><span class="cl"> ---&gt; 31f630c65071
+</span></span><span class="line"><span class="cl">Step <span class="m">2</span> : MAINTAINER SvenDowideit@home.org.au
+</span></span><span class="line"><span class="cl"> ---&gt; Using cache
+</span></span><span class="line"><span class="cl"> ---&gt; 2a1c91448f5f
+</span></span><span class="line"><span class="cl">Step <span class="m">3</span> : RUN apk update <span class="o">&amp;&amp;</span>      apk add socat <span class="o">&amp;&amp;</span>        rm -r /var/cache/
+</span></span><span class="line"><span class="cl"> ---&gt; Using cache
+</span></span><span class="line"><span class="cl"> ---&gt; 21ed6e7fbb73
+</span></span><span class="line"><span class="cl">Step <span class="m">4</span> : CMD env <span class="p">|</span> grep <span class="nv">_TCP</span><span class="o">=</span> <span class="p">|</span> <span class="o">(</span>sed <span class="s1">&#39;s/.*_PORT_\([0-9]*\)_TCP=tcp:\/\/\(.*\):\(.*\)/socat -t 100000000 TCP4-LISTEN:\1,fork,reuseaddr TCP4:\2:\3 \&amp;/&#39;</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="nb">wait</span><span class="o">)</span> <span class="p">|</span> sh
+</span></span><span class="line"><span class="cl"> ---&gt; Using cache
+</span></span><span class="line"><span class="cl"> ---&gt; 7ea8aef582cc
+</span></span><span class="line"><span class="cl">Successfully built 7ea8aef582cc
+</span></span></code></pre></div><p>构建成功后，就可以准备<a href="https://docs.docker.com/engine/tutorials/dockerrepos/#contributing-to-docker-hub">Pushing a repository to its registry</a>。</p>
 <h3 id="format">Format</h3>
 <p><code>Dockerfile</code> 的格式如下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Comment</span><span class="err">
-</span><span class="err"></span>INSTRUCTION arguments<span class="err">
-</span></code></pre></div><p><code>INSTRUCTION</code> 是不区分大小写的，不过建议大写。
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Comment</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>INSTRUCTION arguments<span class="err">
+</span></span></span></code></pre></div><p><code>INSTRUCTION</code> 是不区分大小写的，不过建议大写。
 <code>Dockerfile </code>中的指令第一个指令必需是 <code>FROM</code> ，指定构建镜像的<a href="https://docs.docker.com/engine/reference/glossary/#base-image">Base Image</a>。</p>
 <p><code>Dockerfile</code> 中以 <code>#</code> 开头的行都将视为注释，除非是 <code>[Parser directives]()</code> 解析器指令。不支持连续注释符。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># Comment</span><span class="err">
-</span><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s1">&#39;we are running some # of cool things&#39;</span><span class="err">
-</span></code></pre></div><h3 id="parser-directives">Parser directives</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Comment</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s1">&#39;we are running some # of cool things&#39;</span><span class="err">
+</span></span></span></code></pre></div><h3 id="parser-directives">Parser directives</h3>
 <p>解析器指令是可选的，并且影响处理 <code>Dockerfile</code> 中后续行的方式。解析器指令不会向构建中添加图层，并且不会显示在构建步骤。解析器指令是以 <code># directive = value</code> 形式写成一种特殊类型的注释。单个指令只能使用一次。</p>
 <p>一旦注释，空行或构建器指令已经被处理，Docker不再寻找解析器指令。相反，它将任何格式化为解析器指令作为注释，并且不尝试验证它是否可能是解析器指令。因此，所有解析器指令必须位于 <code>Dockerfile</code> 的最顶端。</p>
 <p>解析器指令不区分大小写。然而，约定是他们是小写的。公约还要包括一个空白行，遵循任何解析器指令。解析器指令不支持行连续字符。</p>
 <p>由于这些规则，以下示例都无效：</p>
 <p>因行延续，无效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># direc \</span><span class="err">
-</span><span class="err"></span><span class="nv">tive</span><span class="o">=</span>value<span class="err">
-</span></code></pre></div><p>因出现两次，无效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># directive=value1</span><span class="err">
-</span><span class="err"></span><span class="c"># directive=value2</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
-</span></code></pre></div><p>因写在构建指令后，无效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
-</span><span class="err"></span><span class="c"># directive=value</span><span class="err">
-</span></code></pre></div><p>因写在不是解析器指令之后，无效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># About my dockerfile</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
-</span><span class="err"></span><span class="c"># directive=value</span><span class="err">
-</span></code></pre></div><p>未知指令视为注释，之后的解析器指令也随之，无效：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># unknowndirective=value</span><span class="err">
-</span><span class="err"></span><span class="c"># knowndirective=value</span><span class="err">
-</span></code></pre></div><p>解析器指令中允许使用非换行符空格，下面几行被视为相同：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c">#directive=value</span><span class="err">
-</span><span class="err"></span><span class="c"># directive =value</span><span class="err">
-</span><span class="err"></span><span class="c">#   directive= value</span><span class="err">
-</span><span class="err"></span><span class="c"># directive = value</span><span class="err">
-</span><span class="err"></span><span class="c">#     dIrEcTiVe=value</span><span class="err">
-</span></code></pre></div><p>支持以下解析器指令： * escape</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># direc \</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="nv">tive</span><span class="o">=</span>value<span class="err">
+</span></span></span></code></pre></div><p>因出现两次，无效：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># directive=value1</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># directive=value2</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
+</span></span></span></code></pre></div><p>因写在构建指令后，无效：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># directive=value</span><span class="err">
+</span></span></span></code></pre></div><p>因写在不是解析器指令之后，无效：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># About my dockerfile</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> ImageName</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># directive=value</span><span class="err">
+</span></span></span></code></pre></div><p>未知指令视为注释，之后的解析器指令也随之，无效：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># unknowndirective=value</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># knowndirective=value</span><span class="err">
+</span></span></span></code></pre></div><p>解析器指令中允许使用非换行符空格，下面几行被视为相同：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c">#directive=value</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># directive =value</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#   directive= value</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># directive = value</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c">#     dIrEcTiVe=value</span><span class="err">
+</span></span></span></code></pre></div><p>支持以下解析器指令： * escape</p>
 <h3 id="escape">escape</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># escape=\ (backslash)</span><span class="err">
-</span><span class="err"></span>或者<span class="err">
-</span><span class="err"></span><span class="c"># escape=` (backtick)</span><span class="err">
-</span></code></pre></div><p><code>escape</code> 指令设置用于在 <code>Dockerfile</code> 中转义字符的字符。如果未指定，则缺省转义字符为 <code>\</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># escape=\ (backslash)</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>或者<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># escape=` (backtick)</span><span class="err">
+</span></span></span></code></pre></div><p><code>escape</code> 指令设置用于在 <code>Dockerfile</code> 中转义字符的字符。如果未指定，则缺省转义字符为 <code>\</code>。</p>
 <p>转义字符既用于转义行中的字符，也用于转义换行符。这允许 <code>Dockerfile</code> 指令跨越多行。注意，不管 <code>escape</code> 解析器指令是否包括在 <code>Dockerfile</code> 中，在 <code>RUN</code> 命令中不执行转义，除非在行的末尾。</p>
 <p>将转义字符设置为 ` 在 <code>Windows</code>上特别有用，其中 <code>\</code> 是目录路径分隔符。 ` 与<a href="https://technet.microsoft.com/en-us/library/hh847755.aspx">Windows PowerShell</a>一致。</p>
 <p>请考虑以下示例，这将在Windows上以非显而易见的方式失败。第二行末尾的第二个\将被解释为换行符，而不是从第一个\转义的目标。类似地，假设第三行结尾处的\实际上作为一条指令处理，它将被视为行继续。这个dockerfile的结果是第二行和第三行被认为是单个指令：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\\</span>
-RUN dir c:<span class="err">\
-</span></code></pre></div><p>结构是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">PS C:<span class="se">\J</span>ohn&gt; docker build -t cmd .
-Sending build context to Docker daemon 3.072 kB
-Step <span class="m">1</span> : FROM windowsservercore
- ---&gt; dbfee88ee9fd
-Step <span class="m">2</span> : COPY testfile.txt c:RUN dir c:
-GetFileAttributesEx c:RUN: The system cannot find the file specified.
-PS C:<span class="se">\J</span>ohn&gt;
-</code></pre></div><p>上述的一个解决方案是使用 <code>/</code> 作为 <code>COPY</code> 指令和 <code>dir</code> 的目标。然而，这种语法，最好的情况是混乱，因为它在 <code>Windows</code> 上是不平常的路径，最坏的情况下，错误倾向，因为并不是 <code>Windows</code> 上的所有命令支持 <code>/</code> 作为路径分隔符。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\\</span>
+</span></span><span class="line"><span class="cl">RUN dir c:<span class="err">\
+</span></span></span></code></pre></div><p>结构是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">PS C:<span class="se">\J</span>ohn&gt; docker build -t cmd .
+</span></span><span class="line"><span class="cl">Sending build context to Docker daemon 3.072 kB
+</span></span><span class="line"><span class="cl">Step <span class="m">1</span> : FROM windowsservercore
+</span></span><span class="line"><span class="cl"> ---&gt; dbfee88ee9fd
+</span></span><span class="line"><span class="cl">Step <span class="m">2</span> : COPY testfile.txt c:RUN dir c:
+</span></span><span class="line"><span class="cl">GetFileAttributesEx c:RUN: The system cannot find the file specified.
+</span></span><span class="line"><span class="cl">PS C:<span class="se">\J</span>ohn&gt;
+</span></span></code></pre></div><p>上述的一个解决方案是使用 <code>/</code> 作为 <code>COPY</code> 指令和 <code>dir</code> 的目标。然而，这种语法，最好的情况是混乱，因为它在 <code>Windows</code> 上是不平常的路径，最坏的情况下，错误倾向，因为并不是 <code>Windows</code> 上的所有命令支持 <code>/</code> 作为路径分隔符。</p>
 <p>通过添加转义解析器指令，下面的Dockerfile在Windows上使用文件路径的自然平台语义成功：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="c"># escape=`</span><span class="err">
-</span><span class="err">
-</span><span class="err"></span><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\
-</span><span class="se"></span>RUN dir c:<span class="err">\
-</span></code></pre></div><p>结果是：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">PS C:<span class="se">\J</span>ohn&gt; docker build -t succeeds --no-cache<span class="o">=</span><span class="nb">true</span> .
-Sending build context to Docker daemon 3.072 kB
-Step <span class="m">1</span> : FROM windowsservercore
- ---&gt; dbfee88ee9fd
-Step <span class="m">2</span> : COPY testfile.txt c:<span class="se">\
-</span><span class="se"></span> ---&gt; 99ceb62e90df
-Removing intermediate container 62afbe726221
-Step <span class="m">3</span> : RUN dir c:<span class="se">\
-</span><span class="se"></span> ---&gt; Running in a5ff53ad6323
- Volume in drive C has no label.
- Volume Serial Number is 1440-27FA
-
- Directory of c:<span class="se">\
-</span><span class="se"></span>
-03/25/2016  05:28 AM    &lt;DIR&gt;          inetpub
-03/25/2016  04:22 AM    &lt;DIR&gt;          PerfLogs
-04/22/2016  10:59 PM    &lt;DIR&gt;          Program Files
-03/25/2016  04:22 AM    &lt;DIR&gt;          Program Files <span class="o">(</span>x86<span class="o">)</span>
-04/18/2016  09:26 AM                 <span class="m">4</span> testfile.txt
-04/22/2016  10:59 PM    &lt;DIR&gt;          Users
-04/22/2016  10:59 PM    &lt;DIR&gt;          Windows
-               <span class="m">1</span> File<span class="o">(</span>s<span class="o">)</span>              <span class="m">4</span> bytes
-               <span class="m">6</span> Dir<span class="o">(</span>s<span class="o">)</span>  21,252,689,920 bytes free
- ---&gt; 2569aa19abef
-Removing intermediate container a5ff53ad6323
-Successfully built 2569aa19abef
-PS C:<span class="se">\J</span>ohn&gt;
-</code></pre></div><h3 id="environment-replacement">Environment replacement</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># escape=`</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> windowsservercore</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> testfile.txt c:<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>RUN dir c:<span class="err">\
+</span></span></span></code></pre></div><p>结果是：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">PS C:<span class="se">\J</span>ohn&gt; docker build -t succeeds --no-cache<span class="o">=</span><span class="nb">true</span> .
+</span></span><span class="line"><span class="cl">Sending build context to Docker daemon 3.072 kB
+</span></span><span class="line"><span class="cl">Step <span class="m">1</span> : FROM windowsservercore
+</span></span><span class="line"><span class="cl"> ---&gt; dbfee88ee9fd
+</span></span><span class="line"><span class="cl">Step <span class="m">2</span> : COPY testfile.txt c:<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> ---&gt; 99ceb62e90df
+</span></span><span class="line"><span class="cl">Removing intermediate container 62afbe726221
+</span></span><span class="line"><span class="cl">Step <span class="m">3</span> : RUN dir c:<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span> ---&gt; Running in a5ff53ad6323
+</span></span><span class="line"><span class="cl"> Volume in drive C has no label.
+</span></span><span class="line"><span class="cl"> Volume Serial Number is 1440-27FA
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"> Directory of c:<span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>
+</span></span><span class="line"><span class="cl">03/25/2016  05:28 AM    &lt;DIR&gt;          inetpub
+</span></span><span class="line"><span class="cl">03/25/2016  04:22 AM    &lt;DIR&gt;          PerfLogs
+</span></span><span class="line"><span class="cl">04/22/2016  10:59 PM    &lt;DIR&gt;          Program Files
+</span></span><span class="line"><span class="cl">03/25/2016  04:22 AM    &lt;DIR&gt;          Program Files <span class="o">(</span>x86<span class="o">)</span>
+</span></span><span class="line"><span class="cl">04/18/2016  09:26 AM                 <span class="m">4</span> testfile.txt
+</span></span><span class="line"><span class="cl">04/22/2016  10:59 PM    &lt;DIR&gt;          Users
+</span></span><span class="line"><span class="cl">04/22/2016  10:59 PM    &lt;DIR&gt;          Windows
+</span></span><span class="line"><span class="cl">               <span class="m">1</span> File<span class="o">(</span>s<span class="o">)</span>              <span class="m">4</span> bytes
+</span></span><span class="line"><span class="cl">               <span class="m">6</span> Dir<span class="o">(</span>s<span class="o">)</span>  21,252,689,920 bytes free
+</span></span><span class="line"><span class="cl"> ---&gt; 2569aa19abef
+</span></span><span class="line"><span class="cl">Removing intermediate container a5ff53ad6323
+</span></span><span class="line"><span class="cl">Successfully built 2569aa19abef
+</span></span><span class="line"><span class="cl">PS C:<span class="se">\J</span>ohn&gt;
+</span></span></code></pre></div><h3 id="environment-replacement">Environment replacement</h3>
 <p>环境变量（使用<a href="#env">ENV</a>语句声明）也可以在某些指令中用作要由 <code>Dockerfile</code> 解释的变量。还可以处理转义，以将类似变量的语法包含在语句中。</p>
 <p>环境变量在 <code>Dockerfile</code> 中用 <code>$variable_name</code> 或 <code>${variable_name}</code> 表示。它们被等同对待，并且括号语法通常用于解决不带空格的变量名的问题，例如 <code>${foo}_bar</code> 。</p>
 <p><code>${variable_name}</code> 语法还支持以下指定的一些标准 <code>bash</code> 修饰符：</p>
@@ -214,12 +214,12 @@ PS C:<span class="se">\J</span>ohn&gt;
 <p>在所有情况下，<code>word</code> 可以是任何字符串，包括额外的环境变量。</p>
 <p>可以通过在变量之前添加 <code>\</code> 来转义：<code>\$foo</code> 或 <code>\${foo}</code> ，分别转换为 <code>$foo</code> 和 <code>${foo}</code> 。</p>
 <p>示例（解析的表示显示在 <code>#</code> 后面）：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">FROM</span><span class="s"> busybox</span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span> foo /bar<span class="err">
-</span><span class="err"></span><span class="k">WORKDIR</span><span class="s"> ${foo}   # WORKDIR /bar</span><span class="err">
-</span><span class="err"></span><span class="k">ADD</span> . <span class="nv">$foo</span>       <span class="c1"># ADD . /bar</span><span class="err">
-</span><span class="err"></span><span class="k">COPY</span> <span class="se">\$</span>foo /quux <span class="c1"># COPY $foo /quux</span><span class="err">
-</span></code></pre></div><p><code>Dockerfile</code> 中的以下指令列表支持环境变量：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> busybox</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> foo /bar<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> ${foo}   # WORKDIR /bar</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ADD</span> . <span class="nv">$foo</span>       <span class="c1"># ADD . /bar</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> <span class="se">\$</span>foo /quux <span class="c1"># COPY $foo /quux</span><span class="err">
+</span></span></span></code></pre></div><p><code>Dockerfile</code> 中的以下指令列表支持环境变量：</p>
 <ul>
 <li>ADD</li>
 <li>COPY</li>
@@ -239,16 +239,16 @@ PS C:<span class="se">\J</span>ohn&gt;
 <p>注意：在1.4之前，ONBUILD指令不支持环境变量，即使与上面列出的任何指令相结合。</p>
 </blockquote>
 <p>环境变量替换将在整个命令中对每个变量使用相同的值。换句话说，在这个例子中：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="k">ENV</span> <span class="nv">abc</span><span class="o">=</span>hello
-<span class="k">ENV</span> <span class="nv">abc</span><span class="o">=</span>bye <span class="nv">def</span><span class="o">=</span><span class="nv">$abc</span><span class="err">
-</span><span class="err"></span><span class="k">ENV</span> <span class="nv">ghi</span><span class="o">=</span><span class="nv">$abc</span><span class="err">
-</span></code></pre></div><p>将导致 <code>def</code> 值为 <code>hello</code>，不再 <code>bye</code>。然而， <code>ghi</code>的值为 <code>bye</code>，因为它不是设置 <code>abc</code> 为 <code>bye</code> 的相同命令的一部分。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">abc</span><span class="o">=</span>hello
+</span></span><span class="line"><span class="cl"><span class="k">ENV</span> <span class="nv">abc</span><span class="o">=</span>bye <span class="nv">def</span><span class="o">=</span><span class="nv">$abc</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">ghi</span><span class="o">=</span><span class="nv">$abc</span><span class="err">
+</span></span></span></code></pre></div><p>将导致 <code>def</code> 值为 <code>hello</code>，不再 <code>bye</code>。然而， <code>ghi</code>的值为 <code>bye</code>，因为它不是设置 <code>abc</code> 为 <code>bye</code> 的相同命令的一部分。</p>
 <h3 id="dockerignore-file">.dockerignore file</h3>
 <p>在docker CLI将上下文发送到docker守护程序之前，它会在上下文的根目录中查找名为 <code>.dockerignore</code> 的文件。如果此文件存在，CLI将修改上下文以排除匹配其中模式的文件和目录。这有助于避免不必要地向守护程序发送大型或敏感文件和目录，并可能使用 <code>ADD</code> 或 <code>COPY</code> 将其添加到映像。</p>
 <p>CLI将 <code>.dockerignore</code> 文件解释为换行符分隔的模式列表，类似于Unix <code>shell</code> 的file globs。为了匹配的目的，上下文的根被认为是工作目录和根目录。例如，模式 <code>/foo/bar</code> 和 <code>foo/bar</code> 都排除了 <code>PATH</code> 的 <code>foo</code> 子目录中的名为 <code>bar</code> 的文件或目录，或者位于 <code>URL</code> 处的git repository的根目录中。也不排除任何其他。</p>
 <p>如果 <code>.dockerignore</code> 文件中的一行以第1列中以 <code>#</code> 开头，则此行被视为注释，并在CLI解释之前被忽略。</p>
 <p>这里是一个例子 <code>.dockerignore</code> 文件：</p>
-<pre><code class="language-dockerignore" data-lang="dockerignore"># comment
+<pre tabindex="0"><code class="language-dockerignore" data-lang="dockerignore"># comment
 */temp*
 */*/temp*
 temp?
@@ -282,16 +282,16 @@ temp?
 <p>匹配是使用Go的<a href="http://golang.org/pkg/path/filepath#Match">filepath.Match</a>规则完成的。 预处理步骤删除前导和尾随空格并消除 <code>.</code> 和 <code>..</code> 元素使用Go的<a href="http://golang.org/pkg/path/filepath/#Clean">filepath.Clean</a>。预处理后为空的行将被忽略。</p>
 <p>除了Go的filepath.Match规则，Docker还支持一个特殊的通配符字符串 <code>**</code> ，它匹配任何数量的目录（包括零）。 例如，<code>**/*.go</code> 将排除所有目录中找到的以 <code>.go</code> 结尾的所有文件，包括构建上下文的根。</p>
 <p>行开头 <code>!</code> （感叹号）可用于排除例外。 以下是使用此机制的 <code>.dockerignore</code> 文件示例：</p>
-<pre><code class="language-dockerignore" data-lang="dockerignore">*.md
+<pre tabindex="0"><code class="language-dockerignore" data-lang="dockerignore">*.md
 !README.md
 </code></pre><p>除了 <code>README.md</code> 之外的所有markdown文件都从上下文中排除。</p>
 <p>放置 <code>!</code> 异常规则影响行为：匹配特定文件的 <code>.dockerignore</code> 的最后一行确定它是包括还是排除。思考下面的例子：</p>
-<pre><code class="language-dockerignore" data-lang="dockerignore">*.md
+<pre tabindex="0"><code class="language-dockerignore" data-lang="dockerignore">*.md
 !README*.md
 README-secret.md
 </code></pre><p>除了 <code>README-secret.md</code> 之外的 <code>README</code> 文件，上下文中排除所有markdown文件。</p>
 <p>现在思考这个例子：</p>
-<pre><code class="language-dockerignore" data-lang="dockerignore">*.md
+<pre tabindex="0"><code class="language-dockerignore" data-lang="dockerignore">*.md
 README-secret.md
 !README*.md
 </code></pre><p>包括所有<strong>README</strong>文件。 中间行没有效果，因为最后的 <code>!README*.md</code> 与 <code>README-secret.md</code>匹配。</p>

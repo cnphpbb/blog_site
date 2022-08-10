@@ -16,10 +16,10 @@
       <description>在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：在这里。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。
 一、背景 无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。
 文章作者认为一个良好的应用配置层次应该是这样的：
- 程序内内置配置项的初始默认值 配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。  下面就按作者的思路循序渐进探讨golang程序配置方案。
+程序内内置配置项的初始默认值 配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。 下面就按作者的思路循序渐进探讨golang程序配置方案。
 二、解析命令行选项和参数 这一节关注golang程序如何访问命令行选项和参数。
 golang对访问到命令行参数提供了内建的支持：
-//cmdlineargs.go package main import ( // &amp;quot;fmt&amp;quot; &amp;quot;os&amp;quot; &amp;quot;path/filepath&amp;quot; ) func main() { println(&amp;quot;I am &amp;quot;, os.Args[0]) baseName := filepath.Base(os.Args[0]) println(&amp;quot;The base name is &amp;quot;, baseName) // The length of array a can be discovered using the built-in function len println(&amp;quot;Argument # is &amp;quot;, len(os.Args)) // the first command line arguments if len(os.Args) &amp;gt; 1 { println(&amp;quot;The first command line argument: &amp;quot;, os.</description>
+//cmdlineargs.go package main import ( // &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;path/filepath&amp;#34; ) func main() { println(&amp;#34;I am &amp;#34;, os.Args[0]) baseName := filepath.Base(os.Args[0]) println(&amp;#34;The base name is &amp;#34;, baseName) // The length of array a can be discovered using the built-in function len println(&amp;#34;Argument # is &amp;#34;, len(os.Args)) // the first command line arguments if len(os.Args) &amp;gt; 1 { println(&amp;#34;The first command line argument: &amp;#34;, os.</description>
     </item>
     
   </channel>

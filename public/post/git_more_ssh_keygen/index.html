@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -37,7 +37,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -76,18 +76,18 @@
 <ul>
 <li>
 <p>生成第一个ssh key(这里我用于github，用的gmail邮箱)</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+<pre tabindex="0"><code>ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34;
 </code></pre><p>这里不要一路回车，让你选择在哪里选择存放key的时候写个名字，比如 id_rsa_github，之后的两个可以回车。<br>
 完成之后我们可以看到~/.ssh目录下多了两个文件。</p>
-<pre><code>id_rsa_github
+<pre tabindex="0"><code>id_rsa_github
 id_rsa_github.pub
 </code></pre></li>
 <li>
 <p>生成第二个ssh key（这里我用于gitlab，用的是公司邮箱）</p>
-<pre><code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;
+<pre tabindex="0"><code>ssh-keygen -t rsa -b 4096 -C &#34;your_email@example.com&#34;
 </code></pre><p>还是一样不要一路回车，在第一个对话的时候继续写个名字，比如 id_rsa_gitlab,之后的两个可以回车。<br>
 完成之后我们可以看到~/.ssh目录下多了两个文件。（一个公钥一个私钥）</p>
-<pre><code>id_rsa_gitlab
+<pre tabindex="0"><code>id_rsa_gitlab
 id_rsa_gitlab.pub
 </code></pre></li>
 <li>
@@ -97,7 +97,7 @@ id_rsa_gitlab.pub
 </li>
 <li>
 <p>添加私钥</p>
-<pre><code>ssh-add ~/.ssh/id_rsa_github
+<pre tabindex="0"><code>ssh-add ~/.ssh/id_rsa_github
 ssh-add ~/.ssh/id_rsa_gitlab
 </code></pre></li>
 <li>
@@ -110,7 +110,7 @@ ssh-add ~/.ssh/id_rsa_gitlab
 <li>
 <p>linux|unix</p>
 <p>在bash下的话直接touch config 即可。</p>
-<pre><code># gitlab
+<pre tabindex="0"><code># gitlab
   Host git.int-5262.com      //别名
   HostName git.int-5262.com  //主机地址  这里填git网址即可
   PreferredAuthentications publickey
@@ -131,19 +131,19 @@ ssh-add ~/.ssh/id_rsa_gitlab
 </li>
 <li>
 <p>最后一步<code>测试</code></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell">$ ssh -T git@git.int-5262.com
-Welcome to GitLab, yong.geng!
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ ssh -T git@git.int-5262.com
+</span></span><span class="line"><span class="cl">Welcome to GitLab, yong.geng!
+</span></span></code></pre></div></li>
 </ul>
 <hr>
 <h4 id="补充一下">补充一下</h4>
 <p>如果之前有设置全局用户名和邮箱的话，需要unset一下</p>
-<pre><code>git config --global --unset user.name
+<pre tabindex="0"><code>git config --global --unset user.name
 git config --global --unset user.email
 </code></pre><p>然后在不同的仓库下设置局部的用户名和邮箱
 比如在公司的repository下</p>
-<pre><code>git config user.name &quot;yourname&quot;
-git config user.email &quot;youremail&quot;
+<pre tabindex="0"><code>git config user.name &#34;yourname&#34;
+git config user.email &#34;youremail&#34;
 </code></pre><p>在自己的github的仓库在执行刚刚的命令一遍即可。</p>
 <p><strong>这样就可以在不同的仓库，已不同的账号登录。</strong></p>
 

@@ -15,15 +15,15 @@
       <guid>https://48474.net/post/grpc-google-http2-protobuf/</guid>
       <description>gRPC是一个高性能、通用的开源RPC框架，其由Google主要面向移动应用开发并基于HTTP/2协议标准而设计，基于ProtoBuf(Protocol Buffers)序列化协议开发，且支持众多开发语言。gRPC提供了一种简单的方法来精确地定义服务和为iOS、Android和后台支持服务自动生成可靠性很强的客户端功能库。客户端充分利用高级流和链接功能，从而有助于节省带宽、降低的TCP链接次数、节省CPU使用、和电池寿命。
 gRPC具有以下重要特征：
-  强大的IDL特性
+强大的IDL特性
 gRPC使用ProtoBuf来定义服务，ProtoBuf是由Google开发的一种数据序列化协议（类似于XML、JSON、hessian）。ProtoBuf能够将数据进行序列化，并广泛应用在数据存储、通信协议等方面。不过，当前gRPC仅支持 Protobuf ，且不支持在浏览器中使用。由于gRPC的设计能够支持支持多种数据格式，所以读者能够很容易实现对其他数据格式（如XML、JSON等）的支持。
 定义服务的示例代码如下：
-message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); }   支持多语言
+message HelloRequest { string greeting = 1; } message HelloResponse { string reply = 1; } service HelloService { rpc SayHello(HelloRequest) returns (HelloResponse); } 支持多语言
 gRPC支持多种语言，并能够基于语言自动生成客户端和服务端功能库。目前，在GitHub上已提供了 C版本grpc、Java版本grpc-java 和 Go版本grpc-go，其它语言的版本正在积极开发中，其中 grpc支持 C、C++、Node.js、Python、Ruby、Objective-C、PHP 和 C# 等语言，grpc-java 已经支持Android开发。
-  基于HTTP/2标准设计
+基于HTTP/2标准设计
 由于gRPC基于HTTP/2标准设计，所以相对于其他RPC框架，gRPC带来了更多强大功能，如双向流、头部压缩、多复用请求等。这些功能给移动设备带来重大益处，如节省带宽、降低TCP链接次数、节省CPU使用和延长电池寿命等。同时，gRPC还能够提高了云端服务和Web应用的性能。gRPC既能够在客户端应用，也能够在服务器端应用，从而以透明的方式实现客户端和服务器端的通信和简化通信系统的构建。
-  gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
- 低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等  近日，gRPC开发团队宣布gRPC基于 BSD 3-Clause License 许可协议开源，相关代码已托管在GitHub上。当前已有Google和移动支付公司Square以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common仓库中，还提供了例子、快速入门指南等相关文档。</description>
+gRPC已经应用在Google的云服务和对外提供的API中，其主要应用场景如下：
+低延迟、高扩展性、分布式的系统 同云服务器进行通信的移动应用客户端 设计语言独立、高效、精确的新协议 便于各方面扩展的分层设计，如认证、负载均衡、日志记录、监控等 近日，gRPC开发团队宣布gRPC基于 BSD 3-Clause License 许可协议开源，相关代码已托管在GitHub上。当前已有Google和移动支付公司Square以及其他组织或个人为该项目贡献代码。有兴趣的读者可以在GitHub选择需要的语言版本，并根据提供的README文档尝试gRPC的功能，或者参考FAQ，以获得对gRPC更多信息。此外，在gRPC-common仓库中，还提供了例子、快速入门指南等相关文档。</description>
     </item>
     
     <item>
@@ -33,11 +33,12 @@ gRPC支持多种语言，并能够基于语言自动生成客户端和服务端�
       
       <guid>https://48474.net/post/caddy-guide/</guid>
       <description>Caddy是一个Golang编写的服务器软件，官方的宣传语“The HTTP/2 web server with automatic HTTPS”以及“Serve The Web Like It&amp;rsquo;s 2016”简明表达了这个软件的优点和趋势，它拥有Apache或者Nginx所具有的web server模块，同时还有一些很有特色的功能，比如:
- HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip;  在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
+HTTP/2 Automatic HTTPS Multi-core Websockets Markdown IPv6 Git FastCGI &amp;hellip; 在去年就开始使用Caddy，它提供的便捷配置，部署了内部测试服务的Web服务器、个人网站的Web服务器。配置项的语法简单粗暴，非常简洁明了。比nginx简单多了。
 下面举几个例子：
- 简单的测试网站  :8530 { root /var/www/test_site }  使用git同步测试环境  :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php }  站点跳转  http://48474.com, http://www.48474.com { redir https://48474.com{uri} } 看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。
+简单的测试网站 :8530 { root /var/www/test_site } 使用git同步测试环境 :8530 { root /var/www/test_site/public git git.int5262.com/user_name/project_name { path ../ interval 60 } fastcgi / 127.0.0.1:9001 php } 站点跳转 http://48474.com, http://www.48474.com { redir https://48474.com{uri} } 看看吧，是不是太简单了？ 配置起来能具体到简洁到哭的指令。 详细文档请看官方的User Guide。
 启动caddy也很简单
-/path/to/caddy -conf=&amp;quot;/path/to/caddy/caddyfile&amp;quot;  Caddy官网 https://caddyserver.</description>
+/path/to/caddy -conf=&amp;#34;/path/to/caddy/caddyfile&amp;#34; Caddy官网 https://caddyserver.com
+官方的下载页面提供了定制并编译的功能，很好用哦。不用下载源码编译。国内还要翻（GFW）封锁墙的。 Caddy一键安装脚本 https://getcaddy.com curl https://getcaddy.com | bash </description>
     </item>
     
     <item>
@@ -49,10 +50,10 @@ gRPC支持多种语言，并能够基于语言自动生成客户端和服务端�
       <description>在Twitter上看到一篇关于Golang程序配置方案总结的系列文章（一个mini series，共6篇），原文链接：在这里。我觉得不错，这里粗略整理（非全文翻译）一下，供大家参考。
 一、背景 无论使用任何编程语言开发应用，都离不开配置数据。配置数据提供的形式有多样，不外乎命令行选项(options)、参数（parameters)，环境变量（envvars)以及配置文件等。Golang也不例外。Golang内置flag标准库，可以用来支持部分命令行选项和参数的解析；Golang通过os包提 供的方法可以获取当前环境变量；但Golang没有规定标准配置文件格式(虽说内置支持xml、json)，多通过第三方 包来解决配置文件读取的问题。Golang配置相关的第三方包很多，作者在本文中给出的配置方案中就包含了主流的第三方配置数据操作包。
 文章作者认为一个良好的应用配置层次应该是这样的：
- 程序内内置配置项的初始默认值 配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。  下面就按作者的思路循序渐进探讨golang程序配置方案。
+程序内内置配置项的初始默认值 配置文件中的配置项值可以覆盖(override)程序内配置项的默认值。 命令行选项和参数值具有最高优先级，可以override前两层的配置项值。 下面就按作者的思路循序渐进探讨golang程序配置方案。
 二、解析命令行选项和参数 这一节关注golang程序如何访问命令行选项和参数。
 golang对访问到命令行参数提供了内建的支持：
-//cmdlineargs.go package main import ( // &amp;quot;fmt&amp;quot; &amp;quot;os&amp;quot; &amp;quot;path/filepath&amp;quot; ) func main() { println(&amp;quot;I am &amp;quot;, os.Args[0]) baseName := filepath.Base(os.Args[0]) println(&amp;quot;The base name is &amp;quot;, baseName) // The length of array a can be discovered using the built-in function len println(&amp;quot;Argument # is &amp;quot;, len(os.Args)) // the first command line arguments if len(os.Args) &amp;gt; 1 { println(&amp;quot;The first command line argument: &amp;quot;, os.</description>
+//cmdlineargs.go package main import ( // &amp;#34;fmt&amp;#34; &amp;#34;os&amp;#34; &amp;#34;path/filepath&amp;#34; ) func main() { println(&amp;#34;I am &amp;#34;, os.Args[0]) baseName := filepath.Base(os.Args[0]) println(&amp;#34;The base name is &amp;#34;, baseName) // The length of array a can be discovered using the built-in function len println(&amp;#34;Argument # is &amp;#34;, len(os.Args)) // the first command line arguments if len(os.Args) &amp;gt; 1 { println(&amp;#34;The first command line argument: &amp;#34;, os.</description>
     </item>
     
     <item>
@@ -62,11 +63,12 @@ golang对访问到命令行参数提供了内建的支持：
       
       <guid>https://48474.net/post/xorm-readme/</guid>
       <description>xorm是一个简单而强大的Go语言ORM库. 通过它可以使数据库操作非常简便。xorm的目标并不是让你完全不去学习SQL，我们认为SQL并不会为ORM所替代，但是ORM将可以解决绝大部分的简单SQL需求。xorm支持两种风格的混用。
-特性  支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁）  驱动支持 xorm当前支持的驱动和数据库如下：
- Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc  安装 推荐使用 gopm 进行安装：
-gopm get github.com/go-xorm/xorm  或者您也可以使用go工具进行安装：
-go get github.com/go-xorm/xorm  文档  操作指南 GoWalker代码文档 Godoc代码文档  讨论 请加入QQ群：280360085 进行讨论。
-贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING</description>
+特性 支持Struct和数据库表之间的灵活映射，并支持自动同步表结构 事务支持 支持原始SQL语句和ORM操作的混合执行 使用连写来简化调用 支持使用Id, In, Where, Limit, Join, Having, Table, Sql, Cols等函数和结构体等方式作为条件 支持级联加载Struct 支持LRU缓存(支持memory, memcache, leveldb, redis缓存Store) 和 Redis缓存 支持反转，即根据数据库自动生成xorm的结构体 支持事件 支持created, updated, deleted和version记录版本（即乐观锁） 驱动支持 xorm当前支持的驱动和数据库如下：
+Mysql: github.com/go-sql-driver/mysql MyMysql: github.com/ziutek/mymysql/godrv SQLite: github.com/mattn/go-sqlite3 Postgres: github.com/lib/pq MsSql: github.com/denisenkom/go-mssqldb MsSql: github.com/lunny/godbc 安装 推荐使用 gopm 进行安装：
+gopm get github.com/go-xorm/xorm 或者您也可以使用go工具进行安装：
+go get github.com/go-xorm/xorm 文档 操作指南 GoWalker代码文档 Godoc代码文档 讨论 请加入QQ群：280360085 进行讨论。
+贡献 如果您也想为Xorm贡献您的力量，请查看 CONTRIBUTING
+LICENSE BSD License http://creativecommons.org/licenses/BSD/</description>
     </item>
     
   </channel>

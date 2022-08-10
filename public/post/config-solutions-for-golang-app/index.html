@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -37,7 +37,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -81,70 +81,69 @@
 <h2 id="二解析命令行选项和参数">二、解析命令行选项和参数</h2>
 <p>这一节关注golang程序如何访问命令行选项和参数。</p>
 <p>golang对访问到命令行参数提供了内建的支持：</p>
-<pre><code>//cmdlineargs.go
+<pre tabindex="0"><code>//cmdlineargs.go
 package main
 
 import (
-    //      &quot;fmt&quot;
-    &quot;os&quot;
-    &quot;path/filepath&quot;
+    //      &#34;fmt&#34;
+    &#34;os&#34;
+    &#34;path/filepath&#34;
 )
 
 func main() {
-    println(&quot;I am &quot;, os.Args[0])
+    println(&#34;I am &#34;, os.Args[0])
 
     baseName := filepath.Base(os.Args[0])
-    println(&quot;The base name is &quot;, baseName)
+    println(&#34;The base name is &#34;, baseName)
 
     // The length of array a can be discovered using the built-in function len
-    println(&quot;Argument # is &quot;, len(os.Args))
+    println(&#34;Argument # is &#34;, len(os.Args))
 
     // the first command line arguments
     if len(os.Args) &gt; 1 {
-        println(&quot;The first command line argument: &quot;, os.Args[1])
+        println(&#34;The first command line argument: &#34;, os.Args[1])
     }
 }
-
 </code></pre><p>执行结果如下：</p>
-<pre><code>  $go build cmdlineargs.go
+<pre tabindex="0"><code>  $go build cmdlineargs.go
   $cmdlineargs test one
   I am  cmdlineargs
   The base name is  cmdlineargs
   Argument # is  3
   The first command line argument:  test
 </code></pre><p>对于命令行结构复杂一些的程序，我们最起码要用到golang标准库内置的flag包：</p>
-<pre><code>//cmdlineflag.go
+<pre tabindex="0"><code>//cmdlineflag.go
 package main
 
 import (
-    &quot;flag&quot;
-    &quot;fmt&quot;
-    &quot;os&quot;
-    &quot;strconv&quot;
+    &#34;flag&#34;
+    &#34;fmt&#34;
+    &#34;os&#34;
+    &#34;strconv&#34;
 )
 
 var (
     // main operation modes
-    write = flag.Bool(&quot;w&quot;, false, &quot;write result back instead of stdout\n\t\tDefault: No write back&quot;)
+    write = flag.Bool(&#34;w&#34;, false, &#34;write result back instead of stdout\n\t\tDefault: No write back&#34;)
 
     // layout control
-    tabWidth = flag.Int(&quot;tabwidth&quot;, 8, &quot;tab width\n\t\tDefault: Standard&quot;)
+    tabWidth = flag.Int(&#34;tabwidth&#34;, 8, &#34;tab width\n\t\tDefault: Standard&#34;)
 
     // debugging
-    cpuprofile = flag.String(&quot;cpuprofile&quot;, &quot;&quot;, &quot;write cpu profile to this file\n\t\tDefault: no default&quot;)
+    cpuprofile = flag.String(&#34;cpuprofile&#34;, &#34;&#34;, &#34;write cpu profile to this file\n\t\tDefault: no default&#34;)
 )
 
 func usage() {
     // Fprintf allows us to print to a specifed file handle or stream
-    fmt.Fprintf(os.Stderr, &quot;\nUsage: %s [flags] file [path ...]\n\n&quot;,
-        &quot;CommandLineFlag&quot;) // os.Args[0]
+    fmt.Fprintf(os.Stderr, &#34;\nUsage: %s [flags] file [path ...]\n\n&#34;,
+        &#34;CommandLineFlag&#34;) // os.Args[0]
     flag.PrintDefaults()
     os.Exit(0)
 }
 
 func main() {
-    fmt.Printf(&quot;Before parsing the flags\n&quot;)
-    fmt.Printf(&quot;T: %d\nW: %s\nC: '%s'\n&quot;,
+    fmt.Printf(&#34;Before parsing the flags\n&#34;)
+    fmt.Printf(&#34;T: %d\nW: %s\nC: &#39;%s&#39;\n&#34;,
         *tabWidth, strconv.FormatBool(*write), *cpuprofile)
 
     flag.Usage = usage
@@ -155,12 +154,12 @@ func main() {
         usage()
     }
 
-    fmt.Printf(&quot;Testing the flag package\n&quot;)
-    fmt.Printf(&quot;T: %d\nW: %s\nC: '%s'\n&quot;,
+    fmt.Printf(&#34;Testing the flag package\n&#34;)
+    fmt.Printf(&#34;T: %d\nW: %s\nC: &#39;%s&#39;\n&#34;,
         *tabWidth, strconv.FormatBool(*write), *cpuprofile)
 
     for index, element := range flag.Args() {
-        fmt.Printf(&quot;I: %d C: '%s'\n&quot;, index, element)
+        fmt.Printf(&#34;I: %d C: &#39;%s&#39;\n&#34;, index, element)
     }
 }
 </code></pre><p>这个例子中：</p>
@@ -170,42 +169,42 @@ func main() {
 <li>最后说明了如何处理标志选项(flag option)以及非option参数。</li>
 </ul>
 <p>不带参数运行：</p>
-<pre><code>$cmdlineflag
+<pre tabindex="0"><code>$cmdlineflag
 Before parsing the flags
 T: 8
 W: false
-C: ''
+C: &#39;&#39;
 
 Usage: CommandLineFlag [flags] file [path ...]
 
-  -cpuprofile=&quot;&quot;: write cpu profile to this file
+  -cpuprofile=&#34;&#34;: write cpu profile to this file
         Default: no default
   -tabwidth=8: tab width
         Default: Standard
   -w=false: write result back instead of stdout
         Default: No write back
 </code></pre><p>带命令行标志以及参数运行(一个没有flag，一个有两个flag)：</p>
-<pre><code>$cmdlineflag aa bb
+<pre tabindex="0"><code>$cmdlineflag aa bb
 Before parsing the flags
 T: 8
 W: false
-C: ''
+C: &#39;&#39;
 Testing the flag package
 T: 8
 W: false
-C: ''
-I: 0 C: 'aa'
-I: 1 C: 'bb'
-</code></pre><pre><code>$cmdlineflag -tabwidth=2 -w aa
+C: &#39;&#39;
+I: 0 C: &#39;aa&#39;
+I: 1 C: &#39;bb&#39;
+</code></pre><pre tabindex="0"><code>$cmdlineflag -tabwidth=2 -w aa
 Before parsing the flags
 T: 8
 W: false
-C: ''
+C: &#39;&#39;
 Testing the flag package
 T: 2
 W: true
-C: ''
-I: 0 C: 'aa'
+C: &#39;&#39;
+I: 0 C: &#39;aa&#39;
 </code></pre><p>从例子可以看出，简单情形下，你无需编写自己的命令行parser或使用第三方包，使用go内建的flag包即可以很好的完成工作。但是golang的 flag包与命令行Parser的事实标准：Posix getopt（C/C++/Perl/Shell脚本都可用）相比，还有较大差距，主要体现在：</p>
 <ol>
 <li>无法支持区分long option和short option，比如：-h和–help。</li>
@@ -216,47 +215,47 @@ I: 0 C: 'aa'
 <h2 id="三tomlgo配置文件的事实标准这个可能不能得到认同">三、TOML，Go配置文件的事实标准（这个可能不能得到认同）</h2>
 <p>命令行虽然是一种可选的配置方案，但更多的时候，我们使用配置文件来存储静态的配置数据。就像Java配xml，ruby配yaml，windows配 ini，Go也有自己的搭配组合，那就是TOML（Tom&rsquo;s Obvious, Minimal Language）。</p>
 <p>初看toml语法有些类似windows ini，但细致研究你会发现它远比ini强大的多，下面是一个toml配置文件例子：</p>
-<pre><code># This is a TOML document. Boom.
+<pre tabindex="0"><code># This is a TOML document. Boom.
 
-title = &quot;TOML Example&quot;
+title = &#34;TOML Example&#34;
 
 [owner]
-name = &quot;Lance Uppercut&quot;
+name = &#34;Lance Uppercut&#34;
 dob = 1979-05-27T07:32:00-08:00 # First class dates? Why not?
 
 [database]
-server = &quot;192.168.1.1&quot;
+server = &#34;192.168.1.1&#34;
 ports = [ 8001, 8001, 8002 ]
 connection_max = 5000
 enabled = true
 
 [servers]
 
-  # You can indent as you please. Tabs or spaces. TOML don't care.
+  # You can indent as you please. Tabs or spaces. TOML don&#39;t care.
   [servers.alpha]
-  ip = &quot;10.0.0.1&quot;
-  dc = &quot;eqdc10&quot;
+  ip = &#34;10.0.0.1&#34;
+  dc = &#34;eqdc10&#34;
 
   [servers.beta]
-  ip = &quot;10.0.0.2&quot;
-  dc = &quot;eqdc10&quot;
+  ip = &#34;10.0.0.2&#34;
+  dc = &#34;eqdc10&#34;
 
 [clients]
-data = [ [&quot;gamma&quot;, &quot;delta&quot;], [1, 2] ]
+data = [ [&#34;gamma&#34;, &#34;delta&#34;], [1, 2] ]
 
 # Line breaks are OK when inside arrays
 hosts = [
-  &quot;alpha&quot;,
-  &quot;omega&quot;
+  &#34;alpha&#34;,
+  &#34;omega&#34;
 ]
 </code></pre><p>看起来很强大，也很复杂，但解析起来却很简单。以下面这个toml 文件为例：</p>
-<pre><code>Age = 25
-Cats = [ &quot;Cauchy&quot;, &quot;Plato&quot; ]
+<pre tabindex="0"><code>Age = 25
+Cats = [ &#34;Cauchy&#34;, &#34;Plato&#34; ]
 Pi = 3.14
 Perfection = [ 6, 28, 496, 8128 ]
 DOB = 1987-07-05T05:45:00Z
 </code></pre><p>和所有其他配置文件parser类似，这个配置文件中的数据可以被直接解析成一个golang struct：</p>
-<pre><code>type Config struct {
+<pre tabindex="0"><code>type Config struct {
   Age int
   Cats []string
   Pi float64
@@ -264,7 +263,7 @@ DOB = 1987-07-05T05:45:00Z
   DOB time.Time // requires `import time`
 }
 </code></pre><p>其解析的步骤也很简单：</p>
-<pre><code>var conf Config
+<pre tabindex="0"><code>var conf Config
 if _, err := toml.Decode(tomlData, &amp;conf); err != nil {
   // handle error
 }
@@ -276,27 +275,27 @@ if _, err := toml.Decode(tomlData, &amp;conf); err != nil {
 <li>命令行选项和参数值具有最高优先级，可以override前两层的配置项值。</li>
 </ol>
 <p>在go中，toml映射的结果体字段没有初始值。而且go内建flag包也没有将命令行参数值解析为一个go结构体，而是零散的变量。这些可以通过第三方工具来解决，但如果你不想用第三方工具，你也可以像下面这样自己解决，虽然难看一些。</p>
-<pre><code>func ConfigGet() *Config {
+<pre tabindex="0"><code>func ConfigGet() *Config {
     var err error
     var cf *Config = NewConfig()
 
     // set default values defined in the program
     cf.ConfigFromFlag()
-    //log.Printf(&quot;P: %d, B: '%s', F: '%s'\n&quot;, cf.MaxProcs, cf.Webapp.Path)
+    //log.Printf(&#34;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&#34;, cf.MaxProcs, cf.Webapp.Path)
 
     // Load config file, from flag or env (if specified)
-    _, err = cf.ConfigFromFile(*configFile, os.Getenv(&quot;APPCONFIG&quot;))
+    _, err = cf.ConfigFromFile(*configFile, os.Getenv(&#34;APPCONFIG&#34;))
     if err != nil {
         log.Fatal(err)
     }
-    //log.Printf(&quot;P: %d, B: '%s', F: '%s'\n&quot;, cf.MaxProcs, cf.Webapp.Path)
+    //log.Printf(&#34;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&#34;, cf.MaxProcs, cf.Webapp.Path)
 
     // Override values from command line flags
     cf.ConfigToFlag()
     flag.Usage = usage
     flag.Parse()
     cf.ConfigFromFlag()
-    //log.Printf(&quot;P: %d, B: '%s', F: '%s'\n&quot;, cf.MaxProcs, cf.Webapp.Path)
+    //log.Printf(&#34;P: %d, B: &#39;%s&#39;, F: &#39;%s&#39;\n&#34;, cf.MaxProcs, cf.Webapp.Path)
 
     cf.ConfigApply()
 
@@ -323,8 +322,8 @@ if _, err := toml.Decode(tomlData, &amp;conf); err != nil {
 2、用toml配置文件中的数据override默认配置
 3、用命令行或环境变量的值override从toml中读取的配置。</p>
 <p>下面是一个说明如何使用multiconfig的例子：</p>
-<pre><code>func main() {
-    m := multiconfig.NewWithPath(&quot;config.toml&quot;) // supports TOML and JSON
+<pre tabindex="0"><code>func main() {
+    m := multiconfig.NewWithPath(&#34;config.toml&#34;) // supports TOML and JSON
 
     // Get an empty struct for your configuration
     serverConf := new(Server)
@@ -332,32 +331,32 @@ if _, err := toml.Decode(tomlData, &amp;conf); err != nil {
     // Populated the serverConf struct
     m.MustLoad(serverConf) // Check for error
 
-    fmt.Println(&quot;After Loading: &quot;)
-    fmt.Printf(&quot;%+v\n&quot;, serverConf)
+    fmt.Println(&#34;After Loading: &#34;)
+    fmt.Printf(&#34;%+v\n&#34;, serverConf)
 
     if serverConf.Enabled {
-        fmt.Println(&quot;Enabled field is set to true&quot;)
+        fmt.Println(&#34;Enabled field is set to true&#34;)
     } else {
-        fmt.Println(&quot;Enabled field is set to false&quot;)
+        fmt.Println(&#34;Enabled field is set to false&#34;)
     }
 }
 </code></pre><p>这个例子中的toml文件如下：</p>
-<pre><code>Name              = &quot;koding&quot;
+<pre tabindex="0"><code>Name              = &#34;koding&#34;
 Enabled           = false
 Port              = 6066
-Users             = [&quot;ankara&quot;, &quot;istanbul&quot;]
+Users             = [&#34;ankara&#34;, &#34;istanbul&#34;]
 
 [Postgres]
 Enabled           = true
 Port              = 5432
-Hosts             = [&quot;192.168.2.1&quot;, &quot;192.168.2.2&quot;, &quot;192.168.2.3&quot;]
+Hosts             = [&#34;192.168.2.1&#34;, &#34;192.168.2.2&#34;, &#34;192.168.2.3&#34;]
 AvailabilityRatio = 8.23
 </code></pre><p>toml映射后的go结构如下：</p>
-<pre><code>type (
+<pre tabindex="0"><code>type (
     // Server holds supported types by the multiconfig package
     Server struct {
         Name     string
-        Port     int `default:&quot;6060&quot;`
+        Port     int `default:&#34;6060&#34;`
         Enabled  bool
         Users    []string
         Postgres Postgres
@@ -378,7 +377,7 @@ AvailabilityRatio = 8.23
 你可以自定义配置源（例如一个远程服务器），如果你想这么做的话。
 可高度扩展（通过loader接口），你可以创建你自己的loader。</p>
 <p>下面是例子的运行结果，首先是usage help：</p>
-<pre><code>$cmdlinemulticonfig -help
+<pre tabindex="0"><code>$cmdlinemulticonfig -help
 Usage of cmdlinemulticonfig:
   -enabled=false: Change value of Enabled.
   -name=koding: Change value of Name.
@@ -400,7 +399,7 @@ Generated environment variables:
    SERVER_POSTGRES_HOSTS
    SERVER_POSTGRES_DBNAME
    SERVER_POSTGRES_AVAILABILITYRATIO
-</code></pre><pre><code>$cmdlinemulticonfig
+</code></pre><pre tabindex="0"><code>$cmdlinemulticonfig
 After Loading:
 &amp;{Name:koding Port:6066 Enabled:false Users:[ankara istanbul] Postgres:{Enabled:true Port:5432 Hosts:[192.168.2.1 192.168.2.2 192.168.2.3] DBName: AvailabilityRatio:8.23}}
 Enabled field is set to false
@@ -410,8 +409,8 @@ Enabled field is set to false
 <p>毫无疑问，viper非常强大。但如果你想用命令行参数覆盖预定义的配置项值，viper自己还不足以。要想让viper爆发，你需要另外一个包配合，它就是cobra（https://github.com/spf13/cobra）。</p>
 <p>不同于注重简化配置处理的multiconfig，viper让你拥有全面控制力。不幸的是，在得到这种控制力之前，你需要做一些体力活。</p>
 <p>我们再来回顾一下使用multiconfig处理配置的代码：</p>
-<pre><code>func main() {
-    m := multiconfig.NewWithPath(&quot;config.toml&quot;) // supports TOML and JSON
+<pre tabindex="0"><code>func main() {
+    m := multiconfig.NewWithPath(&#34;config.toml&#34;) // supports TOML and JSON
 
     // Get an empty struct for your configuration
     serverConf := new(Server)
@@ -419,20 +418,20 @@ Enabled field is set to false
     // Populated the serverConf struct
     m.MustLoad(serverConf) // Check for error
 
-    fmt.Println(&quot;After Loading: &quot;)
-    fmt.Printf(&quot;%+v\n&quot;, serverConf)
+    fmt.Println(&#34;After Loading: &#34;)
+    fmt.Printf(&#34;%+v\n&#34;, serverConf)
 
     if serverConf.Enabled {
-        fmt.Println(&quot;Enabled field is set to true&quot;)
+        fmt.Println(&#34;Enabled field is set to true&#34;)
     } else {
-        fmt.Println(&quot;Enabled field is set to false&quot;)
+        fmt.Println(&#34;Enabled field is set to false&#34;)
     }
 }
 </code></pre><p>这就是使用multiconfig时你要做的所有事情。现在我们来看看使用viper和cobra如何来完成同样的事情：</p>
-<pre><code>func init() {
+<pre tabindex="0"><code>func init() {
     mainCmd.AddCommand(versionCmd)
 
-    viper.SetEnvPrefix(&quot;DISPATCH&quot;)
+    viper.SetEnvPrefix(&#34;DISPATCH&#34;)
     viper.AutomaticEnv()
 
     /*
@@ -444,41 +443,41 @@ Enabled field is set to false
 
     flags := mainCmd.Flags()
 
-    flags.Bool(&quot;debug&quot;, false, &quot;Turn on debugging.&quot;)
-    flags.String(&quot;addr&quot;, &quot;localhost:5002&quot;, &quot;Address of the service&quot;)
-    flags.String(&quot;smtp-addr&quot;, &quot;localhost:25&quot;, &quot;Address of the SMTP server&quot;)
-    flags.String(&quot;smtp-user&quot;, &quot;&quot;, &quot;User to authenticate with the SMTP server&quot;)
-    flags.String(&quot;smtp-password&quot;, &quot;&quot;, &quot;Password to authenticate with the SMTP server&quot;)
-    flags.String(&quot;email-from&quot;, &quot;noreply@example.com&quot;, &quot;The from email address.&quot;)
+    flags.Bool(&#34;debug&#34;, false, &#34;Turn on debugging.&#34;)
+    flags.String(&#34;addr&#34;, &#34;localhost:5002&#34;, &#34;Address of the service&#34;)
+    flags.String(&#34;smtp-addr&#34;, &#34;localhost:25&#34;, &#34;Address of the SMTP server&#34;)
+    flags.String(&#34;smtp-user&#34;, &#34;&#34;, &#34;User to authenticate with the SMTP server&#34;)
+    flags.String(&#34;smtp-password&#34;, &#34;&#34;, &#34;Password to authenticate with the SMTP server&#34;)
+    flags.String(&#34;email-from&#34;, &#34;noreply@example.com&#34;, &#34;The from email address.&#34;)
 
-    viper.BindPFlag(&quot;debug&quot;, flags.Lookup(&quot;debug&quot;))
-    viper.BindPFlag(&quot;addr&quot;, flags.Lookup(&quot;addr&quot;))
-    viper.BindPFlag(&quot;smtp_addr&quot;, flags.Lookup(&quot;smtp-addr&quot;))
-    viper.BindPFlag(&quot;smtp_user&quot;, flags.Lookup(&quot;smtp-user&quot;))
-    viper.BindPFlag(&quot;smtp_password&quot;, flags.Lookup(&quot;smtp-password&quot;))
-    viper.BindPFlag(&quot;email_from&quot;, flags.Lookup(&quot;email-from&quot;))
+    viper.BindPFlag(&#34;debug&#34;, flags.Lookup(&#34;debug&#34;))
+    viper.BindPFlag(&#34;addr&#34;, flags.Lookup(&#34;addr&#34;))
+    viper.BindPFlag(&#34;smtp_addr&#34;, flags.Lookup(&#34;smtp-addr&#34;))
+    viper.BindPFlag(&#34;smtp_user&#34;, flags.Lookup(&#34;smtp-user&#34;))
+    viper.BindPFlag(&#34;smtp_password&#34;, flags.Lookup(&#34;smtp-password&#34;))
+    viper.BindPFlag(&#34;email_from&#34;, flags.Lookup(&#34;email-from&#34;))
 
   // Viper supports reading from yaml, toml and/or json files. Viper can
   // search multiple paths. Paths will be searched in the order they are
   // provided. Searches stopped once Config File found.
 
-    viper.SetConfigName(&quot;CommandLineCV&quot;) // name of config file (without extension)
-    viper.AddConfigPath(&quot;/tmp&quot;)          // path to look for the config file in
-    viper.AddConfigPath(&quot;.&quot;)             // more path to look for the config files
+    viper.SetConfigName(&#34;CommandLineCV&#34;) // name of config file (without extension)
+    viper.AddConfigPath(&#34;/tmp&#34;)          // path to look for the config file in
+    viper.AddConfigPath(&#34;.&#34;)             // more path to look for the config files
 
     err := viper.ReadInConfig()
     if err != nil {
-        println(&quot;No config file found. Using built-in defaults.&quot;)
+        println(&#34;No config file found. Using built-in defaults.&#34;)
     }
 }
 </code></pre><p>可以看出，你需要使用BindPFlag来让viper和cobra结合一起工作。但这还不算太糟。</p>
 <p>cobra的真正威力在于提供了subcommand能力。同时cobra还提供了与posix 全面兼容的命令行标志解析能力，包括长短标志、内嵌命令、为command定义你自己的help或usage等。</p>
 <p>下面是定义子命令的例子代码：</p>
-<pre><code>// The main command describes the service and defaults to printing the
+<pre tabindex="0"><code>// The main command describes the service and defaults to printing the
 // help message.
 var mainCmd = &amp;cobra.Command{
-    Use:   &quot;dispatch&quot;,
-    Short: &quot;Event dispatch service.&quot;,
+    Use:   &#34;dispatch&#34;,
+    Short: &#34;Event dispatch service.&#34;,
     Long:  `HTTP service that consumes events and dispatches them to subscribers.`,
     Run: func(cmd *cobra.Command, args []string) {
         serve()
@@ -487,15 +486,15 @@ var mainCmd = &amp;cobra.Command{
 
 // The version command prints this service.
 var versionCmd = &amp;cobra.Command{
-    Use:   &quot;version&quot;,
-    Short: &quot;Print the version.&quot;,
-    Long:  &quot;The version of the dispatch service.&quot;,
+    Use:   &#34;version&#34;,
+    Short: &#34;Print the version.&#34;,
+    Long:  &#34;The version of the dispatch service.&#34;,
     Run: func(cmd *cobra.Command, args []string) {
         fmt.Println(version)
     },
 }
 </code></pre><p>有了上面subcommand的定义，我们就可以得到如下的help信息了：</p>
-<pre><code>Usage:
+<pre tabindex="0"><code>Usage:
   dispatch [flags]
   dispatch [command]
 
@@ -504,15 +503,15 @@ Available Commands:
   help        Help about any command
 
 Flags:
-      –addr=&quot;localhost:5002&quot;: Address of the service
+      –addr=&#34;localhost:5002&#34;: Address of the service
       –debug=false: Turn on debugging.
-      –email-from=&quot;noreply@example.com&quot;: The from email address.
+      –email-from=&#34;noreply@example.com&#34;: The from email address.
   -h, –help=false: help for dispatch
-      –smtp-addr=&quot;localhost:25&quot;: Address of the SMTP server
-      –smtp-password=&quot;&quot;: Password to authenticate with the SMTP server
-      –smtp-user=&quot;&quot;: User to authenticate with the SMTP server
+      –smtp-addr=&#34;localhost:25&#34;: Address of the SMTP server
+      –smtp-password=&#34;&#34;: Password to authenticate with the SMTP server
+      –smtp-user=&#34;&#34;: User to authenticate with the SMTP server
 
-Use &quot;dispatch help [command]&quot; for more information about a command.
+Use &#34;dispatch help [command]&#34; for more information about a command.
 </code></pre><h2 id="六小结">六、小结</h2>
 <p>以上例子的完整源码在作者的<a href="https://github.com/suntong/lang/tree/master/lang/Go/src/sys">github repository</a>里可以找到。</p>
 <hr>

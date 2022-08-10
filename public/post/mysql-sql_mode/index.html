@@ -21,8 +21,8 @@
   <link rel="stylesheet" href="/css/custom.css">
   
   
-  <link href="https://48474.net/index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
-  <link href="https://48474.net/index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="alternate" type="application/rss+xml" title="DenysG的个人博客" />
+  <link href="https://48474.net//index.xml" rel="feed" type="application/rss+xml" title="DenysG的个人博客" />
 
   
   
@@ -37,7 +37,7 @@
   <header role="banner">
     <div class="row gutters">
       <div id="site-title" class="col span_6">
-        <h1><a href="https://48474.net">DenysG的个人博客</a></h1>
+        <h1><a href="https://48474.net/">DenysG的个人博客</a></h1>
         <h2>我必须承认，幸运喜欢照顾勇敢的人。---- 达尔文</h2>
       </div>
       <div id="social" class="col span_6">
@@ -88,20 +88,20 @@
 <p>最后，无耻的从网上抄一段贴在这里备份：</p>
 <p>如果使用 <code>mysql</code>，为了继续保留大家使用 <code>oracle</code> 的习惯，可以对 <code>mysql</code> 的<code>sql_mode</code> 设置如下：</p>
 <p>在my.cnf添加如下配置</p>
-<pre><code>[mysqld]
-sql_mode='ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,
-ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES'
+<pre tabindex="0"><code>[mysqld]
+sql_mode=&#39;ONLY_FULL_GROUP_BY,NO_AUTO_VALUE_ON_ZERO,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,
+ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION,PIPES_AS_CONCAT,ANSI_QUOTES&#39;
 </code></pre><p>补充两句：</p>
 <p>在 <code>mysql 5.7</code> 版本以后 默认是开启了 <strong>严格模式</strong> 的。 这点我也比较赞成的。</p>
 <p>但在开发过程中，因为种种原因（工期缩短，开发人员的水平，等等）需要使用非严格模式开发。</p>
 <ol>
 <li>
 <p>在连接 <code>mysql</code> 后, 使用 <code>set</code> 来关闭严格模式</p>
-<pre><code>set global sql_mode='';
+<pre tabindex="0"><code>set global sql_mode=&#39;&#39;;
 </code></pre></li>
 <li>
 <p>修改 <code>my.cnf</code>, 简单</p>
-<pre><code>[mysqld]
+<pre tabindex="0"><code>[mysqld]
 sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES
 </code></pre></li>
 </ol>

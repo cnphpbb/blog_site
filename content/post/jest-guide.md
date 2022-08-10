@@ -5,7 +5,7 @@ date = "2022-08-10T07:56:00+08:00"
 menu = "main"
 Categories = ["vue", "Jest", "Guide"]
 Description = "Jest是一款优雅、简洁的 JavaScript 测试框架。支持 Babel、TypeScript、Node、React、Angular、Vue 等诸多框架！"
-Tags = ["jest", "guide","solutions","JavaScript",vue","开源"]
+Tags = ["jest", "guide", "solutions", "JavaScript", "vue", "开源"]
 +++
 
 **Jest 是一款优雅、简洁的 JavaScript 测试框架。**

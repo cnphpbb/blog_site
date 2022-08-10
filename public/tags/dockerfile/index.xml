@@ -18,8 +18,9 @@ Dockerfile 其语法非常简单，此页面描述了您可以在 Dockerfile 中
 Usage docker build 命令从 Dockerfile 和 context 构建image。context 是 PATH 或URL 处的文件。PATH 本地文件目录。 URL 是Git repository的位置。
 context 以递归方式处理。因此，PATH 包括任何子目录，URL 包括repository及submodules。一个使用当前目录作为 context 的简单构建命令：
 $ docker build . Sending build context to Docker daemon 6.51 MB ... 构建由Docker守护程序运行，而不是由CLI运行。构建过程所做的第一件事是将整个context（递归地）发送给守护进程。大多数情况下，最好是将 Dockerfile 和所需文件复制到一个空的目录，再到这个目录进行构建。
- 警告：不要使用根目录 / 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。
- build时添加文件，通过 Dockerfile 引用指令中指定的文件，例如 COPY 指令。要增加构建的性能，请通过将.dockerignore 文件添加到 context 目录中来排除文件和目录。有关如何创建 .dockerignore 文件的信息，请参阅此页上的文档。</description>
+警告：不要使用根目录 / 作为PATH，因为它会导致构建将硬盘驱动器的所有内容传输到Docker守护程序。
+build时添加文件，通过 Dockerfile 引用指令中指定的文件，例如 COPY 指令。要增加构建的性能，请通过将.dockerignore 文件添加到 context 目录中来排除文件和目录。有关如何创建 .dockerignore 文件的信息，请参阅此页上的文档。
+一般的，Dockerfile 位于 context 的根中。但使用 -f 标志可指定Dockerfile的位置。</description>
     </item>
     
   </channel>
