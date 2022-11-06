@@ -6,13 +6,58 @@
     <description>Recent content in Tags on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Aug 2022 07:56:00 +0800</lastBuildDate><atom:link href="https://48474.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>gpio </title>
+      <link>https://48474.net/tags/gpio/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/gpio/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>guide</title>
       <link>https://48474.net/tags/guide/</link>
-      <pubDate>Wed, 10 Aug 2022 07:56:00 +0800</pubDate>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
       
       <guid>https://48474.net/tags/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>I2C</title>
+      <link>https://48474.net/tags/i2c/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/i2c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RasPi</title>
+      <link>https://48474.net/tags/raspi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/raspi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wiringPi</title>
+      <link>https://48474.net/tags/wiringpi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/wiringpi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>开源</title>
+      <link>https://48474.net/tags/%E5%BC%80%E6%BA%90/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/tags/%E5%BC%80%E6%BA%90/</guid>
       <description></description>
     </item>
     
@@ -49,15 +94,6 @@
       <pubDate>Wed, 10 Aug 2022 07:56:00 +0800</pubDate>
       
       <guid>https://48474.net/tags/vue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>开源</title>
-      <link>https://48474.net/tags/%E5%BC%80%E6%BA%90/</link>
-      <pubDate>Wed, 10 Aug 2022 07:56:00 +0800</pubDate>
-      
-      <guid>https://48474.net/tags/%E5%BC%80%E6%BA%90/</guid>
       <description></description>
     </item>
     

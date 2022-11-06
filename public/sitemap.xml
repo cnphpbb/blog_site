@@ -3,13 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://48474.net/categories/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/gpio/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/guide/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/i2c/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/i2c/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/post/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/raspi/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/raspi/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/wiringpi/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/wiringpi/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/post/raspi-wiringpi/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/categories/guide/</loc>
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
@@ -23,13 +56,7 @@
     <loc>https://48474.net/categories/jest/</loc>
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
   </url><url>
-    <loc>https://48474.net/post/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
-  </url><url>
     <loc>https://48474.net/tags/solutions/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/</loc>
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/vue/</loc>
@@ -39,9 +66,6 @@
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/post/jest-guide/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/%E5%BC%80%E6%BA%90/</loc>
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/git/</loc>

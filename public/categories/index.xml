@@ -6,7 +6,34 @@
     <description>Recent content in Categories on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Aug 2022 07:56:00 +0800</lastBuildDate><atom:link href="https://48474.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I2C</title>
+      <link>https://48474.net/categories/i2c/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/i2c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RasPi</title>
+      <link>https://48474.net/categories/raspi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/raspi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wiringPi</title>
+      <link>https://48474.net/categories/wiringpi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/wiringpi/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Guide</title>
       <link>https://48474.net/categories/guide/</link>

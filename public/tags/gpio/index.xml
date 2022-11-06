@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>gpio  on DenysG的个人博客</title>
+    <link>https://48474.net/tags/gpio/</link>
+    <description>Recent content in gpio  on DenysG的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/tags/gpio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派4B-WiringPi库</title>
+      <link>https://48474.net/post/raspi-wiringpi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/post/raspi-wiringpi/</guid>
+      <description>WiringPi 官网 wiringpi.com
+GitHub WiringPi github.com/WiringPi
+目前 https://github.com/WiringPi 仓库支持的版本有
+C/C++ Python PHP Node Ruby Perl WiringPi-Go WiringPi-Go
+Golang wrapped version of Gordon&amp;rsquo;s Arduino-like WiringPi for the Raspberry Pi
+WiringPi库简介 WiringPi是一个用C语言编写的、基于PIN的GPIO访问库，提供了GPIO、I2C、SPI、UART和PWM等库，对于树莓派的GPIO编程相当方便。目前可在基于BCM2835、BCM2836和BCM2837的树莓派中使用。其他详细介绍请参看wiringPi官网介绍。
+WiringPi-C 安装 截止文章发布日（2022-11-06） WiringPi Releases Version 2.61-1
+https://github.com/WiringPi/WiringPi/releases/tag/2.61-1
+方法1: deb方式
+cd ~/work ## 请按系统选择格式的deb包。本人系统为 64位 版本。 wget https://github.com/WiringPi/WiringPi/releases/download/2.61-1/wiringpi-2.61-1-arm64.deb dpkg -i wiringpi-2.61-1-arm64.deb 方法2: 源码方式
+cd ~/work wget -O wiringpi-2.61-1.tar.gz https://github.com/WiringPi/WiringPi/archive/refs/tags/2.61-1.tar.gz tar zxfv wiringpi-2.61-1.tar.gz cd wiringpi-2.61-1 ./build 安装成功后，输入命令：gpio -v，可以查看WiringPi的版本
+其他开放的 command gpio -h</description>
+    </item>
+    
+  </channel>
+</rss>
