@@ -196,8 +196,11 @@ article h6 {
 article p {
   margin: 25px 0;
 }
+article pre {
+  border: 1px solid #000;
+}
 article code {
-  color: #ff9401;
+  color: #121110;
   padding: 0 3px;
   margin: 0 3px;
   border: 0;
