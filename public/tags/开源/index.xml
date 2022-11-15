@@ -6,7 +6,23 @@
     <description>Recent content in 开源 on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Nov 2022 18:32:32 +0800</lastBuildDate><atom:link href="https://48474.net/tags/%E5%BC%80%E6%BA%90/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派4B-安装raspi-firmware</title>
+      <link>https://48474.net/post/raspi-install_raspi-firmware/</link>
+      <pubDate>Tue, 15 Nov 2022 18:32:32 +0800</pubDate>
+      
+      <guid>https://48474.net/post/raspi-install_raspi-firmware/</guid>
+      <description>网友问我，如何在服务器版本安装 raspi-config 这个GUI工具。 就整理了这个教程出来。
+step 1 新增一个 apt 的 sources 文件
+$ mkdir -p /etc/apt/keyrings $ curl -fsSL https://mirrors.tuna.tsinghua.edu.cn/raspberrypi/raspberrypi.gpg.key | gpg --dearmor -o /etc/apt/keyrings/raspi.gpg $ echo \ &amp;#34;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/raspi.gpg] https://mirrors.tuna.tsinghua.edu.cn/raspberrypi \ $(lsb_release -cs) stable&amp;#34; | tee /etc/apt/sources.list.d/raspi.gpg &amp;gt; /dev/null 这里使用的 清华的源 https://mirrors.tuna.tsinghua.edu.cn/raspberrypi
+以前的 app-key 的指令方法，现在已经升级了哦。会不成功。
+step 2
+安装 raspi-firmware 包。
+$ apt update $ apt install raspi-firmware step 3
+执行指令 raspi-config 就会出现 GUI 界面了。</description>
+    </item>
+    
     <item>
       <title>树莓派4B-WiringPi库</title>
       <link>https://48474.net/post/raspi-wiringpi/</link>

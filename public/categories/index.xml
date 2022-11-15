@@ -6,13 +6,31 @@
     <description>Recent content in Categories on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Nov 2022 18:32:32 +0800</lastBuildDate><atom:link href="https://48474.net/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Guide</title>
       <link>https://48474.net/categories/guide/</link>
-      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      <pubDate>Tue, 15 Nov 2022 18:32:32 +0800</pubDate>
       
       <guid>https://48474.net/categories/guide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>RasPi</title>
+      <link>https://48474.net/categories/raspi/</link>
+      <pubDate>Tue, 15 Nov 2022 18:32:32 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/raspi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>solutions</title>
+      <link>https://48474.net/categories/solutions/</link>
+      <pubDate>Tue, 15 Nov 2022 18:32:32 +0800</pubDate>
+      
+      <guid>https://48474.net/categories/solutions/</guid>
       <description></description>
     </item>
     
@@ -22,15 +40,6 @@
       <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
       
       <guid>https://48474.net/categories/i2c/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>RasPi</title>
-      <link>https://48474.net/categories/raspi/</link>
-      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/raspi/</guid>
       <description></description>
     </item>
     
@@ -76,15 +85,6 @@
       <pubDate>Fri, 02 Jul 2021 09:38:48 +0800</pubDate>
       
       <guid>https://48474.net/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>solutions</title>
-      <link>https://48474.net/categories/solutions/</link>
-      <pubDate>Tue, 03 Nov 2020 03:12:35 +0800</pubDate>
-      
-      <guid>https://48474.net/categories/solutions/</guid>
       <description></description>
     </item>
     

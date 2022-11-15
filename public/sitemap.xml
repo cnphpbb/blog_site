@@ -3,48 +3,54 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://48474.net/categories/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/guide/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/guide/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/i2c/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/post/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/raspberrypi/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/raspi/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/raspi/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/categories/solutions/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/%E5%BC%80%E6%BA%90/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/post/raspi-install_raspi-firmware/</loc>
+    <lastmod>2022-11-15T18:32:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/gpio/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
-    <loc>https://48474.net/tags/guide/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/categories/guide/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/i2c/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
     <loc>https://48474.net/categories/i2c/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/post/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/raspberrypi/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/raspi/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/categories/raspi/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/wiringpi/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/categories/wiringpi/</loc>
-    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/tags/%E5%BC%80%E6%BA%90/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/post/raspi-wiringpi/</loc>
@@ -105,9 +111,6 @@
     <lastmod>2020-11-03T03:12:35+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/socket/</loc>
-    <lastmod>2020-11-03T03:12:35+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/categories/solutions/</loc>
     <lastmod>2020-11-03T03:12:35+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/post/waht_it_socket/</loc>
