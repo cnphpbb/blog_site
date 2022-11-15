@@ -3,9 +3,9 @@ title: "折腾日志(1) -- 自用树莓派内网穿透搭建GITEA"
 date: 2020-10-14T12:25:15+08:00
 draft: false
 menu: "main"
-Categories: ["Guide", "solutions"]
+Categories: ["Guide", "solutions","RasPi"]
 Description: "折腾 -- 自用树莓派内网穿透搭建GITEA"
-Tags: ["linux", "raspberrypi", "debian", "solutions", "Guide"]
+Tags: ["linux", "raspberrypi", "debian", "solutions", "guide", "RasPi"]
 ---
 
 ###  自备树莓派4B

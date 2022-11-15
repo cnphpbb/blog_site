@@ -27,5 +27,28 @@ cd ~/work wget -O wiringpi-2.61-1.tar.gz https://github.com/WiringPi/WiringPi/ar
 其他开放的 command gpio -h</description>
     </item>
     
+    <item>
+      <title>折腾日志(1) -- 自用树莓派内网穿透搭建GITEA</title>
+      <link>https://48474.net/post/raspi-toss-log-01/</link>
+      <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
+      
+      <guid>https://48474.net/post/raspi-toss-log-01/</guid>
+      <description>自备树莓派4B 这台自行组装的树莓派4B，主要用途: 存储，应用服务。
+安装树莓派系统, 并且安装到树莓派到硬盘中
+这里不多说安装树莓派的方法，可以自行搜索 度娘 或 谷歌
+我的树莓派是啥样子的？？ (最近搭建了个图床可以上图了) 无图无真相。 主板 1 块： 树莓派4B 8G
+SSD硬盘 2块：
+一块 256G(上面红色的),
+另一块 512G(下面银色的)。 全部是 浦科特（Plextor） M8VC。
+扩展板 2块：
+X829 扩展板:: 一款2.5&amp;rsquo; 双硬盘 NAS扩展板 树莓派4B&amp;ndash;树莓派NAS集群 X829 扩展板
+X735扩展板:: 电源管理和温控风扇扩展板 树莓派4B&amp;ndash;X735电源管理和温控风扇扩展板
+俯视图 右侧接口 左侧HHD指示灯 安装好docker，frpc 这2个服务应用 以上都安装好了，就可以部署自己的服务器啦。
+开始折腾部署 Gitea 因为树莓派是ARM架构的, 所以原来保存的docker镜像都要重新下载
+Pull docker images
+mysql &amp;amp; percona 的 Docker Official Images 中都没有ARM &amp;amp; ARM64 的 image 如果使用mysql 做数据库请选择 mariadb
+我本来也想使用 gitea + redis + mysql 的.</description>
+    </item>
+    
   </channel>
 </rss>

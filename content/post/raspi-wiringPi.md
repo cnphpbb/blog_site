@@ -3,9 +3,9 @@ title = "树莓派4B-WiringPi库"
 draft = false
 date = "2022-11-06T23:47:32+08:00"
 menu = "main"
-Categories = ["RasPi", "wiringPi", "I2C"]
+Categories = ["RasPi", "wiringPi", "I2C", "Guide"]
 Description = "WiringPi是一个用C语言编写的、基于PIN的GPIO访问库。提供了GPIO、I2C、SPI、UART和PWM等库，对于树莓派的GPIO编程相当方便。"
-Tags = ["RasPi", "guide", "wiringPi", "I2C", "gpio ", "开源"]
+Tags = ["RasPi", "guide", "wiringPi", "I2C", "gpio ", "开源", "guide", "raspberrypi"]
 +++
 
 ## WiringPi

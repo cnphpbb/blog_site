@@ -14,6 +14,9 @@
     <loc>https://48474.net/tags/guide/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
+    <loc>https://48474.net/categories/guide/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
     <loc>https://48474.net/tags/i2c/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
@@ -21,6 +24,9 @@
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/post/</loc>
+    <lastmod>2022-11-06T23:47:32+08:00</lastmod>
+  </url><url>
+    <loc>https://48474.net/tags/raspberrypi/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/raspi/</loc>
@@ -43,9 +49,6 @@
   </url><url>
     <loc>https://48474.net/post/raspi-wiringpi/</loc>
     <lastmod>2022-11-06T23:47:32+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/categories/guide/</loc>
-    <lastmod>2022-08-10T07:56:00+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/javascript/</loc>
     <lastmod>2022-08-10T07:56:00+08:00</lastmod>
@@ -113,10 +116,7 @@
     <loc>https://48474.net/tags/debian/</loc>
     <lastmod>2020-10-14T12:25:15+08:00</lastmod>
   </url><url>
-    <loc>https://48474.net/tags/raspberrypi/</loc>
-    <lastmod>2020-10-14T12:25:15+08:00</lastmod>
-  </url><url>
-    <loc>https://48474.net/post/toss-log-01-raspberrypi/</loc>
+    <loc>https://48474.net/post/raspi-toss-log-01/</loc>
     <lastmod>2020-10-14T12:25:15+08:00</lastmod>
   </url><url>
     <loc>https://48474.net/tags/netstat/</loc>

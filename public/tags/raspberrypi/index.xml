@@ -6,13 +6,33 @@
     <description>Recent content in raspberrypi on DenysG的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 14 Oct 2020 12:25:15 +0800</lastBuildDate><atom:link href="https://48474.net/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Nov 2022 23:47:32 +0800</lastBuildDate><atom:link href="https://48474.net/tags/raspberrypi/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派4B-WiringPi库</title>
+      <link>https://48474.net/post/raspi-wiringpi/</link>
+      <pubDate>Sun, 06 Nov 2022 23:47:32 +0800</pubDate>
+      
+      <guid>https://48474.net/post/raspi-wiringpi/</guid>
+      <description>WiringPi 官网 wiringpi.com
+GitHub WiringPi github.com/WiringPi
+目前 https://github.com/WiringPi 仓库支持的版本有
+C/C++ Python PHP Node Ruby Perl WiringPi-Go WiringPi-Go
+Golang wrapped version of Gordon&amp;rsquo;s Arduino-like WiringPi for the Raspberry Pi
+WiringPi库简介 WiringPi是一个用C语言编写的、基于PIN的GPIO访问库，提供了GPIO、I2C、SPI、UART和PWM等库，对于树莓派的GPIO编程相当方便。目前可在基于BCM2835、BCM2836和BCM2837的树莓派中使用。其他详细介绍请参看wiringPi官网介绍。
+WiringPi-C 安装 截止文章发布日（2022-11-06） WiringPi Releases Version 2.61-1
+https://github.com/WiringPi/WiringPi/releases/tag/2.61-1
+方法1: deb方式
+cd ~/work ## 请按系统选择格式的deb包。本人系统为 64位 版本。 wget https://github.com/WiringPi/WiringPi/releases/download/2.61-1/wiringpi-2.61-1-arm64.deb dpkg -i wiringpi-2.61-1-arm64.deb 方法2: 源码方式
+cd ~/work wget -O wiringpi-2.61-1.tar.gz https://github.com/WiringPi/WiringPi/archive/refs/tags/2.61-1.tar.gz tar zxfv wiringpi-2.61-1.tar.gz cd wiringpi-2.61-1 ./build 安装成功后，输入命令：gpio -v，可以查看WiringPi的版本
+其他开放的 command gpio -h</description>
+    </item>
+    
     <item>
       <title>折腾日志(1) -- 自用树莓派内网穿透搭建GITEA</title>
-      <link>https://48474.net/post/toss-log-01-raspberrypi/</link>
+      <link>https://48474.net/post/raspi-toss-log-01/</link>
       <pubDate>Wed, 14 Oct 2020 12:25:15 +0800</pubDate>
       
-      <guid>https://48474.net/post/toss-log-01-raspberrypi/</guid>
+      <guid>https://48474.net/post/raspi-toss-log-01/</guid>
       <description>自备树莓派4B 这台自行组装的树莓派4B，主要用途: 存储，应用服务。
 安装树莓派系统, 并且安装到树莓派到硬盘中
 这里不多说安装树莓派的方法，可以自行搜索 度娘 或 谷歌
